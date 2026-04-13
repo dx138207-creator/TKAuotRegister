@@ -1,0 +1,27 @@
+=== 单设备启动 ===
+endpoint=124.236.70.143:22676
+appiumPort=4720
+startedAt=2026-04-13T03:38:38.181Z
+
+[开始] 启动或复用Appium服务
+尝试自动启动 Appium: F:\project\TKAuotRegister\node_modules\.bin\appium.cmd server -p 4720
+Appium 自动启动成功: http://127.0.0.1:4720
+[完成] 启动或复用Appium服务
+[开始] ADB连接
+执行: F:\project\TKAuotRegister\platform-tools\adb.exe connect 124.236.70.143:22676
+adb connect 输出: connected to 124.236.70.143:22676
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+[完成] ADB连接
+[开始] ADB鉴权
+执行 ADB Shell 鉴权: F:\project\TKAuotRegister\platform-tools\adb.exe -s 124.236.70.143:22676 shell 3CS8w0Uu
+adb shell 鉴权输出: OK! Login successful.
+ADB Shell 探测通过，SDK=35
+[完成] ADB鉴权
+[开始] 执行Appium主流程
+执行 Appium 主流程，第 1/2 次
+尝试 Appium: http://127.0.0.1:4720/ (第1/3轮)
+
+=== 单设备结束 ===
+exit=1
+endedAt=2026-04-13T03:38:54.548Z

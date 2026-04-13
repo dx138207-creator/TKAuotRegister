@@ -1,0 +1,30 @@
+=== 单设备启动 ===
+endpoint=124.236.70.143:22676
+appiumPort=4720
+startedAt=2026-04-13T03:39:12.891Z
+
+[开始] 启动或复用Appium服务
+尝试自动启动 Appium: F:\project\TKAuotRegister\node_modules\.bin\appium.cmd server -p 4720
+Appium 自动启动成功: http://127.0.0.1:4720
+[完成] 启动或复用Appium服务
+[开始] ADB连接
+执行: F:\project\TKAuotRegister\platform-tools\adb.exe connect 124.236.70.143:22676
+adb connect 输出: already connected to 124.236.70.143:22676
+[完成] ADB连接
+[开始] ADB鉴权
+执行 ADB Shell 鉴权: F:\project\TKAuotRegister\platform-tools\adb.exe -s 124.236.70.143:22676 shell 3CS8w0Uu
+adb shell 鉴权输出: /system/bin/sh: 3CS8w0Uu: inaccessible or not found
+已关闭脚本自动启动的 Appium 进程
+[开始] 断开ADB连接
+执行: F:\project\TKAuotRegister\platform-tools\adb.exe disconnect 124.236.70.143:22676
+adb disconnect 输出: disconnected 124.236.70.143:22676
+[完成] 断开ADB连接
+脚本执行失败: Error: ADB Shell 鉴权口令不正确: /system/bin/sh: 3CS8w0Uu: inaccessible or not found
+    at adbShellAuth (F:\project\TKAuotRegister\lib\device-bootstrap.js:241:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async runStep (F:\project\TKAuotRegister\lib\device-bootstrap.js:30:18)
+    at async main (F:\project\TKAuotRegister\script.js:23:5)
+
+=== 单设备结束 ===
+exit=1
+endedAt=2026-04-13T03:39:15.746Z
