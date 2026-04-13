@@ -3,6 +3,7 @@ const { createSession } = require("./lib/appium-session");
 const { openTkApp } = require("./pages/page-open-tk");
 const { clickContinueWithGoogle } = require("./pages/page-continue-google");
 const { skipSignInWithEaseIfPresent } = require("./pages/page-google-sign-in-ease-skip");
+const { clickGoogleAddAnotherAccountIfPresent } = require("./pages/page-google-add-another-account");
 const { inputGoogleAccount } = require("./pages/page-google-email");
 const { clickGoogleNext } = require("./pages/page-google-next");
 const { waitForPasswordPageBeforeInput, inputGooglePassword } = require("./pages/page-google-password");
@@ -50,39 +51,82 @@ async function enforceBirthdayYearInRangeUntilOk(driver, timeoutMs = 120000) {
   );
 }
 
+async function runGoogleRegisterChain(
+  driver,
+  { email, googlePassword, useAddAnotherAccount = false, skipGoogleMoreAccept = false }
+) {
+  await runStep("点击Continue with Google", () => clickContinueWithGoogle(driver));
+  if (useAddAnotherAccount) {
+    await runStep("选择Add another account(可选)", () =>
+      clickGoogleAddAnotherAccountIfPresent(driver)
+    );
+  }
+  await runStep("Sign in with ease可选SKIP", () => skipSignInWithEaseIfPresent(driver));
+  await runStep("输入Google账号", () => inputGoogleAccount(driver, email));
+  await runStep("点击邮箱页NEXT", () => clickGoogleNext(driver, "邮箱页"));
+  await runStep("等待密码页出现", () => waitForPasswordPageBeforeInput(driver));
+  await runStep("输入Google密码", () => inputGooglePassword(driver, googlePassword));
+  await runStep("点击密码页NEXT", () => clickGoogleNext(driver, "密码页"));
+  await runStep("处理Welcome并点击I UNDERSTAND", () => handleWelcomeAndClickIUnderstand(driver));
+  await runStep("点击I AGREE", () => clickIAgreeAfterPassword(driver));
+  if (skipGoogleMoreAccept) {
+    console.log("二次脚本配置：跳过 Google MORE / ACCEPT 步骤。");
+  } else {
+    await runStep("点击MORE", () => clickMoreAfterGoogleServices(driver));
+    await runStep("点击ACCEPT", () => clickAcceptAfterGoogleServices(driver));
+  }
+  await runStep("等待生日页", () => waitForTkBirthdayPage(driver));
+  const birthdaySelectOk = await runStep("随机选择生日", () => selectRandomBirthdayOnTk(driver));
+  if (!birthdaySelectOk) {
+    await runStep("生日年份兜底纠偏（直到达标）", () =>
+      enforceBirthdayYearInRangeUntilOk(driver)
+    );
+  }
+  await runStep("点击生日页 Next/Continue", () => clickTkBirthdayNext(driver));
+  await runStep("昵称页点击Skip", () => clickTkCreateNicknameSkip(driver));
+  await runStep("Log in弹窗可选NONE OF THE ABOVE并返回", () =>
+    dismissTkLoginContinueModalIfPresent(driver)
+  );
+  await runStep("兴趣页可选Skip", () => handleInterestsSkipOptional(driver));
+  await runStep("Swipe up引导可选15秒", () => waitSwipeUpStartWatchingIfPresent(driver));
+  await runStep("主刷向下滑并进入Profile", () => swipeDownAndOpenProfile(driver));
+  await runStep("个人主页公告弹窗可选关闭", () => dismissProfileAvatarPromoIfPresent(driver));
+}
+
 async function runAppiumScript({ host = "127.0.0.1", port = 4723, udid, email, googlePassword }) {
   const driver = await createSession(host, port, udid);
 
   try {
     await runStep("打开TK", () => openTkApp(driver));
-    await runStep("点击Continue with Google", () => clickContinueWithGoogle(driver));
-    await runStep("Sign in with ease可选SKIP", () => skipSignInWithEaseIfPresent(driver));
-    await runStep("输入Google账号", () => inputGoogleAccount(driver, email));
-    await runStep("点击邮箱页NEXT", () => clickGoogleNext(driver, "邮箱页"));
-    await runStep("等待密码页出现", () => waitForPasswordPageBeforeInput(driver));
-    await runStep("输入Google密码", () => inputGooglePassword(driver, googlePassword));
-    await runStep("点击密码页NEXT", () => clickGoogleNext(driver, "密码页"));
-    await runStep("处理Welcome并点击I UNDERSTAND", () => handleWelcomeAndClickIUnderstand(driver));
-    await runStep("点击I AGREE", () => clickIAgreeAfterPassword(driver));
-    await runStep("点击MORE", () => clickMoreAfterGoogleServices(driver));
-    await runStep("点击ACCEPT", () => clickAcceptAfterGoogleServices(driver));
-    await runStep("等待生日页", () => waitForTkBirthdayPage(driver));
-    const birthdaySelectOk = await runStep("随机选择生日", () => selectRandomBirthdayOnTk(driver));
-    if (!birthdaySelectOk) {
-      await runStep("生日年份兜底纠偏（直到达标）", () =>
-        enforceBirthdayYearInRangeUntilOk(driver)
-      );
-    }
-    await runStep("点击生日页 Next/Continue", () => clickTkBirthdayNext(driver));
-    await runStep("昵称页点击Skip", () => clickTkCreateNicknameSkip(driver));
-    await runStep("Log in弹窗可选NONE OF THE ABOVE并返回", () =>
-      dismissTkLoginContinueModalIfPresent(driver)
-    );
-    await runStep("兴趣页可选Skip", () => handleInterestsSkipOptional(driver));
-    await runStep("Swipe up引导可选15秒", () => waitSwipeUpStartWatchingIfPresent(driver));
-    await runStep("主刷向下滑并进入Profile", () => swipeDownAndOpenProfile(driver));
-    await runStep("个人主页公告弹窗可选关闭", () => dismissProfileAvatarPromoIfPresent(driver));
+    await runGoogleRegisterChain(driver, {
+      email,
+      googlePassword,
+      useAddAnotherAccount: false,
+      skipGoogleMoreAccept: false
+    });
     console.log("已完成主流程（含个人主页），按要求结束脚本。");
+  } finally {
+    await driver.deleteSession();
+    console.log("会话已关闭");
+  }
+}
+
+async function runAppiumSecondScript({
+  host = "127.0.0.1",
+  port = 4723,
+  udid,
+  email,
+  googlePassword
+}) {
+  const driver = await createSession(host, port, udid);
+  try {
+    await runGoogleRegisterChain(driver, {
+      email,
+      googlePassword,
+      useAddAnotherAccount: true,
+      skipGoogleMoreAccept: true
+    });
+    console.log("已完成二次注册流程（从Continue with Google开始）。");
   } finally {
     await driver.deleteSession();
     console.log("会话已关闭");
@@ -237,6 +281,7 @@ async function runSingleAppiumPageStep({
 
 module.exports = {
   runAppiumScript,
+  runAppiumSecondScript,
   runBirthdaySelectionOnly,
   runSingleAppiumPageStep,
   getPageStepIds,

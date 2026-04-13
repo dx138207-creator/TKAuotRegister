@@ -13,6 +13,7 @@ const ROOT = __dirname;
 const HTML_FILE = path.join(ROOT, "device-config.html");
 const XLSX_FILE = path.join(ROOT, "node_modules", "xlsx", "dist", "xlsx.full.min.js");
 const SCRIPT_FILE = path.join(ROOT, "script.js");
+const SCRIPT_SECOND_FILE = path.join(ROOT, "script-second.js");
 const LOGS_DIR = path.join(ROOT, "logs");
 const APPIUM_PORT_BASE = Number(process.env.APPIUM_PORT_BASE || 4720);
 const APPIUM_PORT_MAX = Number(process.env.APPIUM_PORT_MAX || 4899);
@@ -123,7 +124,14 @@ async function findFreePort() {
   throw new Error(`未找到空闲端口（扫描范围 ${APPIUM_PORT_BASE}-${APPIUM_PORT_MAX}）`);
 }
 
-async function createRun(device) {
+function resolveScriptByRunMode(runMode) {
+  if (runMode === "register-second") {
+    return SCRIPT_SECOND_FILE;
+  }
+  return SCRIPT_FILE;
+}
+
+async function createRun(device, runMode = "register") {
   fs.mkdirSync(LOGS_DIR, { recursive: true });
   const appiumPort = await findFreePort();
 
@@ -132,8 +140,14 @@ async function createRun(device) {
   const safeEndpoint = String(device.endpoint).replace(/[:/\\]/g, "_");
   const logFile = path.join(LOGS_DIR, `${timestamp}_${safeEndpoint}_p${appiumPort}.log`);
 
+  const scriptFile = resolveScriptByRunMode(runMode);
+  if (!fs.existsSync(scriptFile)) {
+    reservedPorts.delete(appiumPort);
+    throw new Error(`未找到脚本文件: ${path.basename(scriptFile)}（runMode=${runMode}）`);
+  }
+
   const args = [
-    SCRIPT_FILE,
+    scriptFile,
     device.endpoint,
     device.adbPassword,
     device.email,
@@ -152,6 +166,7 @@ async function createRun(device) {
 
   const state = {
     id,
+    runMode,
     endpoint: device.endpoint,
     appiumPort,
     logFile,
@@ -168,7 +183,7 @@ async function createRun(device) {
 
   const logStream = fs.createWriteStream(logFile, { flags: "a" });
   logStream.write(`=== 单设备启动 ===\n`);
-  logStream.write(`endpoint=${device.endpoint}\nappiumPort=${appiumPort}\n`);
+  logStream.write(`runMode=${runMode}\nendpoint=${device.endpoint}\nappiumPort=${appiumPort}\n`);
   logStream.write(`startedAt=${state.startedAt}\n\n`);
 
   child.stdout.on("data", (chunk) => {
@@ -258,15 +273,21 @@ const server = http.createServer(async (req, res) => {
       const body = await readBody(req);
       const payload = JSON.parse(body || "{}");
       const device = payload.device || {};
+      const runMode = String(payload.runMode || "register");
       const validationError = validateDevice(device);
       if (validationError) {
         json(res, 400, { error: validationError });
         return;
       }
+      if (!["register", "register-second"].includes(runMode)) {
+        json(res, 400, { error: `不支持的 runMode: ${runMode}` });
+        return;
+      }
 
-      const run = await createRun(device);
+      const run = await createRun(device, runMode);
       json(res, 200, {
         id: run.id,
+        runMode: run.runMode,
         status: run.status,
         endpoint: run.endpoint,
         appiumPort: run.appiumPort,
@@ -348,5 +369,5 @@ server.listen(PORT, HOST, () => {
   } else {
     console.log(`浏览器打开: http://${HOST}:${PORT}`);
   }
-  console.log("打开页面后可在每一行直接点击“启动”。");
+  console.log("打开页面后可在每一行点击“注册 / 二次注册”。");
 });

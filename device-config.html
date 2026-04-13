@@ -88,19 +88,21 @@
   <body>
     <h1>多设备启动面板</h1>
     <div class="tip">
-      先在终端执行 <code>npm run panel</code>（或 <code>node device-panel-server.js</code>）后，通过本页逐行点击“启动”即可运行对应手机脚本。
+      先在终端执行 <code>npm run panel</code>（或 <code>node device-panel-server.js</code>）后，通过本页逐行点击“注册/二次注册”即可运行对应手机脚本。
     </div>
 
     <table id="deviceTable">
       <thead>
         <tr>
-          <th style="width: 18%">endpoint (ip:port)</th>
+          <th style="width: 14%">endpoint (ip:port)</th>
           <th style="width: 8%">adbPassword</th>
-          <th style="width: 16%">email</th>
-          <th style="width: 8%">googlePassword</th>
-          <th style="width: 14%">昵称</th>
-          <th style="width: 18%">运行状态</th>
-          <th style="width: 18%">操作</th>
+          <th style="width: 12%">邮箱1</th>
+          <th style="width: 10%">密码1</th>
+          <th style="width: 12%">邮箱2</th>
+          <th style="width: 10%">密码2</th>
+          <th style="width: 10%">昵称</th>
+          <th style="width: 12%">运行状态</th>
+          <th style="width: 12%">操作</th>
         </tr>
       </thead>
       <tbody></tbody>
@@ -108,8 +110,8 @@
 
     <div class="actions">
       <button id="addRow">新增一行</button>
-      <button id="uploadExcel">上传Excel填充邮箱(B列)</button>
-      <button id="startAll" class="primary">全部启动</button>
+      <button id="uploadExcel">上传Excel填充账号(A/B列)</button>
+      <button id="startAll" class="primary">全部注册</button>
       <button id="clear">清空全部</button>
     </div>
     <input id="excelFile" type="file" accept=".xlsx,.xls" style="display:none" />
@@ -125,12 +127,15 @@
         tr.innerHTML = `
           <td><input data-key="endpoint" placeholder="124.236.70.143:20523" value="${device.endpoint || ""}"></td>
           <td><input data-key="adbPassword" placeholder="adb密码" value="${device.adbPassword || ""}"></td>
-          <td><input data-key="email" placeholder="xxx@rpilosj.com" value="${device.email || ""}"></td>
-          <td><input data-key="googlePassword" placeholder="谷歌密码" value="${device.googlePassword || ""}"></td>
+          <td><input data-key="email" placeholder="脚本1: xxx@rpilosj.com" value="${device.email || ""}"></td>
+          <td><input data-key="googlePassword" placeholder="脚本1密码" value="${device.googlePassword || ""}"></td>
+          <td><input data-key="emailSecond" placeholder="脚本2: xxx@rpilosj.com" value="${device.emailSecond || ""}"></td>
+          <td><input data-key="googlePasswordSecond" placeholder="脚本2密码" value="${device.googlePasswordSecond || ""}"></td>
           <td><input data-key="nickname" placeholder="昵称页读取后自动填入" value="${device.nickname || ""}" title="脚本在点击昵称页 Skip 前从输入框读取"></td>
           <td><div class="status" data-runtime="1">待启动</div></td>
           <td>
-            <button type="button" data-start="1" class="primary">启动</button>
+            <button type="button" data-register="1" class="primary">注册</button>
+            <button type="button" data-register-second="1">二次注册</button>
             <button type="button" data-stop="1" disabled>停止</button>
             <button type="button" data-remove="1">删除</button>            
           </td>
@@ -141,7 +146,10 @@
             createRow();
           }
         });
-        tr.querySelector('[data-start="1"]').addEventListener("click", () => startRow(tr));
+        tr.querySelector('[data-register="1"]').addEventListener("click", () => startRow(tr, "register"));
+        tr.querySelector('[data-register-second="1"]').addEventListener("click", () =>
+          startRow(tr, "register-second")
+        );
         tr.querySelector('[data-stop="1"]').addEventListener("click", () => stopRow(tr));
         tbody.appendChild(tr);
       }
@@ -160,13 +168,18 @@
         return data;
       }
 
-      function validateOne(d) {
+      function validateOne(d, runMode = "register") {
         if (!d.endpoint || !/^[^:]+:\d+$/.test(d.endpoint)) {
           return "endpoint 格式错误，应为 ip:port";
         }
         if (!d.adbPassword) return "adbPassword 不能为空";
-        if (!d.email) return "email 不能为空";
-        if (!d.googlePassword) return "googlePassword 不能为空";
+        if (runMode === "register-second") {
+          if (!d.emailSecond) return "脚本2邮箱不能为空";
+          if (!d.googlePasswordSecond) return "脚本2密码不能为空";
+        } else {
+          if (!d.email) return "脚本1邮箱不能为空";
+          if (!d.googlePassword) return "脚本1密码不能为空";
+        }
         return "";
       }
 
@@ -197,10 +210,13 @@
             } else {
               setRowStatus(tr, `失败(exit=${data.exitCode}) | p${data.appiumPort}`, "fail");
             }
-            const btn = tr.querySelector('[data-start="1"]');
+            const btnRegister = tr.querySelector('[data-register="1"]');
+            const btnRegisterSecond = tr.querySelector('[data-register-second="1"]');
             const stopBtn = tr.querySelector('[data-stop="1"]');
-            btn.disabled = false;
-            btn.textContent = "启动";
+            btnRegister.disabled = false;
+            btnRegisterSecond.disabled = false;
+            btnRegister.textContent = "注册";
+            btnRegisterSecond.textContent = "二次注册";
             stopBtn.disabled = true;
             tr.title = data.logFile || "";
             return;
@@ -216,43 +232,65 @@
         setRowStatus(tr, "状态轮询超时", "fail");
       }
 
-      async function startRow(tr) {
+      async function startRow(tr, runMode = "register") {
         const d = getRowDevice(tr);
-        const err = validateOne(d);
+        const err = validateOne(d, runMode);
         if (err) {
           setRowStatus(tr, err, "fail");
           return;
         }
+        const requestDevice = {
+          ...d,
+          email: runMode === "register-second" ? d.emailSecond : d.email,
+          googlePassword:
+            runMode === "register-second" ? d.googlePasswordSecond : d.googlePassword
+        };
 
-        const btn = tr.querySelector('[data-start="1"]');
+        const btnRegister = tr.querySelector('[data-register="1"]');
+        const btnRegisterSecond = tr.querySelector('[data-register-second="1"]');
         const stopBtn = tr.querySelector('[data-stop="1"]');
-        btn.disabled = true;
-        btn.textContent = "运行中...";
+        btnRegister.disabled = true;
+        btnRegisterSecond.disabled = true;
+        btnRegister.textContent = runMode === "register" ? "注册中..." : "注册";
+        btnRegisterSecond.textContent = runMode === "register-second" ? "二次注册中..." : "二次注册";
         stopBtn.disabled = false;
-        setRowStatus(tr, "提交启动请求...", "running");
+        setRowStatus(tr, runMode === "register" ? "提交注册请求..." : "提交二次注册请求...", "running");
 
         try {
           const resp = await fetch("/api/run", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ device: d })
+            body: JSON.stringify({ device: requestDevice, runMode })
           });
           const data = await resp.json();
           if (!resp.ok) {
-            setRowStatus(tr, `启动失败: ${data.error || "未知错误"}`, "fail");
-            btn.disabled = false;
-            btn.textContent = "启动";
+            setRowStatus(
+              tr,
+              `${runMode === "register" ? "注册" : "二次注册"}失败: ${data.error || "未知错误"}`,
+              "fail"
+            );
+            btnRegister.disabled = false;
+            btnRegisterSecond.disabled = false;
+            btnRegister.textContent = "注册";
+            btnRegisterSecond.textContent = "二次注册";
             stopBtn.disabled = true;
             return;
           }
           tr.dataset.runId = data.id;
-          setRowStatus(tr, `已启动(pid=${data.pid}) | p${data.appiumPort}`, "running");
+          tr.dataset.runMode = runMode;
+          setRowStatus(
+            tr,
+            `${runMode === "register" ? "注册" : "二次注册"}已启动(pid=${data.pid}) | p${data.appiumPort}`,
+            "running"
+          );
           tr.title = data.logFile || "";
           pollRunStatus(data.id, tr);
         } catch (e) {
-          setRowStatus(tr, `启动异常: ${e.message}`, "fail");
-          btn.disabled = false;
-          btn.textContent = "启动";
+          setRowStatus(tr, `${runMode === "register" ? "注册" : "二次注册"}异常: ${e.message}`, "fail");
+          btnRegister.disabled = false;
+          btnRegisterSecond.disabled = false;
+          btnRegister.textContent = "注册";
+          btnRegisterSecond.textContent = "二次注册";
           stopBtn.disabled = true;
         }
       }
@@ -309,22 +347,32 @@
           let skipped = 0;
           for (let i = 0; i < rows.length; i++) {
             const row = rows[i] || [];
-            const cell = String(row[1] || "").trim(); // B列
-            if (!cell) {
+            const cellA = String(row[0] || "").trim(); // A列: 脚本1
+            const cellB = String(row[1] || "").trim(); // B列: 脚本2
+            if (!cellA && !cellB) {
               continue;
             }
-            const parts = cell.split(/\s*----\s*/).map((p) => String(p || "").trim()).filter(Boolean);
-            const email = parts[0] || "";
-            const googlePassword = parts[1] || "";
-            if (!email || !googlePassword) {
+            const partsA = cellA
+              .split(/\s*----\s*/)
+              .map((p) => String(p || "").trim())
+              .filter(Boolean);
+            const partsB = cellB
+              .split(/\s*----\s*/)
+              .map((p) => String(p || "").trim())
+              .filter(Boolean);
+            const email = partsA[0] || "";
+            const googlePassword = partsA[1] || "";
+            const emailSecond = partsB[0] || "";
+            const googlePasswordSecond = partsB[1] || "";
+            if (!email || !googlePassword || !emailSecond || !googlePasswordSecond) {
               skipped += 1;
               continue;
             }
-            parsedRows.push({ email, googlePassword });
+            parsedRows.push({ email, googlePassword, emailSecond, googlePasswordSecond });
           }
           if (!parsedRows.length) {
             msg.className = "warn";
-            msg.textContent = "Excel 的 B 列没有符合 `email----googlePassword----...` 的可用内容。";
+            msg.textContent = "Excel 的 A/B 列没有符合 `email----googlePassword----...` 的可用内容。";
             return;
           }
 
@@ -333,12 +381,18 @@
           parsedRows.forEach((item, idx) => {
             const emailInput = rowsEls[idx].querySelector('input[data-key="email"]');
             const googlePwdInput = rowsEls[idx].querySelector('input[data-key="googlePassword"]');
+            const emailSecondInput = rowsEls[idx].querySelector('input[data-key="emailSecond"]');
+            const googlePwdSecondInput = rowsEls[idx].querySelector(
+              'input[data-key="googlePasswordSecond"]'
+            );
             emailInput.value = item.email;
             googlePwdInput.value = item.googlePassword;
+            emailSecondInput.value = item.emailSecond;
+            googlePwdSecondInput.value = item.googlePasswordSecond;
           });
           msg.className = "ok";
           msg.textContent =
-            `已从 Excel B 列填充 ${parsedRows.length} 条到 email/googlePassword 列。` +
+            `已从 Excel A/B 列填充 ${parsedRows.length} 条到脚本1/脚本2账号密码列。` +
             (skipped ? ` 跳过 ${skipped} 条格式不匹配记录。` : "");
         } catch (err) {
           msg.className = "warn";
@@ -350,9 +404,9 @@
       document.querySelector("#startAll").addEventListener("click", async () => {
         const rows = [...tbody.querySelectorAll("tr")];
         for (const tr of rows) {
-          const btn = tr.querySelector('[data-start="1"]');
+          const btn = tr.querySelector('[data-register="1"]');
           if (!btn.disabled) {
-            await startRow(tr);
+            await startRow(tr, "register");
             await new Promise((r) => setTimeout(r, 300));
           }
         }
