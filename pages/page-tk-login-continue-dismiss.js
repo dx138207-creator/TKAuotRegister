@@ -117,7 +117,7 @@ async function clickLogInScreenBack(driver) {
 }
 
 async function dismissTkLoginContinueModalIfPresent(driver) {
-  const waitForModalMs = 20000;
+  const waitForModalMs = 10000;
   const pollMs = 700;
   const endTime = Date.now() + waitForModalMs;
 
@@ -146,7 +146,7 @@ async function dismissTkLoginContinueModalIfPresent(driver) {
     await driver.pause(pollMs);
   }
 
-  console.log("未出现 Continue with / NONE OF THE ABOVE 弹窗，跳过该步骤。");
+  console.log("10 秒内未出现 Continue with / NONE OF THE ABOVE 弹窗，跳过该步骤。");
 }
 
 module.exports = { dismissTkLoginContinueModalIfPresent, isContinueWithPhoneModal };

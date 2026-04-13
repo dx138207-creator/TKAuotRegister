@@ -56,6 +56,29 @@ async function readCurrentBirthdayYear(driver) {
   }
 
   try {
+    const pickerSelectors = [
+      '//*[contains(@resource-id,"id/year_picker") or contains(@content-desc,"Year picker")]',
+      'android=new UiSelector().resourceIdMatches(".*id/year_picker.*")'
+    ];
+    for (const pickerSelector of pickerSelectors) {
+      const pickers = await driver.$$(pickerSelector);
+      for (const picker of pickers) {
+        const pickerExists = await picker.isExisting();
+        const pickerDisplayed = pickerExists ? await picker.isDisplayed() : false;
+        if (!pickerExists || !pickerDisplayed) {
+          continue;
+        }
+        const raw = String((await picker.getText()) || "");
+        const matched = raw.match(/\b(19\d{2}|20\d{2})\b/);
+        if (matched) {
+          return Number(matched[1]);
+        }
+      }
+    }
+  } catch (_) {
+  }
+
+  try {
     const source = await driver.getPageSource();
     const fromHeader = parseTkBirthdayYearFromPageSource(source);
     if (fromHeader != null) {
@@ -64,6 +87,10 @@ async function readCurrentBirthdayYear(driver) {
   } catch (_) {
   }
   return null;
+}
+
+function isYearInRange(year, yearMin, yearMax) {
+  return Number.isFinite(year) && year >= yearMin && year <= yearMax;
 }
 
 async function nudgeBirthdayYear(driver, direction) {
@@ -189,6 +216,22 @@ async function clickTkBirthdayNext(driver) {
       try {
         const elements = await driver.$$(selector);
         for (const element of elements) {
+          const y1 = await readCurrentBirthdayYear(driver);
+          if (!isYearInRange(y1, TK_BIRTHDAY_YEAR_MIN, TK_BIRTHDAY_YEAR_MAX)) {
+            const direction = y1 != null && y1 > TK_BIRTHDAY_YEAR_MAX ? "down" : "up";
+            console.log(`点击前复核年份失败: ${String(y1)}，继续纠偏后再尝试点击。`);
+            await nudgeBirthdayYear(driver, direction);
+            continue;
+          }
+          await driver.pause(120);
+          const y2 = await readCurrentBirthdayYear(driver);
+          if (!isYearInRange(y2, TK_BIRTHDAY_YEAR_MIN, TK_BIRTHDAY_YEAR_MAX)) {
+            const direction = y2 != null && y2 > TK_BIRTHDAY_YEAR_MAX ? "down" : "up";
+            console.log(`点击前二次复核年份失败: ${String(y2)}，继续纠偏后再尝试点击。`);
+            await nudgeBirthdayYear(driver, direction);
+            continue;
+          }
+
           const exists = await element.isExisting();
           const displayed = exists ? await element.isDisplayed() : false;
           if (!exists || !displayed) {

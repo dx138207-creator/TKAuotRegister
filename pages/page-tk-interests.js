@@ -136,7 +136,7 @@ async function clickInterestsSkip(driver) {
 }
 
 async function handleInterestsSkipOptional(driver) {
-  const timeoutMs = 32000;
+  const timeoutMs = 10000;
   const pollIntervalMs = 900;
   const endTime = Date.now() + timeoutMs;
 
@@ -167,7 +167,7 @@ async function handleInterestsSkipOptional(driver) {
     await driver.pause(pollIntervalMs);
   }
 
-  console.log("未检测到兴趣页或超时，跳过兴趣页处理。");
+  console.log("10 秒内未检测到兴趣页，跳过兴趣页处理。");
 }
 
 module.exports = { handleInterestsSkipOptional, isOnInterestsPage, clickInterestsSkip };
