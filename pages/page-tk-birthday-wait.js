@@ -9,7 +9,7 @@ async function waitForTkBirthdayPage(driver) {
     '//*[contains(@resource-id,"id/ezr") or contains(@content-desc,"Day picker")]',
     '//*[contains(@resource-id,"id/year_picker") or contains(@content-desc,"Year picker")]'
   ];
-  const timeoutMs = 90000;
+  const timeoutMs = 45000;
   const pollIntervalMs = 2000;
   const endTime = Date.now() + timeoutMs;
 

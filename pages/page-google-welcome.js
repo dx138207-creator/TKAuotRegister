@@ -12,7 +12,7 @@ async function handleWelcomeAndClickIUnderstand(driver) {
     'android=new UiSelector().textContains("Google Workspace for Education")',
     'android=new UiSelector().textContains("Welcome")'
   ];
-  const timeoutMs = 90000;
+  const timeoutMs = 45000;
   const pollIntervalMs = 1500;
   const endTime = Date.now() + timeoutMs;
   let sawWelcome = false;

@@ -113,7 +113,7 @@ async function inputGooglePassword(driver, password) {
     '#password input',
     '//input[@type="password" or contains(translate(@aria-label,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"password") or contains(translate(@placeholder,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"password")]'
   ];
-  const timeoutMs = 90000;
+  const timeoutMs = 45000;
   const pollIntervalMs = 2000;
   const endTime = Date.now() + timeoutMs;
   let lastError;

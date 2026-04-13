@@ -12,7 +12,7 @@ async function inputGoogleAccount(driver, account) {
     '#identifierId',
     'input[name="identifier"]'
   ];
-  const timeoutMs = 90000;
+  const timeoutMs = 45000;
   const pollIntervalMs = 2000;
   const endTime = Date.now() + timeoutMs;
   let lastError;

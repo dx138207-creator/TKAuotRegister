@@ -7,7 +7,7 @@ async function clickGoogleActionButton(driver, options) {
     webviewSelectors,
     sourceKeywords = [],
     coordinateFallback = null,
-    timeoutMs = 90000,
+    timeoutMs = 45000,
     pollIntervalMs = 2000,
     nativeProbeEvery = 3
   } = options;
