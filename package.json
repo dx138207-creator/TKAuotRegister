@@ -1,0 +1,23 @@
+{
+  "name": "appium",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "appium": "appium server -p 4723",
+    "panel": "node device-panel-server.js",
+    "page": "node run-page.js"
+  },
+  "devDependencies": {
+    "webdriverio": "^9.27.0"
+  },
+  "dependencies": {
+    "appium": "^3.3.0",
+    "appium-uiautomator2-driver": "^7.1.1",
+    "xlsx": "^0.18.5"
+  }
+}

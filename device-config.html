@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>多设备启动面板</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        color: #222;
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: 22px;
+      }
+      .tip {
+        color: #666;
+        margin-bottom: 12px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 12px;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background: #f5f7fa;
+      }
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 6px;
+      }
+      .actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+      }
+      button {
+        padding: 8px 12px;
+        border: 1px solid #bbb;
+        background: #fff;
+        cursor: pointer;
+      }
+      button.primary {
+        background: #1677ff;
+        border-color: #1677ff;
+        color: #fff;
+      }
+      textarea {
+        width: 100%;
+        min-height: 280px;
+        box-sizing: border-box;
+        font-family: Consolas, monospace;
+        font-size: 12px;
+        padding: 8px;
+      }
+      .status {
+        font-size: 12px;
+        margin-top: 6px;
+        color: #555;
+      }
+      .status.running {
+        color: #0958d9;
+      }
+      .status.ok {
+        color: #067647;
+      }
+      .status.fail {
+        color: #b42318;
+      }
+      .warn {
+        color: #b54708;
+        margin: 8px 0;
+      }
+      .ok {
+        color: #067647;
+        margin: 8px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>多设备启动面板</h1>
+    <div class="tip">
+      先在终端执行 <code>npm run panel</code>（或 <code>node device-panel-server.js</code>）后，通过本页逐行点击“启动”即可运行对应手机脚本。
+    </div>
+
+    <table id="deviceTable">
+      <thead>
+        <tr>
+          <th style="width: 18%">endpoint (ip:port)</th>
+          <th style="width: 8%">adbPassword</th>
+          <th style="width: 16%">email</th>
+          <th style="width: 8%">googlePassword</th>
+          <th style="width: 14%">昵称</th>
+          <th style="width: 18%">运行状态</th>
+          <th style="width: 18%">操作</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="actions">
+      <button id="addRow">新增一行</button>
+      <button id="uploadExcel">上传Excel填充邮箱(B列)</button>
+      <button id="startAll" class="primary">全部启动</button>
+      <button id="clear">清空全部</button>
+    </div>
+    <input id="excelFile" type="file" accept=".xlsx,.xls" style="display:none" />
+
+    <div id="msg"></div>
+
+    <script src="/vendor/xlsx.min.js"></script>
+    <script>
+      const tbody = document.querySelector("#deviceTable tbody");
+      const msg = document.querySelector("#msg");
+      function createRow(device = {}) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><input data-key="endpoint" placeholder="124.236.70.143:20523" value="${device.endpoint || ""}"></td>
+          <td><input data-key="adbPassword" placeholder="adb密码" value="${device.adbPassword || ""}"></td>
+          <td><input data-key="email" placeholder="xxx@rpilosj.com" value="${device.email || ""}"></td>
+          <td><input data-key="googlePassword" placeholder="谷歌密码" value="${device.googlePassword || ""}"></td>
+          <td><input data-key="nickname" placeholder="昵称页读取后自动填入" value="${device.nickname || ""}" title="脚本在点击昵称页 Skip 前从输入框读取"></td>
+          <td><div class="status" data-runtime="1">待启动</div></td>
+          <td>
+            <button type="button" data-start="1" class="primary">启动</button>
+            <button type="button" data-stop="1" disabled>停止</button>
+            <button type="button" data-remove="1">删除</button>            
+          </td>
+        `;
+        tr.querySelector('[data-remove="1"]').addEventListener("click", () => {
+          tr.remove();
+          if (!tbody.children.length) {
+            createRow();
+          }
+        });
+        tr.querySelector('[data-start="1"]').addEventListener("click", () => startRow(tr));
+        tr.querySelector('[data-stop="1"]').addEventListener("click", () => stopRow(tr));
+        tbody.appendChild(tr);
+      }
+
+      function ensureRowCount(count) {
+        while (tbody.querySelectorAll("tr").length < count) {
+          createRow();
+        }
+      }
+
+      function getRowDevice(tr) {
+        const data = {};
+        tr.querySelectorAll("input").forEach((input) => {
+          data[input.dataset.key] = input.value.trim();
+        });
+        return data;
+      }
+
+      function validateOne(d) {
+        if (!d.endpoint || !/^[^:]+:\d+$/.test(d.endpoint)) {
+          return "endpoint 格式错误，应为 ip:port";
+        }
+        if (!d.adbPassword) return "adbPassword 不能为空";
+        if (!d.email) return "email 不能为空";
+        if (!d.googlePassword) return "googlePassword 不能为空";
+        return "";
+      }
+
+      function setRowStatus(tr, text, cls = "") {
+        const el = tr.querySelector('[data-runtime="1"]');
+        el.textContent = text;
+        el.className = `status${cls ? " " + cls : ""}`;
+      }
+
+      async function pollRunStatus(runId, tr) {
+        for (let i = 0; i < 900; i++) {
+          await new Promise((r) => setTimeout(r, 1500));
+          const res = await fetch(`/api/status?id=${encodeURIComponent(runId)}`);
+          if (!res.ok) {
+            setRowStatus(tr, "查询状态失败", "fail");
+            return;
+          }
+          const data = await res.json();
+          if (data.capturedNickname) {
+            const nickInput = tr.querySelector('input[data-key="nickname"]');
+            if (nickInput) {
+              nickInput.value = data.capturedNickname;
+            }
+          }
+          if (data.status === "finished") {
+            if (data.exitCode === 0) {
+              setRowStatus(tr, `完成(exit=0) | p${data.appiumPort}`, "ok");
+            } else {
+              setRowStatus(tr, `失败(exit=${data.exitCode}) | p${data.appiumPort}`, "fail");
+            }
+            const btn = tr.querySelector('[data-start="1"]');
+            const stopBtn = tr.querySelector('[data-stop="1"]');
+            btn.disabled = false;
+            btn.textContent = "启动";
+            stopBtn.disabled = true;
+            tr.title = data.logFile || "";
+            return;
+          }
+          if (data.status === "stopping") {
+            setRowStatus(tr, "停止中...", "running");
+          } else if (data.runtimeStatus) {
+            const runtime = String(data.runtimeStatus || "").slice(0, 80);
+            setRowStatus(tr, runtime, "running");
+            tr.title = `端口: ${data.appiumPort}\n日志: ${data.logFile || ""}\n${data.runtimeStatus || ""}`;
+          }
+        }
+        setRowStatus(tr, "状态轮询超时", "fail");
+      }
+
+      async function startRow(tr) {
+        const d = getRowDevice(tr);
+        const err = validateOne(d);
+        if (err) {
+          setRowStatus(tr, err, "fail");
+          return;
+        }
+
+        const btn = tr.querySelector('[data-start="1"]');
+        const stopBtn = tr.querySelector('[data-stop="1"]');
+        btn.disabled = true;
+        btn.textContent = "运行中...";
+        stopBtn.disabled = false;
+        setRowStatus(tr, "提交启动请求...", "running");
+
+        try {
+          const resp = await fetch("/api/run", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ device: d })
+          });
+          const data = await resp.json();
+          if (!resp.ok) {
+            setRowStatus(tr, `启动失败: ${data.error || "未知错误"}`, "fail");
+            btn.disabled = false;
+            btn.textContent = "启动";
+            stopBtn.disabled = true;
+            return;
+          }
+          tr.dataset.runId = data.id;
+          setRowStatus(tr, `已启动(pid=${data.pid}) | p${data.appiumPort}`, "running");
+          tr.title = data.logFile || "";
+          pollRunStatus(data.id, tr);
+        } catch (e) {
+          setRowStatus(tr, `启动异常: ${e.message}`, "fail");
+          btn.disabled = false;
+          btn.textContent = "启动";
+          stopBtn.disabled = true;
+        }
+      }
+
+      async function stopRow(tr) {
+        const runId = String(tr.dataset.runId || "").trim();
+        if (!runId) {
+          setRowStatus(tr, "当前行没有运行中的任务", "fail");
+          return;
+        }
+        const stopBtn = tr.querySelector('[data-stop="1"]');
+        stopBtn.disabled = true;
+        setRowStatus(tr, "正在发送停止请求...", "running");
+        try {
+          const resp = await fetch("/api/stop", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: runId })
+          });
+          const data = await resp.json();
+          if (!resp.ok) {
+            setRowStatus(tr, `停止失败: ${data.error || "未知错误"}`, "fail");
+            stopBtn.disabled = false;
+            return;
+          }
+          setRowStatus(tr, "停止请求已发送，等待进程退出...", "running");
+        } catch (e) {
+          setRowStatus(tr, `停止异常: ${e.message}`, "fail");
+          stopBtn.disabled = false;
+        }
+      }
+
+      document.querySelector("#addRow").addEventListener("click", () => createRow());
+      document.querySelector("#uploadExcel").addEventListener("click", () => {
+        document.querySelector("#excelFile").click();
+      });
+      document.querySelector("#excelFile").addEventListener("change", async (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) {
+          return;
+        }
+        if (typeof XLSX === "undefined") {
+          msg.className = "warn";
+          msg.textContent = "XLSX 解析库未加载，请刷新页面后重试。";
+          return;
+        }
+        try {
+          const buffer = await file.arrayBuffer();
+          const workbook = XLSX.read(buffer, { type: "array" });
+          const firstSheetName = workbook.SheetNames[0];
+          const sheet = workbook.Sheets[firstSheetName];
+          const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
+          const parsedRows = [];
+          let skipped = 0;
+          for (let i = 0; i < rows.length; i++) {
+            const row = rows[i] || [];
+            const cell = String(row[1] || "").trim(); // B列
+            if (!cell) {
+              continue;
+            }
+            const parts = cell.split(/\s*----\s*/).map((p) => String(p || "").trim()).filter(Boolean);
+            const email = parts[0] || "";
+            const googlePassword = parts[1] || "";
+            if (!email || !googlePassword) {
+              skipped += 1;
+              continue;
+            }
+            parsedRows.push({ email, googlePassword });
+          }
+          if (!parsedRows.length) {
+            msg.className = "warn";
+            msg.textContent = "Excel 的 B 列没有符合 `email----googlePassword----...` 的可用内容。";
+            return;
+          }
+
+          ensureRowCount(parsedRows.length);
+          const rowsEls = [...tbody.querySelectorAll("tr")];
+          parsedRows.forEach((item, idx) => {
+            const emailInput = rowsEls[idx].querySelector('input[data-key="email"]');
+            const googlePwdInput = rowsEls[idx].querySelector('input[data-key="googlePassword"]');
+            emailInput.value = item.email;
+            googlePwdInput.value = item.googlePassword;
+          });
+          msg.className = "ok";
+          msg.textContent =
+            `已从 Excel B 列填充 ${parsedRows.length} 条到 email/googlePassword 列。` +
+            (skipped ? ` 跳过 ${skipped} 条格式不匹配记录。` : "");
+        } catch (err) {
+          msg.className = "warn";
+          msg.textContent = `读取 Excel 失败: ${String(err?.message || err)}`;
+        } finally {
+          e.target.value = "";
+        }
+      });
+      document.querySelector("#startAll").addEventListener("click", async () => {
+        const rows = [...tbody.querySelectorAll("tr")];
+        for (const tr of rows) {
+          const btn = tr.querySelector('[data-start="1"]');
+          if (!btn.disabled) {
+            await startRow(tr);
+            await new Promise((r) => setTimeout(r, 300));
+          }
+        }
+      });
+      document.querySelector("#clear").addEventListener("click", () => {
+        tbody.innerHTML = "";
+        createRow();
+        msg.className = "";
+        msg.textContent = "";
+      });
+
+      createRow({
+        endpoint: "124.236.70.143:20523",
+        adbPassword: "lqNM8dkn",
+        email: "demo@rpilosj.com",
+        googlePassword: "demoPwd",
+        appiumPort: 4720
+      });
+    </script>
+  </body>
+</html>

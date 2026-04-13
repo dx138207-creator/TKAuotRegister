@@ -1,0 +1,187 @@
+=== 单设备启动 ===
+endpoint=124.236.70.143:24421
+appiumPort=4720
+startedAt=2026-04-11T09:46:16.051Z
+
+[开始] 启动或复用Appium服务
+尝试自动启动 Appium: E:\node-v22.22.2-win-x64\appium\node_modules\.bin\appium.cmd server -p 4720
+Appium 自动启动成功: http://127.0.0.1:4720
+[完成] 启动或复用Appium服务
+[开始] ADB连接
+执行: E:\node-v22.22.2-win-x64\appium\platform-tools\adb.exe connect 124.236.70.143:24421
+adb connect 输出: connected to 124.236.70.143:24421
+[完成] ADB连接
+[开始] ADB鉴权
+执行 ADB Shell 鉴权: E:\node-v22.22.2-win-x64\appium\platform-tools\adb.exe -s 124.236.70.143:24421 shell xDAGJCpv
+adb shell 鉴权输出: OK! Login successful.
+ADB Shell 探测通过，SDK=35
+[完成] ADB鉴权
+[开始] 执行Appium主流程
+执行 Appium 主流程，第 1/2 次
+尝试 Appium: http://127.0.0.1:4720/ (第1/3轮)
+2026-04-11T09:46:17.674Z INFO webdriver: Initiate new session using the WebDriver protocol
+2026-04-11T09:46:17.675Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:4720/
+2026-04-11T09:46:17.684Z INFO webdriver: [POST] http://127.0.0.1:4720/session
+2026-04-11T09:46:17.707Z WARN webdriver: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+2026-04-11T09:46:17.707Z INFO webdriver: Retrying 1/3
+2026-04-11T09:46:17.707Z INFO webdriver: [POST] http://127.0.0.1:4720/session
+2026-04-11T09:46:18.217Z WARN webdriver: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+2026-04-11T09:46:18.217Z INFO webdriver: Retrying 2/3
+2026-04-11T09:46:18.217Z INFO webdriver: [POST] http://127.0.0.1:4720/session
+2026-04-11T09:46:19.227Z WARN webdriver: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+2026-04-11T09:46:19.227Z INFO webdriver: Retrying 3/3
+2026-04-11T09:46:19.227Z INFO webdriver: [POST] http://127.0.0.1:4720/session
+2026-04-11T09:46:19.238Z ERROR webdriver: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+2026-04-11T09:46:19.238Z ERROR webdriver: unknown error: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+    at FetchRequest._request (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:2008:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async startWebDriverSession (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:1110:16)
+    at async _WebDriver.newSession (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:1532:41)
+    at async remote (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriverio/build/node.js:9848:20)
+    at async createSession (E:\node-v22.22.2-win-x64\appium\lib\appium-session.js:40:18)
+    at async runAppiumScript (E:\node-v22.22.2-win-x64\appium\appium-script.js:26:18)
+    at async runAppiumMainWithRetry (E:\node-v22.22.2-win-x64\appium\lib\device-bootstrap.js:306:7)
+    at async main (E:\node-v22.22.2-win-x64\appium\script.js:25:5)
+路径 / 连接失败: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+尝试 Appium: http://127.0.0.1:4720/wd/hub (第1/3轮)
+2026-04-11T09:46:19.242Z INFO webdriver: Initiate new session using the WebDriver protocol
+2026-04-11T09:46:19.242Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:4720/wd/hub
+2026-04-11T09:46:19.242Z INFO webdriver: [POST] http://127.0.0.1:4720/wd/hub/session
+2026-04-11T09:46:19.247Z WARN webdriver: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+2026-04-11T09:46:19.247Z INFO webdriver: Retrying 1/3
+2026-04-11T09:46:19.247Z INFO webdriver: [POST] http://127.0.0.1:4720/wd/hub/session
+2026-04-11T09:46:19.754Z WARN webdriver: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+2026-04-11T09:46:19.754Z INFO webdriver: Retrying 2/3
+2026-04-11T09:46:19.754Z INFO webdriver: [POST] http://127.0.0.1:4720/wd/hub/session
+2026-04-11T09:46:20.763Z WARN webdriver: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+2026-04-11T09:46:20.763Z INFO webdriver: Retrying 3/3
+2026-04-11T09:46:20.763Z INFO webdriver: [POST] http://127.0.0.1:4720/wd/hub/session
+2026-04-11T09:46:20.772Z ERROR webdriver: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+2026-04-11T09:46:20.772Z ERROR webdriver: unknown command: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+    at FetchRequest._request (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:2008:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async startWebDriverSession (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:1110:16)
+    at async _WebDriver.newSession (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:1532:41)
+    at async remote (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriverio/build/node.js:9848:20)
+    at async createSession (E:\node-v22.22.2-win-x64\appium\lib\appium-session.js:40:18)
+    at async runAppiumScript (E:\node-v22.22.2-win-x64\appium\appium-script.js:26:18)
+    at async runAppiumMainWithRetry (E:\node-v22.22.2-win-x64\appium\lib\device-bootstrap.js:306:7)
+    at async main (E:\node-v22.22.2-win-x64\appium\script.js:25:5)
+路径 /wd/hub 连接失败: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+尝试 Appium: http://127.0.0.1:4720/ (第2/3轮)
+2026-04-11T09:46:21.985Z INFO webdriver: Initiate new session using the WebDriver protocol
+2026-04-11T09:46:21.985Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:4720/
+2026-04-11T09:46:21.986Z INFO webdriver: [POST] http://127.0.0.1:4720/session
+2026-04-11T09:46:21.991Z WARN webdriver: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+2026-04-11T09:46:21.991Z INFO webdriver: Retrying 1/3
+2026-04-11T09:46:21.991Z INFO webdriver: [POST] http://127.0.0.1:4720/session
+2026-04-11T09:46:22.509Z WARN webdriver: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+2026-04-11T09:46:22.509Z INFO webdriver: Retrying 2/3
+2026-04-11T09:46:22.509Z INFO webdriver: [POST] http://127.0.0.1:4720/session
+2026-04-11T09:46:23.521Z WARN webdriver: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+2026-04-11T09:46:23.521Z INFO webdriver: Retrying 3/3
+2026-04-11T09:46:23.521Z INFO webdriver: [POST] http://127.0.0.1:4720/session
+2026-04-11T09:46:23.524Z ERROR webdriver: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+2026-04-11T09:46:23.524Z ERROR webdriver: unknown error: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+    at FetchRequest._request (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:2008:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async startWebDriverSession (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:1110:16)
+    at async _WebDriver.newSession (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:1532:41)
+    at async remote (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriverio/build/node.js:9848:20)
+    at async createSession (E:\node-v22.22.2-win-x64\appium\lib\appium-session.js:40:18)
+    at async runAppiumScript (E:\node-v22.22.2-win-x64\appium\appium-script.js:26:18)
+    at async runAppiumMainWithRetry (E:\node-v22.22.2-win-x64\appium\lib\device-bootstrap.js:306:7)
+    at async main (E:\node-v22.22.2-win-x64\appium\script.js:25:5)
+路径 / 连接失败: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+尝试 Appium: http://127.0.0.1:4720/wd/hub (第2/3轮)
+2026-04-11T09:46:23.524Z INFO webdriver: Initiate new session using the WebDriver protocol
+2026-04-11T09:46:23.524Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:4720/wd/hub
+2026-04-11T09:46:23.524Z INFO webdriver: [POST] http://127.0.0.1:4720/wd/hub/session
+2026-04-11T09:46:23.526Z WARN webdriver: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+2026-04-11T09:46:23.526Z INFO webdriver: Retrying 1/3
+2026-04-11T09:46:23.526Z INFO webdriver: [POST] http://127.0.0.1:4720/wd/hub/session
+2026-04-11T09:46:24.030Z WARN webdriver: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+2026-04-11T09:46:24.030Z INFO webdriver: Retrying 2/3
+2026-04-11T09:46:24.030Z INFO webdriver: [POST] http://127.0.0.1:4720/wd/hub/session
+2026-04-11T09:46:25.038Z WARN webdriver: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+2026-04-11T09:46:25.039Z INFO webdriver: Retrying 3/3
+2026-04-11T09:46:25.039Z INFO webdriver: [POST] http://127.0.0.1:4720/wd/hub/session
+2026-04-11T09:46:25.043Z ERROR webdriver: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+2026-04-11T09:46:25.043Z ERROR webdriver: unknown command: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+    at FetchRequest._request (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:2008:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async startWebDriverSession (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:1110:16)
+    at async _WebDriver.newSession (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:1532:41)
+    at async remote (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriverio/build/node.js:9848:20)
+    at async createSession (E:\node-v22.22.2-win-x64\appium\lib\appium-session.js:40:18)
+    at async runAppiumScript (E:\node-v22.22.2-win-x64\appium\appium-script.js:26:18)
+    at async runAppiumMainWithRetry (E:\node-v22.22.2-win-x64\appium\lib\device-bootstrap.js:306:7)
+    at async main (E:\node-v22.22.2-win-x64\appium\script.js:25:5)
+路径 /wd/hub 连接失败: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+尝试 Appium: http://127.0.0.1:4720/ (第3/3轮)
+2026-04-11T09:46:26.261Z INFO webdriver: Initiate new session using the WebDriver protocol
+2026-04-11T09:46:26.261Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:4720/
+2026-04-11T09:46:26.261Z INFO webdriver: [POST] http://127.0.0.1:4720/session
+2026-04-11T09:46:26.272Z WARN webdriver: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+2026-04-11T09:46:26.272Z INFO webdriver: Retrying 1/3
+2026-04-11T09:46:26.272Z INFO webdriver: [POST] http://127.0.0.1:4720/session
+2026-04-11T09:46:26.788Z WARN webdriver: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+2026-04-11T09:46:26.788Z INFO webdriver: Retrying 2/3
+2026-04-11T09:46:26.788Z INFO webdriver: [POST] http://127.0.0.1:4720/session
+2026-04-11T09:46:27.805Z WARN webdriver: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+2026-04-11T09:46:27.805Z INFO webdriver: Retrying 3/3
+2026-04-11T09:46:27.805Z INFO webdriver: [POST] http://127.0.0.1:4720/session
+2026-04-11T09:46:27.810Z ERROR webdriver: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+2026-04-11T09:46:27.810Z ERROR webdriver: unknown error: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+    at FetchRequest._request (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:2008:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async startWebDriverSession (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:1110:16)
+    at async _WebDriver.newSession (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:1532:41)
+    at async remote (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriverio/build/node.js:9848:20)
+    at async createSession (E:\node-v22.22.2-win-x64\appium\lib\appium-session.js:40:18)
+    at async runAppiumScript (E:\node-v22.22.2-win-x64\appium\appium-script.js:26:18)
+    at async runAppiumMainWithRetry (E:\node-v22.22.2-win-x64\appium\lib\device-bootstrap.js:306:7)
+    at async main (E:\node-v22.22.2-win-x64\appium\script.js:25:5)
+路径 / 连接失败: WebDriverError: Could not find a driver for automationName 'UiAutomator2' and platformName 'Android'. Have you installed a driver that supports those capabilities? Run 'appium driver list --installed' to see. (Lower-level error: Could not read the driver manifest at D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json: ENOENT: no such file or directory, open 'D:\工作\stu\appium\node_modules\appium-uiautomator2-driver\package.json') when running "http://127.0.0.1:4720/session" with method "POST"
+尝试 Appium: http://127.0.0.1:4720/wd/hub (第3/3轮)
+2026-04-11T09:46:27.811Z INFO webdriver: Initiate new session using the WebDriver protocol
+2026-04-11T09:46:27.811Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:4720/wd/hub
+2026-04-11T09:46:27.811Z INFO webdriver: [POST] http://127.0.0.1:4720/wd/hub/session
+2026-04-11T09:46:27.813Z WARN webdriver: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+2026-04-11T09:46:27.813Z INFO webdriver: Retrying 1/3
+2026-04-11T09:46:27.813Z INFO webdriver: [POST] http://127.0.0.1:4720/wd/hub/session
+2026-04-11T09:46:28.318Z WARN webdriver: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+2026-04-11T09:46:28.318Z INFO webdriver: Retrying 2/3
+2026-04-11T09:46:28.319Z INFO webdriver: [POST] http://127.0.0.1:4720/wd/hub/session
+2026-04-11T09:46:29.331Z WARN webdriver: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+2026-04-11T09:46:29.331Z INFO webdriver: Retrying 3/3
+2026-04-11T09:46:29.331Z INFO webdriver: [POST] http://127.0.0.1:4720/wd/hub/session
+2026-04-11T09:46:29.337Z ERROR webdriver: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+2026-04-11T09:46:29.337Z ERROR webdriver: unknown command: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+    at FetchRequest._request (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:2008:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async startWebDriverSession (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:1110:16)
+    at async _WebDriver.newSession (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriver/build/node.js:1532:41)
+    at async remote (file:///E:/node-v22.22.2-win-x64/appium/node_modules/webdriverio/build/node.js:9848:20)
+    at async createSession (E:\node-v22.22.2-win-x64\appium\lib\appium-session.js:40:18)
+    at async runAppiumScript (E:\node-v22.22.2-win-x64\appium\appium-script.js:26:18)
+    at async runAppiumMainWithRetry (E:\node-v22.22.2-win-x64\appium\lib\device-bootstrap.js:306:7)
+    at async main (E:\node-v22.22.2-win-x64\appium\script.js:25:5)
+路径 /wd/hub 连接失败: WebDriverError: The requested resource could not be found, or a request was received using an HTTP method that is not supported by the mapped resource. when running "http://127.0.0.1:4720/wd/hub/session" with method "POST"
+已关闭脚本自动启动的 Appium 进程
+[开始] 断开ADB连接
+执行: E:\node-v22.22.2-win-x64\appium\platform-tools\adb.exe disconnect 124.236.70.143:24421
+adb disconnect 输出: disconnected 124.236.70.143:24421
+[完成] 断开ADB连接
+脚本执行失败: Error: 本地 Appium 未安装 UiAutomator2 驱动。
+请先执行：appium driver install uiautomator2
+安装后重试：node script.js "ip:port adbPassword email googlePassword"
+    at createSession (E:\node-v22.22.2-win-x64\appium\lib\appium-session.js:58:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async runAppiumScript (E:\node-v22.22.2-win-x64\appium\appium-script.js:26:18)
+    at async runAppiumMainWithRetry (E:\node-v22.22.2-win-x64\appium\lib\device-bootstrap.js:306:7)
+    at async main (E:\node-v22.22.2-win-x64\appium\script.js:25:5)
+
+=== 单设备结束 ===
+exit=1
+endedAt=2026-04-11T09:46:29.367Z
