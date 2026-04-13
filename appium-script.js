@@ -14,13 +14,41 @@ const {
 } = require("./pages/page-google-service-buttons");
 const { waitForTkBirthdayPage } = require("./pages/page-tk-birthday-wait");
 const { selectRandomBirthdayOnTk } = require("./pages/page-tk-birthday-select");
-const { clickTkBirthdayNext } = require("./pages/page-tk-birthday-next");
+const {
+  clickTkBirthdayNext,
+  ensureBirthdayYearInRangeBeforeNext
+} = require("./pages/page-tk-birthday-next");
 const { clickTkCreateNicknameSkip } = require("./pages/page-tk-nickname");
 const { dismissTkLoginContinueModalIfPresent } = require("./pages/page-tk-login-continue-dismiss");
 const { handleInterestsSkipOptional } = require("./pages/page-tk-interests");
 const { waitSwipeUpStartWatchingIfPresent } = require("./pages/page-tk-swipe-up-start");
 const { swipeDownAndOpenProfile } = require("./pages/page-tk-feed-open-profile");
 const { dismissProfileAvatarPromoIfPresent } = require("./pages/page-tk-profile-avatar-promo-dismiss");
+
+async function enforceBirthdayYearInRangeUntilOk(driver, timeoutMs = 120000) {
+  const endAt = Date.now() + timeoutMs;
+  let attempt = 0;
+  let lastErr;
+  while (Date.now() < endAt) {
+    attempt += 1;
+    try {
+      await ensureBirthdayYearInRangeBeforeNext(driver);
+      console.log(`生日年份纠偏完成（第 ${attempt} 轮），已进入合法区间。`);
+      return;
+    } catch (err) {
+      lastErr = err;
+      console.log(
+        `生日年份纠偏第 ${attempt} 轮未达标，继续纠偏... ${String(err?.message || err)}`
+      );
+      await driver.pause(400);
+    }
+  }
+  throw new Error(
+    `生日年份持续纠偏超时（${Math.floor(timeoutMs / 1000)}s），最后错误: ${String(
+      lastErr?.message || "未知错误"
+    )}`
+  );
+}
 
 async function runAppiumScript({ host = "127.0.0.1", port = 4723, udid, email, googlePassword }) {
   const driver = await createSession(host, port, udid);
@@ -39,7 +67,12 @@ async function runAppiumScript({ host = "127.0.0.1", port = 4723, udid, email, g
     await runStep("点击MORE", () => clickMoreAfterGoogleServices(driver));
     await runStep("点击ACCEPT", () => clickAcceptAfterGoogleServices(driver));
     await runStep("等待生日页", () => waitForTkBirthdayPage(driver));
-    await runStep("随机选择生日", () => selectRandomBirthdayOnTk(driver));
+    const birthdaySelectOk = await runStep("随机选择生日", () => selectRandomBirthdayOnTk(driver));
+    if (!birthdaySelectOk) {
+      await runStep("生日年份兜底纠偏（直到达标）", () =>
+        enforceBirthdayYearInRangeUntilOk(driver)
+      );
+    }
     await runStep("点击生日页 Next/Continue", () => clickTkBirthdayNext(driver));
     await runStep("昵称页点击Skip", () => clickTkCreateNicknameSkip(driver));
     await runStep("Log in弹窗可选NONE OF THE ABOVE并返回", () =>
@@ -61,13 +94,18 @@ async function runBirthdaySelectionOnly({ host = "127.0.0.1", port = 4723, udid 
 
   try {
     await runStep("等待生日页", () => waitForTkBirthdayPage(driver));
-    await runStep("随机选择生日", () =>
+    const birthdaySelectOk = await runStep("随机选择生日", () =>
       selectRandomBirthdayOnTk(driver, {
         skipSourceRead: true,
         inRangeStopHits: 2,
         forceDownWhenOutOfRange: false
       })
     );
+    if (!birthdaySelectOk) {
+      await runStep("生日年份兜底纠偏（直到达标）", () =>
+        enforceBirthdayYearInRangeUntilOk(driver)
+      );
+    }
     await runStep("点击生日页 Next/Continue", () => clickTkBirthdayNext(driver));
     console.log("生日已选择完成，并已点击 Next/Continue。");
   } finally {

@@ -78,6 +78,35 @@ async function readCurrentBirthdayYear(driver) {
   } catch (_) {
   }
 
+  let birthdayPickerVisible = false;
+  try {
+    const pageMarkers = [
+      '//*[contains(@resource-id,"id/year_picker") or contains(@content-desc,"Year picker")]',
+      '//*[contains(@resource-id,"id/nox") or contains(@content-desc,"Month picker")]',
+      '//*[contains(@resource-id,"id/ezr") or contains(@content-desc,"Day picker")]',
+      'android=new UiSelector().textContains("birthday")'
+    ];
+    for (const marker of pageMarkers) {
+      const elements = await driver.$$(marker);
+      for (const el of elements) {
+        const exists = await el.isExisting();
+        const displayed = exists ? await el.isDisplayed() : false;
+        if (exists && displayed) {
+          birthdayPickerVisible = true;
+          break;
+        }
+      }
+      if (birthdayPickerVisible) {
+        break;
+      }
+    }
+  } catch (_) {
+  }
+
+  if (!birthdayPickerVisible) {
+    return null;
+  }
+
   try {
     const source = await driver.getPageSource();
     const fromHeader = parseTkBirthdayYearFromPageSource(source);
