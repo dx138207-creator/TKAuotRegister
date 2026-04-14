@@ -92,11 +92,6 @@ function updateRuntimeStatus(run, textChunk) {
       run.runtimeStatus = line;
       continue;
     }
-    const nickIdx = line.indexOf("NICKNAME_CAPTURED:");
-    if (nickIdx >= 0) {
-      run.capturedNickname = line.slice(nickIdx + "NICKNAME_CAPTURED:".length).trim();
-      continue;
-    }
   }
 }
 
@@ -112,17 +107,28 @@ function isPortFree(port) {
 }
 
 async function findFreePort() {
-  for (let port = APPIUM_PORT_BASE; port <= APPIUM_PORT_MAX; port++) {
+  const maxAttempts = 30;
+  for (let i = 0; i < maxAttempts; i++) {
+    const port = await new Promise((resolve, reject) => {
+      const server = net.createServer();
+      server.unref();
+      server.on("error", reject);
+      server.listen(0, HOST, () => {
+        const addr = server.address();
+        const p = typeof addr === "object" && addr ? Number(addr.port) : 0;
+        server.close(() => resolve(p));
+      });
+    });
+    if (!Number.isInteger(port) || port <= 0) {
+      continue;
+    }
     if (reservedPorts.has(port)) {
       continue;
     }
-    const free = await isPortFree(port);
-    if (free) {
-      reservedPorts.add(port);
-      return port;
-    }
+    reservedPorts.add(port);
+    return port;
   }
-  throw new Error(`未找到空闲端口（扫描范围 ${APPIUM_PORT_BASE}-${APPIUM_PORT_MAX}）`);
+  throw new Error("未能获取系统空闲端口，请稍后重试。");
 }
 
 function resolveScriptByRunMode(runMode) {
@@ -177,8 +183,7 @@ async function createRun(device, runMode = "register") {
     startedAt: new Date().toISOString(),
     endedAt: null,
     runtimeStatus: "进程已启动，等待脚本输出...",
-    lastLogLine: "",
-    capturedNickname: ""
+    lastLogLine: ""
   };
   runs.set(id, state);
 
@@ -230,11 +235,15 @@ async function stopRunById(id) {
     } else {
       process.kill(run.pid, "SIGTERM");
     }
+    await forceReleasePort(run.appiumPort);
+    reservedPorts.delete(run.appiumPort);
     run.status = "stopping";
     return { ok: true, statusCode: 200, run };
   } catch (err) {
     const msg = String(err?.message || err);
     if (/not found|no such process|not running|cannot find/i.test(msg)) {
+      await forceReleasePort(run.appiumPort);
+      reservedPorts.delete(run.appiumPort);
       run.status = "finished";
       run.exitCode = run.exitCode ?? -1;
       run.endedAt = run.endedAt || new Date().toISOString();
@@ -246,6 +255,48 @@ async function stopRunById(id) {
 
 function quoteIfNeeded(filePath) {
   return String(filePath).includes(" ") ? `"${filePath}"` : String(filePath);
+}
+
+async function forceReleasePort(port) {
+  const p = Number(port);
+  if (!Number.isInteger(p) || p <= 0) {
+    return "无有效端口，跳过强制释放。";
+  }
+  if (process.platform === "win32") {
+    try {
+      const { stdout } = await execAsync(`netstat -ano -p tcp | findstr :${p}`);
+      const lines = String(stdout || "")
+        .split(/\r?\n/)
+        .map((s) => s.trim())
+        .filter(Boolean);
+      const pids = [...new Set(lines.map((line) => Number(line.split(/\s+/).pop())).filter(Number.isInteger))];
+      for (const pid of pids) {
+        try {
+          await execAsync(`taskkill /PID ${pid} /T /F`);
+        } catch (_) {
+        }
+      }
+      return pids.length ? `已尝试结束占用端口 ${p} 的进程: ${pids.join(",")}` : `端口 ${p} 未发现占用`;
+    } catch (_) {
+      return `端口 ${p} 未发现占用`;
+    }
+  }
+  try {
+    const { stdout } = await execAsync(`lsof -ti tcp:${p}`);
+    const pids = String(stdout || "")
+      .split(/\r?\n/)
+      .map((s) => Number(String(s).trim()))
+      .filter(Number.isInteger);
+    for (const pid of [...new Set(pids)]) {
+      try {
+        process.kill(pid, "SIGKILL");
+      } catch (_) {
+      }
+    }
+    return pids.length ? `已尝试结束占用端口 ${p} 的进程` : `端口 ${p} 未发现占用`;
+  } catch (_) {
+    return `端口 ${p} 未发现占用`;
+  }
 }
 
 async function forceDisconnectEndpoint(endpoint) {
@@ -369,8 +420,13 @@ const server = http.createServer(async (req, res) => {
       const endpoint = String(payload.endpoint || "").trim();
 
       let stopResult = null;
+      let forcePortResult = null;
       if (id) {
         stopResult = await stopRunById(id);
+        if (stopResult?.run?.appiumPort) {
+          forcePortResult = await forceReleasePort(stopResult.run.appiumPort);
+          reservedPorts.delete(stopResult.run.appiumPort);
+        }
       }
       const adbDisconnectOutput = await forceDisconnectEndpoint(endpoint);
       json(res, 200, {
@@ -378,6 +434,7 @@ const server = http.createServer(async (req, res) => {
         id: id || null,
         endpoint: endpoint || null,
         stopResult,
+        forcePortResult,
         adbDisconnectOutput
       });
     } catch (err) {
