@@ -137,6 +137,7 @@
             <button type="button" data-register="1" class="primary">注册</button>
             <button type="button" data-register-second="1">二次注册</button>
             <button type="button" data-stop="1" disabled>停止</button>
+            <button type="button" data-force-disconnect="1">刷新断开</button>
             <button type="button" data-remove="1">删除</button>            
           </td>
         `;
@@ -151,6 +152,9 @@
           startRow(tr, "register-second")
         );
         tr.querySelector('[data-stop="1"]').addEventListener("click", () => stopRow(tr));
+        tr.querySelector('[data-force-disconnect="1"]').addEventListener("click", () =>
+          forceDisconnectRow(tr)
+        );
         tbody.appendChild(tr);
       }
 
@@ -189,6 +193,20 @@
         el.className = `status${cls ? " " + cls : ""}`;
       }
 
+      function resetRowToReady(tr, statusText = "已断开，可重新启动") {
+        const btnRegister = tr.querySelector('[data-register="1"]');
+        const btnRegisterSecond = tr.querySelector('[data-register-second="1"]');
+        const stopBtn = tr.querySelector('[data-stop="1"]');
+        btnRegister.disabled = false;
+        btnRegisterSecond.disabled = false;
+        btnRegister.textContent = "注册";
+        btnRegisterSecond.textContent = "二次注册";
+        stopBtn.disabled = true;
+        delete tr.dataset.runId;
+        delete tr.dataset.runMode;
+        setRowStatus(tr, statusText, "ok");
+      }
+
       async function pollRunStatus(runId, tr) {
         for (let i = 0; i < 900; i++) {
           await new Promise((r) => setTimeout(r, 1500));
@@ -210,14 +228,7 @@
             } else {
               setRowStatus(tr, `失败(exit=${data.exitCode}) | p${data.appiumPort}`, "fail");
             }
-            const btnRegister = tr.querySelector('[data-register="1"]');
-            const btnRegisterSecond = tr.querySelector('[data-register-second="1"]');
-            const stopBtn = tr.querySelector('[data-stop="1"]');
-            btnRegister.disabled = false;
-            btnRegisterSecond.disabled = false;
-            btnRegister.textContent = "注册";
-            btnRegisterSecond.textContent = "二次注册";
-            stopBtn.disabled = true;
+            resetRowToReady(tr, data.exitCode === 0 ? "已完成，可重新启动" : "已结束，可重新启动");
             tr.title = data.logFile || "";
             return;
           }
@@ -320,6 +331,38 @@
         } catch (e) {
           setRowStatus(tr, `停止异常: ${e.message}`, "fail");
           stopBtn.disabled = false;
+        }
+      }
+
+      async function forceDisconnectRow(tr) {
+        const d = getRowDevice(tr);
+        if (!d.endpoint || !/^[^:]+:\d+$/.test(d.endpoint)) {
+          setRowStatus(tr, "endpoint 格式错误，无法断开", "fail");
+          return;
+        }
+        const forceBtn = tr.querySelector('[data-force-disconnect="1"]');
+        forceBtn.disabled = true;
+        setRowStatus(tr, "正在强制断开...", "running");
+        try {
+          const resp = await fetch("/api/force-disconnect", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              id: String(tr.dataset.runId || "").trim(),
+              endpoint: d.endpoint
+            })
+          });
+          const data = await resp.json();
+          if (!resp.ok) {
+            setRowStatus(tr, `强制断开失败: ${data.error || "未知错误"}`, "fail");
+            return;
+          }
+          const adbMsg = String(data.adbDisconnectOutput || "").slice(0, 80);
+          resetRowToReady(tr, `已强制断开: ${adbMsg || "完成"}`);
+        } catch (e) {
+          setRowStatus(tr, `强制断开异常: ${e.message}`, "fail");
+        } finally {
+          forceBtn.disabled = false;
         }
       }
 

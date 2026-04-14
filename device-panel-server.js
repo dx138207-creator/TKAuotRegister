@@ -14,6 +14,7 @@ const HTML_FILE = path.join(ROOT, "device-config.html");
 const XLSX_FILE = path.join(ROOT, "node_modules", "xlsx", "dist", "xlsx.full.min.js");
 const SCRIPT_FILE = path.join(ROOT, "script.js");
 const SCRIPT_SECOND_FILE = path.join(ROOT, "script-second.js");
+const LOCAL_ADB_PATH = path.join(ROOT, "platform-tools", "adb.exe");
 const LOGS_DIR = path.join(ROOT, "logs");
 const APPIUM_PORT_BASE = Number(process.env.APPIUM_PORT_BASE || 4720);
 const APPIUM_PORT_MAX = Number(process.env.APPIUM_PORT_MAX || 4899);
@@ -243,6 +244,34 @@ async function stopRunById(id) {
   }
 }
 
+function quoteIfNeeded(filePath) {
+  return String(filePath).includes(" ") ? `"${filePath}"` : String(filePath);
+}
+
+async function forceDisconnectEndpoint(endpoint) {
+  const ep = String(endpoint || "").trim();
+  if (!ep) {
+    return "未提供 endpoint，已跳过 ADB 断开。";
+  }
+  if (!/^[^:]+:\d+$/.test(ep)) {
+    return `endpoint 格式无效: ${ep}`;
+  }
+  if (!fs.existsSync(LOCAL_ADB_PATH)) {
+    return `未找到本地 ADB，跳过断开: ${LOCAL_ADB_PATH}`;
+  }
+  const cmd = `${quoteIfNeeded(LOCAL_ADB_PATH)} disconnect ${ep}`;
+  try {
+    const { stdout, stderr } = await execAsync(cmd, { timeout: 10000 });
+    return `${stdout || ""}${stderr || ""}`.trim() || "(空输出)";
+  } catch (err) {
+    const output = `${err.stdout || ""}${err.stderr || ""}`.trim();
+    if (output) {
+      return output;
+    }
+    return `执行 adb disconnect 失败: ${String(err?.message || err)}`;
+  }
+}
+
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
 
@@ -326,6 +355,31 @@ const server = http.createServer(async (req, res) => {
         return;
       }
       json(res, 200, result.run);
+    } catch (err) {
+      json(res, 500, { error: String(err?.message || err) });
+    }
+    return;
+  }
+
+  if (req.method === "POST" && url.pathname === "/api/force-disconnect") {
+    try {
+      const body = await readBody(req);
+      const payload = JSON.parse(body || "{}");
+      const id = String(payload.id || "").trim();
+      const endpoint = String(payload.endpoint || "").trim();
+
+      let stopResult = null;
+      if (id) {
+        stopResult = await stopRunById(id);
+      }
+      const adbDisconnectOutput = await forceDisconnectEndpoint(endpoint);
+      json(res, 200, {
+        ok: true,
+        id: id || null,
+        endpoint: endpoint || null,
+        stopResult,
+        adbDisconnectOutput
+      });
     } catch (err) {
       json(res, 500, { error: String(err?.message || err) });
     }
