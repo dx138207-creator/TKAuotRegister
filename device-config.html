@@ -94,6 +94,7 @@
     <table id="deviceTable">
       <thead>
         <tr>
+          <th style="width: 4%">序号</th>
           <th style="width: 14%">endpoint (ip:port)</th>
           <th style="width: 8%">adbPassword</th>
           <th style="width: 18%">邮箱(多行)</th>
@@ -364,6 +365,7 @@
       function createRow(device = {}) {
         const tr = document.createElement("tr");
         tr.innerHTML = `
+          <td data-row-index="1"></td>
           <td><input data-key="endpoint" placeholder="124.236.70.143:20523" value="${device.endpoint || ""}"></td>
           <td><input data-key="adbPassword" placeholder="adb密码" value="${device.adbPassword || ""}"></td>
           <td><textarea data-key="email" placeholder="每行一个邮箱">${device.email || ""}</textarea></td>
@@ -381,6 +383,7 @@
         tr.querySelector('[data-remove="1"]').addEventListener("click", () => {
           tr.remove();
           if (!tbody.children.length) createRow();
+          refreshRowIndices();
         });
         tr.querySelector('[data-start="1"]').addEventListener("click", () => startRow(tr, "register"));
         tr.querySelector('[data-start-second="1"]').addEventListener("click", () =>
@@ -396,10 +399,21 @@
           .addEventListener("input", () => syncAccountSelect(tr));
         tbody.appendChild(tr);
         syncAccountSelect(tr);
+        refreshRowIndices();
       }
 
       function ensureRowCount(count) {
         while (tbody.querySelectorAll("tr").length < count) createRow();
+      }
+
+      function refreshRowIndices() {
+        const rows = [...tbody.querySelectorAll("tr")];
+        rows.forEach((row, idx) => {
+          const cell = row.querySelector('[data-row-index="1"]');
+          if (cell) {
+            cell.textContent = String(idx + 1);
+          }
+        });
       }
 
       document.querySelector("#addRow").addEventListener("click", () => createRow());
