@@ -34,7 +34,7 @@
       #deviceTable tbody tr {
         background-color: #fff;
       }
-      #deviceTable tbody tr:hover,
+      #deviceTable tbody tr.row-mouse-hover,
       #deviceTable tbody tr.row-input-focus {
         background-color: #eef3f9;
       }
@@ -156,21 +156,47 @@
         if (t && (t.matches("input") || t.matches("textarea"))) {
           const tr = t.closest("tr");
           if (tr && tbody.contains(tr)) {
+            tbody.querySelectorAll("tr.row-input-focus").forEach((row) => {
+              if (row !== tr) {
+                row.classList.remove("row-input-focus");
+              }
+            });
             tr.classList.add("row-input-focus");
           }
         }
       });
-      tbody.addEventListener("focusout", (e) => {
-        const t = e.target;
-        if (!t || (!t.matches("input") && !t.matches("textarea"))) {
-          return;
-        }
-        const tr = t.closest("tr");
+
+      tbody.addEventListener("mouseover", (e) => {
+        const tr = e.target.closest("tr");
         if (!tr || !tbody.contains(tr)) {
           return;
         }
-        requestAnimationFrame(() => {
-          if (!tr.querySelector("input:focus, textarea:focus")) {
+        tbody.querySelectorAll("tr.row-mouse-hover").forEach((row) => {
+          if (row !== tr) {
+            row.classList.remove("row-mouse-hover");
+          }
+        });
+        tr.classList.add("row-mouse-hover");
+      });
+      tbody.addEventListener("mouseout", (e) => {
+        const tr = e.target.closest("tr");
+        if (!tr || !tbody.contains(tr)) {
+          return;
+        }
+        const rel = e.relatedTarget;
+        if (rel && tr.contains(rel)) {
+          return;
+        }
+        tr.classList.remove("row-mouse-hover");
+      });
+
+      document.addEventListener("click", (e) => {
+        const t = e.target;
+        if (!t || !tbody) {
+          return;
+        }
+        tbody.querySelectorAll("tr.row-input-focus").forEach((tr) => {
+          if (!tr.contains(t)) {
             tr.classList.remove("row-input-focus");
           }
         });
