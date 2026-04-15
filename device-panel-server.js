@@ -325,8 +325,10 @@ async function forceDisconnectEndpoint(endpoint) {
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
+  const pathname =
+    url.pathname.length > 1 && url.pathname.endsWith("/") ? url.pathname.slice(0, -1) : url.pathname;
 
-  if (req.method === "GET" && (url.pathname === "/" || url.pathname === "/device-config.html")) {
+  if (req.method === "GET" && (pathname === "/" || pathname === "/device-config.html")) {
     try {
       const html = fs.readFileSync(HTML_FILE, "utf8");
       res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
@@ -337,7 +339,7 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  if (req.method === "GET" && url.pathname === "/vendor/xlsx.min.js") {
+  if (req.method === "GET" && pathname === "/vendor/xlsx.min.js") {
     try {
       const content = fs.readFileSync(XLSX_FILE);
       res.writeHead(200, { "Content-Type": "application/javascript; charset=utf-8" });
@@ -348,7 +350,7 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  if (req.method === "POST" && url.pathname === "/api/run") {
+  if (req.method === "POST" && pathname === "/api/run") {
     try {
       const body = await readBody(req);
       const payload = JSON.parse(body || "{}");
@@ -380,7 +382,7 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  if (req.method === "GET" && url.pathname === "/api/status") {
+  if (req.method === "GET" && pathname === "/api/status") {
     const id = url.searchParams.get("id");
     const run = id ? runs.get(id) : null;
     if (!run) {
@@ -391,7 +393,7 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  if (req.method === "POST" && url.pathname === "/api/stop") {
+  if (req.method === "POST" && pathname === "/api/stop") {
     try {
       const body = await readBody(req);
       const payload = JSON.parse(body || "{}");
@@ -412,7 +414,7 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  if (req.method === "POST" && url.pathname === "/api/force-disconnect") {
+  if (req.method === "POST" && pathname === "/api/force-disconnect") {
     try {
       const body = await readBody(req);
       const payload = JSON.parse(body || "{}");
@@ -429,6 +431,15 @@ const server = http.createServer(async (req, res) => {
         }
       }
       const adbDisconnectOutput = await forceDisconnectEndpoint(endpoint);
+      if (stopResult?.ok && stopResult.run?.id) {
+        const run = runs.get(stopResult.run.id);
+        if (run && run.status === "stopping") {
+          run.status = "finished";
+          run.exitCode = run.exitCode ?? -1;
+          run.endedAt = run.endedAt || new Date().toISOString();
+          run.runtimeStatus = "已由刷新断开结束";
+        }
+      }
       json(res, 200, {
         ok: true,
         id: id || null,

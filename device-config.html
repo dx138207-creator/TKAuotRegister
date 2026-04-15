@@ -31,6 +31,13 @@
       th {
         background: #f5f7fa;
       }
+      #deviceTable tbody tr {
+        background-color: #fff;
+      }
+      #deviceTable tbody tr:hover,
+      #deviceTable tbody tr.row-input-focus {
+        background-color: #eef3f9;
+      }
       input {
         width: 100%;
         box-sizing: border-box;
@@ -83,6 +90,14 @@
         color: #067647;
         margin: 8px 0;
       }
+      .json-bulk-wrap {
+        margin-top: 20px;
+        max-width: 100%;
+      }
+      .json-bulk-wrap textarea {
+        min-height: 140px;
+        font-size: 12px;
+      }
     </style>
   </head>
   <body>
@@ -110,16 +125,56 @@
       <button id="addRow">新增一行</button>
       <button id="uploadExcel">上传文件读取10组账号</button>
       <button id="startAll" class="primary">全部注册</button>
+      <button id="startAllSecond" type="button">全部二次启动</button>
       <button id="clear">清空全部</button>
     </div>
     <input id="excelFile" type="file" accept=".xlsx,.xls" style="display:none" />
 
     <div id="msg"></div>
 
+    <div class="json-bulk-wrap">
+      <p class="tip">
+        粘贴设备 JSON 数组（每项含 <code>host</code>、<code>port</code>、<code>password</code>；可选 <code>phoneId</code>）。点击按钮后按顺序写入表格：
+        <code>endpoint = host:port</code>，<code>adbPassword = password</code>。若某项无 <code>host</code> 可写 <code>ip</code> 代替。
+      </p>
+      <textarea
+        id="deviceJsonBulk"
+        placeholder='[{"phoneId":"...","host":"124.236.71.155","port":"20095","password":"..."}]'
+      ></textarea>
+      <div class="actions" style="margin-top: 8px">
+        <button type="button" id="applyDeviceJson" class="primary">填充到表格</button>
+      </div>
+    </div>
+
     <script src="/vendor/xlsx.min.js"></script>
     <script>
       const tbody = document.querySelector("#deviceTable tbody");
       const msg = document.querySelector("#msg");
+
+      tbody.addEventListener("focusin", (e) => {
+        const t = e.target;
+        if (t && (t.matches("input") || t.matches("textarea"))) {
+          const tr = t.closest("tr");
+          if (tr && tbody.contains(tr)) {
+            tr.classList.add("row-input-focus");
+          }
+        }
+      });
+      tbody.addEventListener("focusout", (e) => {
+        const t = e.target;
+        if (!t || (!t.matches("input") && !t.matches("textarea"))) {
+          return;
+        }
+        const tr = t.closest("tr");
+        if (!tr || !tbody.contains(tr)) {
+          return;
+        }
+        requestAnimationFrame(() => {
+          if (!tr.querySelector("input:focus, textarea:focus")) {
+            tr.classList.remove("row-input-focus");
+          }
+        });
+      });
 
       function parseMultiLineValues(text) {
         return String(text || "")
@@ -190,7 +245,7 @@
         return "";
       }
 
-      function resetRowToReady(tr, statusText = "已断开，可重新启动") {
+      function resetRowToReady(tr, statusText = "已断开，可重新启动", statusCls = "ok") {
         const startBtn = tr.querySelector('[data-start="1"]');
         const startSecondBtn = tr.querySelector('[data-start-second="1"]');
         const stopBtn = tr.querySelector('[data-stop="1"]');
@@ -202,18 +257,42 @@
         stopBtn.disabled = true;
         select.disabled = false;
         delete tr.dataset.runId;
-        setRowStatus(tr, statusText, "ok");
+        setRowStatus(tr, statusText, statusCls);
+      }
+
+      function isRowStillPollingThisRun(tr, runId) {
+        return String(tr.dataset.runId || "") === String(runId || "");
       }
 
       async function pollRunStatus(runId, tr) {
         for (let i = 0; i < 900; i++) {
           await new Promise((r) => setTimeout(r, 1500));
+          if (!isRowStillPollingThisRun(tr, runId)) {
+            return;
+          }
           const res = await fetch(`/api/status?id=${encodeURIComponent(runId)}`);
+          if (!isRowStillPollingThisRun(tr, runId)) {
+            return;
+          }
           if (!res.ok) {
-            setRowStatus(tr, "查询状态失败", "fail");
+            let detail = "";
+            try {
+              const errBody = await res.json();
+              detail = String(errBody.error || "").trim();
+            } catch (_) {
+              detail = String(res.statusText || "").trim();
+            }
+            const tip =
+              res.status === 404
+                ? "任务已不存在（可能面板已重启）"
+                : `查询状态失败 (${res.status})${detail ? `: ${detail}` : ""}`;
+            resetRowToReady(tr, `${tip}。已解锁本行。`, res.status === 404 ? "ok" : "fail");
             return;
           }
           const data = await res.json();
+          if (!isRowStillPollingThisRun(tr, runId)) {
+            return;
+          }
           if (data.status === "finished") {
             resetRowToReady(tr, data.exitCode === 0 ? "已完成，可重新启动" : "已结束，可重新启动");
             tr.title = data.logFile || "";
@@ -226,7 +305,14 @@
             tr.title = `端口: ${data.appiumPort}\n日志: ${data.logFile || ""}\n${data.runtimeStatus || ""}`;
           }
         }
-        setRowStatus(tr, "状态轮询超时", "fail");
+        if (!isRowStillPollingThisRun(tr, runId)) {
+          return;
+        }
+        resetRowToReady(
+          tr,
+          "状态轮询超时。已解锁本行，请检查设备或稍后重试。",
+          "fail"
+        );
       }
 
       async function startRow(tr, runMode = "register") {
@@ -349,14 +435,24 @@
               endpoint: data.endpoint
             })
           });
-          const result = await resp.json();
+          let result = {};
+          try {
+            result = await resp.json();
+          } catch (_) {
+            result = {};
+          }
           if (!resp.ok) {
-            setRowStatus(tr, `强制断开失败: ${result.error || "未知错误"}`, "fail");
+            const errMsg = result.error || resp.statusText || "未知错误";
+            resetRowToReady(
+              tr,
+              `强制断开失败 (${resp.status}): ${errMsg}。界面已解锁；若为 Not found 请确认通过本机启动的 device-panel-server 打开页面（勿用旧版或 file://）。`,
+              "fail"
+            );
             return;
           }
           resetRowToReady(tr, `已强制断开: ${String(result.adbDisconnectOutput || "").slice(0, 80)}`);
         } catch (e) {
-          setRowStatus(tr, `强制断开异常: ${e.message}`, "fail");
+          resetRowToReady(tr, `强制断开异常: ${e.message}。已解锁本行。`, "fail");
         } finally {
           forceBtn.disabled = false;
         }
@@ -414,6 +510,72 @@
             cell.textContent = String(idx + 1);
           }
         });
+      }
+
+      function applyDeviceJsonBulk() {
+        const el = document.querySelector("#deviceJsonBulk");
+        const raw = String(el?.value || "").trim();
+        if (!raw) {
+          msg.className = "warn";
+          msg.textContent = "请先粘贴 JSON 数组。";
+          return;
+        }
+        let arr;
+        try {
+          arr = JSON.parse(raw);
+        } catch (e) {
+          msg.className = "warn";
+          msg.textContent = `JSON 解析失败: ${String(e?.message || e)}`;
+          return;
+        }
+        if (!Array.isArray(arr) || arr.length === 0) {
+          msg.className = "warn";
+          msg.textContent = "请输入非空 JSON 数组。";
+          return;
+        }
+        const devices = [];
+        let skipped = 0;
+        for (const item of arr) {
+          if (!item || typeof item !== "object") {
+            skipped += 1;
+            continue;
+          }
+          const host = String(item.host || item.ip || "").trim();
+          const port = String(item.port ?? "").trim();
+          const password = String(item.password || "").trim();
+          if (!host || !port || !password) {
+            skipped += 1;
+            continue;
+          }
+          const endpoint = `${host}:${port}`;
+          if (!/^[^:]+:\d+$/.test(endpoint)) {
+            skipped += 1;
+            continue;
+          }
+          devices.push({
+            endpoint,
+            adbPassword: password,
+            phoneId: item.phoneId != null ? String(item.phoneId) : ""
+          });
+        }
+        if (!devices.length) {
+          msg.className = "warn";
+          msg.textContent = "数组中无有效项（需 host 或 ip、port、password）。";
+          return;
+        }
+        ensureRowCount(devices.length);
+        const rowEls = [...tbody.querySelectorAll("tr")];
+        devices.forEach((d, idx) => {
+          const tr = rowEls[idx];
+          tr.querySelector('input[data-key="endpoint"]').value = d.endpoint;
+          tr.querySelector('input[data-key="adbPassword"]').value = d.adbPassword;
+          tr.title = d.phoneId ? `phoneId: ${d.phoneId}` : "";
+        });
+        refreshRowIndices();
+        msg.className = "ok";
+        msg.textContent = `已按顺序填充 ${devices.length} 行（endpoint=host:port，adbPassword=password）${
+          skipped ? `，跳过 ${skipped} 条无效项。` : "。"
+        }`;
       }
 
       document.querySelector("#addRow").addEventListener("click", () => createRow());
@@ -494,12 +656,25 @@
         }
       });
 
+      document.querySelector("#startAllSecond").addEventListener("click", async () => {
+        const rows = [...tbody.querySelectorAll("tr")];
+        for (const tr of rows) {
+          const btn = tr.querySelector('[data-start-second="1"]');
+          if (!btn.disabled) {
+            await startRow(tr, "register-second");
+            await new Promise((r) => setTimeout(r, 300));
+          }
+        }
+      });
+
       document.querySelector("#clear").addEventListener("click", () => {
         tbody.innerHTML = "";
         createRow();
         msg.className = "";
         msg.textContent = "";
       });
+
+      document.querySelector("#applyDeviceJson").addEventListener("click", () => applyDeviceJsonBulk());
 
       createRow({
         endpoint: "124.236.70.143:20523",

@@ -1,0 +1,27 @@
+=== 单设备启动 ===
+runMode=register
+endpoint=124.236.70.143:20523
+appiumPort=4724
+startedAt=2026-04-15T03:04:04.510Z
+
+[开始] 启动或复用Appium服务
+尝试自动启动 Appium: D:\工作\stu\appium\node_modules\.bin\appium.cmd server -p 4724
+Appium 自动启动成功: http://127.0.0.1:4724
+[完成] 启动或复用Appium服务
+[开始] ADB连接
+执行: D:\工作\stu\appium\platform-tools\adb.exe connect 124.236.70.143:20523
+adb connect 输出: cannot connect to 124.236.70.143:20523: 由于目标计算机积极拒绝，无法连接。 (10061)
+已关闭脚本自动启动的 Appium 进程
+[开始] 断开ADB连接
+执行: D:\工作\stu\appium\platform-tools\adb.exe disconnect 124.236.70.143:20523
+adb disconnect 输出: error: no such device '124.236.70.143:20523'
+[完成] 断开ADB连接
+脚本执行失败: Error: adb connect 结果异常: cannot connect to 124.236.70.143:20523: 由于目标计算机积极拒绝，无法连接。 (10061)
+    at adbConnect (D:\工作\stu\appium\lib\device-bootstrap.js:191:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async runStep (D:\工作\stu\appium\lib\device-bootstrap.js:30:18)
+    at async main (D:\工作\stu\appium\script.js:22:5)
+
+=== 单设备结束 ===
+exit=1
+endedAt=2026-04-15T03:04:10.035Z
