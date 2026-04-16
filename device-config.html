@@ -62,7 +62,7 @@
       }
       textarea {
         width: 100%;
-        min-height: 280px;
+        min-height: 120px;
         box-sizing: border-box;
         font-family: Consolas, monospace;
         font-size: 12px;
@@ -124,8 +124,12 @@
     <div class="actions">
       <button id="addRow">新增一行</button>
       <button id="uploadExcel">上传文件读取10组账号</button>
+      <select id="globalEmailSelect">
+        <option value="">全表邮箱序号（可选）</option>
+      </select>
       <button id="startAll" class="primary">全部注册</button>
       <button id="startAllSecond" type="button">全部二次启动</button>
+      <button id="stopAllForce" type="button">全部停止</button>
       <button id="clear">清空全部</button>
     </div>
     <input id="excelFile" type="file" accept=".xlsx,.xls" style="display:none" />
@@ -150,6 +154,7 @@
     <script>
       const tbody = document.querySelector("#deviceTable tbody");
       const msg = document.querySelector("#msg");
+      const globalEmailSelect = document.querySelector("#globalEmailSelect");
 
       tbody.addEventListener("focusin", (e) => {
         const t = e.target;
@@ -241,6 +246,90 @@
         }
         if (old && Number(old) < count) {
           select.value = old;
+        }
+        refreshGlobalEmailOptions();
+      }
+
+      function refreshGlobalEmailOptions() {
+        if (!globalEmailSelect) return;
+        const old = String(globalEmailSelect.value || "");
+        let maxCount = 0;
+        [...tbody.querySelectorAll("tr")].forEach((tr) => {
+          const emails = parseMultiLineValues(tr.querySelector('textarea[data-key="email"]').value);
+          const passwords = parseMultiLineValues(tr.querySelector('textarea[data-key="googlePassword"]').value);
+          maxCount = Math.max(maxCount, Math.min(emails.length, passwords.length));
+        });
+        globalEmailSelect.innerHTML = '<option value="">全表邮箱序号（可选）</option>';
+        for (let i = 1; i <= maxCount; i++) {
+          const opt = document.createElement("option");
+          opt.value = String(i);
+          opt.textContent = `序号 ${i}`;
+          globalEmailSelect.appendChild(opt);
+        }
+        if (old && Number(old) >= 1 && Number(old) <= maxCount) {
+          globalEmailSelect.value = old;
+        }
+      }
+
+      function applyGlobalEmailSelection(showMessage = true) {
+        const order = Number(String(globalEmailSelect?.value || "").trim());
+        if (!Number.isInteger(order) || order < 1) {
+          if (showMessage) {
+            msg.className = "warn";
+            msg.textContent = "请先在“全表邮箱序号”中选择序号。";
+          }
+          return { applied: 0, skipped: 0 };
+        }
+        let applied = 0;
+        let skipped = 0;
+        [...tbody.querySelectorAll("tr")].forEach((tr) => {
+          const emails = parseMultiLineValues(tr.querySelector('textarea[data-key="email"]').value);
+          const passwords = parseMultiLineValues(tr.querySelector('textarea[data-key="googlePassword"]').value);
+          const count = Math.min(emails.length, passwords.length);
+          const idx = order - 1;
+          const select = tr.querySelector('select[data-account-select="1"]');
+          if (idx >= 0 && idx < count && select && !select.disabled) {
+            select.value = String(idx);
+            applied += 1;
+          } else {
+            skipped += 1;
+          }
+        });
+        if (showMessage) {
+          msg.className = "ok";
+          msg.textContent = `已将邮箱序号 ${order} 应用到 ${applied} 行${skipped ? `，跳过 ${skipped} 行（该行账号数量不足）` : ""}。`;
+        }
+        return { applied, skipped };
+      }
+
+      async function startAllRows(runMode) {
+        const selectedOrder = String(globalEmailSelect?.value || "").trim();
+        if (selectedOrder) {
+          applyGlobalEmailSelection(false);
+        }
+        const rows = [...tbody.querySelectorAll("tr")];
+        for (const tr of rows) {
+          const hasRunning = String(tr.dataset.runId || "").trim();
+          if (hasRunning) {
+            await forceDisconnectRow(tr);
+            await new Promise((r) => setTimeout(r, 350));
+          }
+          const btn =
+            runMode === "register"
+              ? tr.querySelector('[data-start="1"]')
+              : tr.querySelector('[data-start-second="1"]');
+          if (btn && !btn.disabled) {
+            await startRow(tr, runMode);
+            await new Promise((r) => setTimeout(r, 300));
+          }
+        }
+      }
+
+      async function stopAllRowsForce() {
+        const rows = [...tbody.querySelectorAll("tr")];
+        for (const tr of rows) {
+          await forceDisconnectRow(tr);
+          await new Promise((r) => setTimeout(r, 200));
         }
       }
 
@@ -521,6 +610,7 @@
           .addEventListener("input", () => syncAccountSelect(tr));
         tbody.appendChild(tr);
         syncAccountSelect(tr);
+        refreshGlobalEmailOptions();
         refreshRowIndices();
       }
 
@@ -597,6 +687,7 @@
           tr.querySelector('input[data-key="adbPassword"]').value = d.adbPassword;
           tr.title = d.phoneId ? `phoneId: ${d.phoneId}` : "";
         });
+        refreshGlobalEmailOptions();
         refreshRowIndices();
         msg.className = "ok";
         msg.textContent = `已按顺序填充 ${devices.length} 行（endpoint=host:port，adbPassword=password）${
@@ -658,6 +749,7 @@
               .join("\n");
             syncAccountSelect(tr);
           });
+          refreshGlobalEmailOptions();
 
           msg.className = "ok";
           msg.textContent = `已按列填充 ${columnGroups.length} 行账号数据（每列遇空白即停止）。${
@@ -672,30 +764,23 @@
       });
 
       document.querySelector("#startAll").addEventListener("click", async () => {
-        const rows = [...tbody.querySelectorAll("tr")];
-        for (const tr of rows) {
-          const btn = tr.querySelector('[data-start="1"]');
-          if (!btn.disabled) {
-            await startRow(tr, "register");
-            await new Promise((r) => setTimeout(r, 300));
-          }
-        }
+        await startAllRows("register");
       });
 
       document.querySelector("#startAllSecond").addEventListener("click", async () => {
-        const rows = [...tbody.querySelectorAll("tr")];
-        for (const tr of rows) {
-          const btn = tr.querySelector('[data-start-second="1"]');
-          if (!btn.disabled) {
-            await startRow(tr, "register-second");
-            await new Promise((r) => setTimeout(r, 300));
-          }
-        }
+        await startAllRows("register-second");
+      });
+      document.querySelector("#stopAllForce").addEventListener("click", async () => {
+        await stopAllRowsForce();
+      });
+      globalEmailSelect.addEventListener("change", () => {
+        applyGlobalEmailSelection(false);
       });
 
       document.querySelector("#clear").addEventListener("click", () => {
         tbody.innerHTML = "";
         createRow();
+        refreshGlobalEmailOptions();
         msg.className = "";
         msg.textContent = "";
       });
