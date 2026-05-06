@@ -1,0 +1,187 @@
+=== 单设备启动 ===
+runMode=register
+country=mx
+endpoint=124.236.70.143:21287
+appiumPort=57156
+startedAt=2026-04-29T08:02:24.568Z
+
+[开始] 启动或复用Appium服务
+尝试自动启动 Appium: D:\工作\stu\appium\node_modules\.bin\appium.cmd server -p 57156
+Appium 自动启动成功: http://127.0.0.1:57156
+[完成] 启动或复用Appium服务
+[开始] ADB连接
+执行: D:\工作\stu\appium\platform-tools\adb.exe connect 124.236.70.143:21287
+adb connect 输出: connected to 124.236.70.143:21287
+[完成] ADB连接
+[开始] ADB鉴权
+执行 ADB Shell 鉴权: D:\工作\stu\appium\platform-tools\adb.exe -s 124.236.70.143:21287 shell NPsqAR0w
+adb shell 鉴权输出: OK! Login successful.
+ADB Shell 探测通过，SDK=35
+[完成] ADB鉴权
+[开始] 执行墨西哥Appium主流程
+执行墨西哥 Appium 主流程，第 1/2 次
+尝试 Appium: http://127.0.0.1:57156/ (第1/3轮)
+2026-04-29T08:02:29.901Z INFO webdriver: Initiate new session using the WebDriver protocol
+2026-04-29T08:02:29.904Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:57156/
+2026-04-29T08:02:29.923Z INFO webdriver: [POST] http://127.0.0.1:57156/session
+2026-04-29T08:02:31.491Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+2026-04-29T08:02:31.492Z INFO webdriver: Retrying 1/3
+2026-04-29T08:02:31.492Z INFO webdriver: [POST] http://127.0.0.1:57156/session
+2026-04-29T08:02:33.531Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+2026-04-29T08:02:33.531Z INFO webdriver: Retrying 2/3
+2026-04-29T08:02:33.531Z INFO webdriver: [POST] http://127.0.0.1:57156/session
+2026-04-29T08:02:36.080Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+2026-04-29T08:02:36.080Z INFO webdriver: Retrying 3/3
+2026-04-29T08:02:36.080Z INFO webdriver: [POST] http://127.0.0.1:57156/session
+2026-04-29T08:02:37.897Z ERROR webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+2026-04-29T08:02:37.897Z ERROR webdriver: Error: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+    at FetchRequest._libRequest (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1947:13)
+    at async FetchRequest._request (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1973:20)
+    at async startWebDriverSession (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1110:16)
+    at async _WebDriver.newSession (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1532:41)
+    at async remote (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriverio/build/node.js:9848:20)
+    at async createSession (D:\工作\stu\appium\lib\appium-session.js:40:18)
+    at async runAppiumScriptMx (D:\工作\stu\appium\appium-script-mx.js:99:18)
+    at async runAppiumMainWithRetryMx (D:\工作\stu\appium\script-mx.js:26:7)
+    at async main (D:\工作\stu\appium\script-mx.js:59:5)
+路径 / 连接失败: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+尝试 Appium: http://127.0.0.1:57156/wd/hub (第1/3轮)
+2026-04-29T08:02:37.899Z INFO webdriver: Initiate new session using the WebDriver protocol
+2026-04-29T08:02:37.899Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:57156/wd/hub
+2026-04-29T08:02:37.900Z INFO webdriver: [POST] http://127.0.0.1:57156/wd/hub/session
+2026-04-29T08:02:39.628Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+2026-04-29T08:02:39.628Z INFO webdriver: Retrying 1/3
+2026-04-29T08:02:39.628Z INFO webdriver: [POST] http://127.0.0.1:57156/wd/hub/session
+2026-04-29T08:02:41.877Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+2026-04-29T08:02:41.877Z INFO webdriver: Retrying 2/3
+2026-04-29T08:02:41.877Z INFO webdriver: [POST] http://127.0.0.1:57156/wd/hub/session
+2026-04-29T08:02:44.692Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+2026-04-29T08:02:44.692Z INFO webdriver: Retrying 3/3
+2026-04-29T08:02:44.692Z INFO webdriver: [POST] http://127.0.0.1:57156/wd/hub/session
+2026-04-29T08:02:46.545Z ERROR webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+2026-04-29T08:02:46.545Z ERROR webdriver: Error: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+    at FetchRequest._libRequest (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1947:13)
+    at async FetchRequest._request (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1973:20)
+    at async startWebDriverSession (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1110:16)
+    at async _WebDriver.newSession (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1532:41)
+    at async remote (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriverio/build/node.js:9848:20)
+    at async createSession (D:\工作\stu\appium\lib\appium-session.js:40:18)
+    at async runAppiumScriptMx (D:\工作\stu\appium\appium-script-mx.js:99:18)
+    at async runAppiumMainWithRetryMx (D:\工作\stu\appium\script-mx.js:26:7)
+    at async main (D:\工作\stu\appium\script-mx.js:59:5)
+路径 /wd/hub 连接失败: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+尝试 Appium: http://127.0.0.1:57156/ (第2/3轮)
+2026-04-29T08:02:47.759Z INFO webdriver: Initiate new session using the WebDriver protocol
+2026-04-29T08:02:47.759Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:57156/
+2026-04-29T08:02:47.759Z INFO webdriver: [POST] http://127.0.0.1:57156/session
+2026-04-29T08:02:49.529Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+2026-04-29T08:02:49.529Z INFO webdriver: Retrying 1/3
+2026-04-29T08:02:49.529Z INFO webdriver: [POST] http://127.0.0.1:57156/session
+2026-04-29T08:02:51.490Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+2026-04-29T08:02:51.490Z INFO webdriver: Retrying 2/3
+2026-04-29T08:02:51.490Z INFO webdriver: [POST] http://127.0.0.1:57156/session
+2026-04-29T08:02:54.417Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+2026-04-29T08:02:54.417Z INFO webdriver: Retrying 3/3
+2026-04-29T08:02:54.417Z INFO webdriver: [POST] http://127.0.0.1:57156/session
+2026-04-29T08:02:56.072Z ERROR webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+2026-04-29T08:02:56.072Z ERROR webdriver: Error: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+    at FetchRequest._libRequest (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1947:13)
+    at async FetchRequest._request (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1973:20)
+    at async startWebDriverSession (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1110:16)
+    at async _WebDriver.newSession (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1532:41)
+    at async remote (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriverio/build/node.js:9848:20)
+    at async createSession (D:\工作\stu\appium\lib\appium-session.js:40:18)
+    at async runAppiumScriptMx (D:\工作\stu\appium\appium-script-mx.js:99:18)
+    at async runAppiumMainWithRetryMx (D:\工作\stu\appium\script-mx.js:26:7)
+    at async main (D:\工作\stu\appium\script-mx.js:59:5)
+路径 / 连接失败: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+尝试 Appium: http://127.0.0.1:57156/wd/hub (第2/3轮)
+2026-04-29T08:02:56.072Z INFO webdriver: Initiate new session using the WebDriver protocol
+2026-04-29T08:02:56.072Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:57156/wd/hub
+2026-04-29T08:02:56.073Z INFO webdriver: [POST] http://127.0.0.1:57156/wd/hub/session
+2026-04-29T08:02:58.277Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+2026-04-29T08:02:58.277Z INFO webdriver: Retrying 1/3
+2026-04-29T08:02:58.277Z INFO webdriver: [POST] http://127.0.0.1:57156/wd/hub/session
+2026-04-29T08:03:00.568Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+2026-04-29T08:03:00.568Z INFO webdriver: Retrying 2/3
+2026-04-29T08:03:00.568Z INFO webdriver: [POST] http://127.0.0.1:57156/wd/hub/session
+2026-04-29T08:03:03.200Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+2026-04-29T08:03:03.201Z INFO webdriver: Retrying 3/3
+2026-04-29T08:03:03.201Z INFO webdriver: [POST] http://127.0.0.1:57156/wd/hub/session
+2026-04-29T08:03:05.038Z ERROR webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+2026-04-29T08:03:05.038Z ERROR webdriver: Error: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+    at FetchRequest._libRequest (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1947:13)
+    at async FetchRequest._request (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1973:20)
+    at async startWebDriverSession (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1110:16)
+    at async _WebDriver.newSession (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1532:41)
+    at async remote (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriverio/build/node.js:9848:20)
+    at async createSession (D:\工作\stu\appium\lib\appium-session.js:40:18)
+    at async runAppiumScriptMx (D:\工作\stu\appium\appium-script-mx.js:99:18)
+    at async runAppiumMainWithRetryMx (D:\工作\stu\appium\script-mx.js:26:7)
+    at async main (D:\工作\stu\appium\script-mx.js:59:5)
+路径 /wd/hub 连接失败: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+尝试 Appium: http://127.0.0.1:57156/ (第3/3轮)
+2026-04-29T08:03:06.247Z INFO webdriver: Initiate new session using the WebDriver protocol
+2026-04-29T08:03:06.247Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:57156/
+2026-04-29T08:03:06.247Z INFO webdriver: [POST] http://127.0.0.1:57156/session
+2026-04-29T08:03:07.880Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+2026-04-29T08:03:07.880Z INFO webdriver: Retrying 1/3
+2026-04-29T08:03:07.880Z INFO webdriver: [POST] http://127.0.0.1:57156/session
+2026-04-29T08:03:09.914Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+2026-04-29T08:03:09.914Z INFO webdriver: Retrying 2/3
+2026-04-29T08:03:09.914Z INFO webdriver: [POST] http://127.0.0.1:57156/session
+2026-04-29T08:03:12.744Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+2026-04-29T08:03:12.744Z INFO webdriver: Retrying 3/3
+2026-04-29T08:03:12.745Z INFO webdriver: [POST] http://127.0.0.1:57156/session
+2026-04-29T08:03:14.686Z ERROR webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+2026-04-29T08:03:14.686Z ERROR webdriver: Error: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+    at FetchRequest._libRequest (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1947:13)
+    at async FetchRequest._request (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1973:20)
+    at async startWebDriverSession (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1110:16)
+    at async _WebDriver.newSession (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1532:41)
+    at async remote (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriverio/build/node.js:9848:20)
+    at async createSession (D:\工作\stu\appium\lib\appium-session.js:40:18)
+    at async runAppiumScriptMx (D:\工作\stu\appium\appium-script-mx.js:99:18)
+    at async runAppiumMainWithRetryMx (D:\工作\stu\appium\script-mx.js:26:7)
+    at async main (D:\工作\stu\appium\script-mx.js:59:5)
+路径 / 连接失败: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/session" with method "POST"
+尝试 Appium: http://127.0.0.1:57156/wd/hub (第3/3轮)
+2026-04-29T08:03:14.687Z INFO webdriver: Initiate new session using the WebDriver protocol
+2026-04-29T08:03:14.687Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:57156/wd/hub
+2026-04-29T08:03:14.687Z INFO webdriver: [POST] http://127.0.0.1:57156/wd/hub/session
+2026-04-29T08:03:16.512Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+2026-04-29T08:03:16.512Z INFO webdriver: Retrying 1/3
+2026-04-29T08:03:16.512Z INFO webdriver: [POST] http://127.0.0.1:57156/wd/hub/session
+2026-04-29T08:03:18.559Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+2026-04-29T08:03:18.560Z INFO webdriver: Retrying 2/3
+2026-04-29T08:03:18.560Z INFO webdriver: [POST] http://127.0.0.1:57156/wd/hub/session
+2026-04-29T08:03:21.059Z WARN webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+2026-04-29T08:03:21.059Z INFO webdriver: Retrying 3/3
+2026-04-29T08:03:21.059Z INFO webdriver: [POST] http://127.0.0.1:57156/wd/hub/session
+2026-04-29T08:03:22.809Z ERROR webdriver: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+2026-04-29T08:03:22.809Z ERROR webdriver: Error: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+    at FetchRequest._libRequest (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1947:13)
+    at async FetchRequest._request (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1973:20)
+    at async startWebDriverSession (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1110:16)
+    at async _WebDriver.newSession (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriver/build/node.js:1532:41)
+    at async remote (file:///D:/%E5%B7%A5%E4%BD%9C/stu/appium/node_modules/webdriverio/build/node.js:9848:20)
+    at async createSession (D:\工作\stu\appium\lib\appium-session.js:40:18)
+    at async runAppiumScriptMx (D:\工作\stu\appium\appium-script-mx.js:99:18)
+    at async runAppiumMainWithRetryMx (D:\工作\stu\appium\script-mx.js:26:7)
+    at async main (D:\工作\stu\appium\script-mx.js:59:5)
+路径 /wd/hub 连接失败: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+已关闭脚本自动启动的 Appium 进程
+[开始] 断开ADB连接
+执行: D:\工作\stu\appium\platform-tools\adb.exe disconnect 124.236.70.143:21287
+adb disconnect 输出: disconnected 124.236.70.143:21287
+[完成] 断开ADB连接
+墨西哥脚本执行失败: Error: 无法创建设备会话，请检查本地 Appium 服务、ADB 连接和能力参数。
+最后错误: WebDriverError: Request failed with error code UND_ERR_SOCKET when running "http://127.0.0.1:57156/wd/hub/session" with method "POST"
+    at createSession (D:\工作\stu\appium\lib\appium-session.js:78:9)
+    at async runAppiumScriptMx (D:\工作\stu\appium\appium-script-mx.js:99:18)
+    at async runAppiumMainWithRetryMx (D:\工作\stu\appium\script-mx.js:26:7)
+    at async main (D:\工作\stu\appium\script-mx.js:59:5)
+
+=== 单设备结束 ===
+exit=1
+endedAt=2026-04-29T08:03:22.878Z

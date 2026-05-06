@@ -124,6 +124,10 @@
     <div class="actions">
       <button id="addRow">新增一行</button>
       <button id="uploadExcel">上传文件读取10组账号</button>
+      <select id="countrySelect">
+        <option value="us" selected>国家：美国 (US)</option>
+        <option value="mx">国家：墨西哥 (MX)</option>
+      </select>
       <select id="globalEmailSelect">
         <option value="">全表邮箱序号（可选）</option>
       </select>
@@ -155,6 +159,7 @@
       const tbody = document.querySelector("#deviceTable tbody");
       const msg = document.querySelector("#msg");
       const globalEmailSelect = document.querySelector("#globalEmailSelect");
+      const countrySelect = document.querySelector("#countrySelect");
 
       tbody.addEventListener("focusin", (e) => {
         const t = e.target;
@@ -443,6 +448,7 @@
           email: selected.email,
           googlePassword: selected.googlePassword
         };
+        const country = String(countrySelect?.value || "us").trim().toLowerCase();
 
         const startBtn = tr.querySelector('[data-start="1"]');
         const startSecondBtn = tr.querySelector('[data-start-second="1"]');
@@ -464,7 +470,7 @@
           const resp = await fetch("/api/run", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ device: requestDevice, runMode })
+            body: JSON.stringify({ device: requestDevice, runMode, country })
           });
           const result = await resp.json();
           if (!resp.ok) {
@@ -484,7 +490,7 @@
           tr.dataset.runId = result.id;
           setRowStatus(
             tr,
-            `已${runMode === "register" ? "启动" : "二次启动"}(pid=${result.pid}) | p${result.appiumPort}`,
+            `已${runMode === "register" ? "启动" : "二次启动"}(${String(result.country || country).toUpperCase()}, pid=${result.pid}) | p${result.appiumPort}`,
             "running"
           );
           tr.title = result.logFile || "";

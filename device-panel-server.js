@@ -14,6 +14,8 @@ const HTML_FILE = path.join(ROOT, "device-config.html");
 const XLSX_FILE = path.join(ROOT, "node_modules", "xlsx", "dist", "xlsx.full.min.js");
 const SCRIPT_FILE = path.join(ROOT, "script.js");
 const SCRIPT_SECOND_FILE = path.join(ROOT, "script-second.js");
+const SCRIPT_MX_FILE = path.join(ROOT, "script-mx.js");
+const SCRIPT_SECOND_MX_FILE = path.join(ROOT, "script-second-mx.js");
 const LOCAL_ADB_PATH = path.join(ROOT, "platform-tools", "adb.exe");
 const LOGS_DIR = path.join(ROOT, "logs");
 const APPIUM_PORT_BASE = Number(process.env.APPIUM_PORT_BASE || 4720);
@@ -131,14 +133,35 @@ async function findFreePort() {
   throw new Error("未能获取系统空闲端口，请稍后重试。");
 }
 
-function resolveScriptByRunMode(runMode) {
-  if (runMode === "register-second") {
-    return SCRIPT_SECOND_FILE;
+const SUPPORTED_COUNTRIES = new Set(["us", "mx"]);
+const SCRIPT_BY_COUNTRY_AND_MODE = {
+  us: {
+    register: SCRIPT_FILE,
+    "register-second": SCRIPT_SECOND_FILE
+  },
+  mx: {
+    register: SCRIPT_MX_FILE,
+    "register-second": SCRIPT_SECOND_MX_FILE
   }
-  return SCRIPT_FILE;
+};
+
+function normalizeCountry(country) {
+  return String(country || "us").trim().toLowerCase();
 }
 
-async function createRun(device, runMode = "register") {
+function resolveScriptByRunMode(runMode, country) {
+  const normalizedCountry = normalizeCountry(country);
+  const group = SCRIPT_BY_COUNTRY_AND_MODE[normalizedCountry];
+  if (!group || !group[runMode]) {
+    throw new Error(`未找到脚本映射: country=${normalizedCountry}, runMode=${runMode}`);
+  }
+  return {
+    scriptFile: group[runMode],
+    country: normalizedCountry
+  };
+}
+
+async function createRun(device, runMode = "register", country = "us") {
   fs.mkdirSync(LOGS_DIR, { recursive: true });
   const appiumPort = await findFreePort();
 
@@ -147,10 +170,13 @@ async function createRun(device, runMode = "register") {
   const safeEndpoint = String(device.endpoint).replace(/[:/\\]/g, "_");
   const logFile = path.join(LOGS_DIR, `${timestamp}_${safeEndpoint}_p${appiumPort}.log`);
 
-  const scriptFile = resolveScriptByRunMode(runMode);
+  const resolved = resolveScriptByRunMode(runMode, country);
+  const scriptFile = resolved.scriptFile;
   if (!fs.existsSync(scriptFile)) {
     reservedPorts.delete(appiumPort);
-    throw new Error(`未找到脚本文件: ${path.basename(scriptFile)}（runMode=${runMode}）`);
+    throw new Error(
+      `未找到脚本文件: ${path.basename(scriptFile)}（runMode=${runMode}, country=${resolved.country}）`
+    );
   }
 
   const args = [
@@ -174,6 +200,7 @@ async function createRun(device, runMode = "register") {
   const state = {
     id,
     runMode,
+    country: resolved.country,
     endpoint: device.endpoint,
     appiumPort,
     logFile,
@@ -189,7 +216,9 @@ async function createRun(device, runMode = "register") {
 
   const logStream = fs.createWriteStream(logFile, { flags: "a" });
   logStream.write(`=== 单设备启动 ===\n`);
-  logStream.write(`runMode=${runMode}\nendpoint=${device.endpoint}\nappiumPort=${appiumPort}\n`);
+  logStream.write(
+    `runMode=${runMode}\ncountry=${resolved.country}\nendpoint=${device.endpoint}\nappiumPort=${appiumPort}\n`
+  );
   logStream.write(`startedAt=${state.startedAt}\n\n`);
 
   child.stdout.on("data", (chunk) => {
@@ -356,6 +385,7 @@ const server = http.createServer(async (req, res) => {
       const payload = JSON.parse(body || "{}");
       const device = payload.device || {};
       const runMode = String(payload.runMode || "register");
+      const country = normalizeCountry(payload.country || "us");
       const validationError = validateDevice(device);
       if (validationError) {
         json(res, 400, { error: validationError });
@@ -365,11 +395,16 @@ const server = http.createServer(async (req, res) => {
         json(res, 400, { error: `不支持的 runMode: ${runMode}` });
         return;
       }
+      if (!SUPPORTED_COUNTRIES.has(country)) {
+        json(res, 400, { error: `不支持的 country: ${country}` });
+        return;
+      }
 
-      const run = await createRun(device, runMode);
+      const run = await createRun(device, runMode, country);
       json(res, 200, {
         id: run.id,
         runMode: run.runMode,
+        country: run.country,
         status: run.status,
         endpoint: run.endpoint,
         appiumPort: run.appiumPort,

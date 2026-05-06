@@ -33,7 +33,7 @@ async function resolveElementRect(driver, element) {
   }
 }
 
-async function readCurrentBirthdayYear(driver) {
+async function readCurrentBirthdayYearMx(driver) {
   const selectors = [
     'android=new UiSelector().resourceId("com.zhiliaoapp.musically:id/k5o")',
     '//*[@resource-id="com.zhiliaoapp.musically:id/k5o"]',
@@ -118,11 +118,11 @@ async function readCurrentBirthdayYear(driver) {
   return null;
 }
 
-function isYearInRange(year, yearMin, yearMax) {
+function isYearInRangeMx(year, yearMin, yearMax) {
   return Number.isFinite(year) && year >= yearMin && year <= yearMax;
 }
 
-async function nudgeBirthdayYear(driver, direction) {
+async function nudgeBirthdayYearMx(driver, direction) {
   const yearPicker = await driver.$(
     '//*[contains(@resource-id,"id/year_picker") or contains(@content-desc,"Year picker")]'
   );
@@ -157,7 +157,7 @@ async function nudgeBirthdayYear(driver, direction) {
         await driver.pause(220);
         return;
       } catch (err) {
-        console.log(`年份滑轮纠偏失败，改用坐标滑动手势: ${String(err?.message || err)}`);
+        console.log(`墨西哥年份滑轮纠偏失败，改用坐标滑动手势: ${String(err?.message || err)}`);
       }
     }
   }
@@ -179,7 +179,7 @@ async function nudgeBirthdayYear(driver, direction) {
   await driver.pause(240);
 }
 
-async function ensureBirthdayYearInRangeBeforeNext(
+async function ensureBirthdayYearInRangeBeforeContinuarMx(
   driver,
   yearMin = TK_BIRTHDAY_YEAR_MIN,
   yearMax = TK_BIRTHDAY_YEAR_MAX,
@@ -190,7 +190,7 @@ async function ensureBirthdayYearInRangeBeforeNext(
   const endAt = Date.now() + 25000;
 
   for (let i = 0; i < maxIterations && Date.now() < endAt; i++) {
-    const year = await readCurrentBirthdayYear(driver);
+    const year = await readCurrentBirthdayYearMx(driver);
     if (year == null) {
       consecutiveInRange = 0;
       await driver.pause(280);
@@ -200,30 +200,30 @@ async function ensureBirthdayYearInRangeBeforeNext(
       consecutiveInRange = 0;
       const direction = year > yearMax ? "down" : "up";
       console.log(
-        `生日年份越界: ${year}（要求 ${yearMin}-${yearMax}），阻止点击继续，继续向${direction === "down" ? "下" : "上"}纠偏...`
+        `墨西哥生日年份越界: ${year}（要求 ${yearMin}-${yearMax}），阻止点击继续，继续向${direction === "down" ? "下" : "上"}纠偏...`
       );
-      await nudgeBirthdayYear(driver, direction);
+      await nudgeBirthdayYearMx(driver, direction);
       continue;
     }
 
     consecutiveInRange += 1;
     console.log(
-      `生日年份在合法区间: ${year}（连续命中 ${consecutiveInRange}/${stableHitsRequired} 次后允许继续）`
+      `墨西哥生日年份在合法区间: ${year}（连续命中 ${consecutiveInRange}/${stableHitsRequired} 次后允许继续）`
     );
     if (consecutiveInRange >= stableHitsRequired) {
       console.log(
-        `已连续 ${stableHitsRequired} 次读到合适年份 ${yearMin}-${yearMax}，允许点击 Next / Continue。`
+        `墨西哥已连续 ${stableHitsRequired} 次读到合适年份 ${yearMin}-${yearMax}，允许点击 Continuar。`
       );
       return;
     }
     await driver.pause(220);
   }
   throw new Error(
-    `生日年份纠偏超时：未能在限制步数内连续 ${stableHitsRequired} 次读到 ${yearMin}-${yearMax}（或超过 25s），已阻止点击继续。`
+    `墨西哥生日年份纠偏超时：未能在限制步数内连续 ${stableHitsRequired} 次读到 ${yearMin}-${yearMax}（或超过 25s），已阻止点击继续。`
   );
 }
 
-async function ensureBirthdayYearStableForClick(
+async function ensureBirthdayYearStableForClickMx(
   driver,
   yearMin = TK_BIRTHDAY_YEAR_MIN,
   yearMax = TK_BIRTHDAY_YEAR_MAX,
@@ -234,12 +234,12 @@ async function ensureBirthdayYearStableForClick(
   const deadline = Date.now() + 10000;
 
   while (Date.now() < deadline) {
-    const y = await readCurrentBirthdayYear(driver);
-    if (!isYearInRange(y, yearMin, yearMax)) {
+    const y = await readCurrentBirthdayYearMx(driver);
+    if (!isYearInRangeMx(y, yearMin, yearMax)) {
       stableCount = 0;
       lastYear = null;
       const direction = y != null && y > yearMax ? "down" : "up";
-      await nudgeBirthdayYear(driver, direction);
+      await nudgeBirthdayYearMx(driver, direction);
       continue;
     }
 
@@ -257,21 +257,22 @@ async function ensureBirthdayYearStableForClick(
   }
 
   throw new Error(
-    `点击前稳定校验失败：未能在 10s 内连续 ${sameYearHitsRequired} 次读到同一年且位于 ${yearMin}-${yearMax}`
+    `墨西哥点击前稳定校验失败：未能在 10s 内连续 ${sameYearHitsRequired} 次读到同一年且位于 ${yearMin}-${yearMax}`
   );
 }
 
-async function clickTkBirthdayNext(driver) {
-  await ensureBirthdayYearInRangeBeforeNext(driver, TK_BIRTHDAY_YEAR_MIN, TK_BIRTHDAY_YEAR_MAX, 3);
+async function clickTkBirthdayContinuarMx(driver) {
+  await ensureBirthdayYearInRangeBeforeContinuarMx(driver, TK_BIRTHDAY_YEAR_MIN, TK_BIRTHDAY_YEAR_MAX, 3);
   const selectors = [
-    'android=new UiSelector().text("Continue")',
-    'android=new UiSelector().text("CONTINUE")',
-    'android=new UiSelector().text("Next")',
-    'android=new UiSelector().text("NEXT")',
-    'android=new UiSelector().textContains("Next")',
-    'android=new UiSelector().description("Continue")',
-    'android=new UiSelector().description("Next")',
-    '//*[@text="Continue" or @text="CONTINUE" or @text="Next" or @text="NEXT" or @content-desc="Continue" or @content-desc="CONTINUE" or @content-desc="Next" or @content-desc="NEXT"]'
+    'android=new UiSelector().text("Continuar")',
+    'android=new UiSelector().text("CONTINUAR")',
+    'android=new UiSelector().textContains("Continuar")',
+    'android=new UiSelector().text("Siguiente")',
+    'android=new UiSelector().text("SIGUIENTE")',
+    'android=new UiSelector().textContains("Siguiente")',
+    'android=new UiSelector().description("Continuar")',
+    'android=new UiSelector().description("Siguiente")',
+    '//*[@text="Continuar" or @text="CONTINUAR" or @content-desc="Continuar" or @content-desc="CONTINUAR" or @text="Siguiente" or @text="SIGUIENTE" or @content-desc="Siguiente" or @content-desc="SIGUIENTE"]'
   ];
   const timeoutMs = 30000;
   const pollIntervalMs = 1500;
@@ -283,28 +284,28 @@ async function clickTkBirthdayNext(driver) {
       try {
         const elements = await driver.$$(selector);
         for (const element of elements) {
-          await ensureBirthdayYearStableForClick(driver, TK_BIRTHDAY_YEAR_MIN, TK_BIRTHDAY_YEAR_MAX, 3);
-          const y1 = await readCurrentBirthdayYear(driver);
-          if (!isYearInRange(y1, TK_BIRTHDAY_YEAR_MIN, TK_BIRTHDAY_YEAR_MAX)) {
+          await ensureBirthdayYearStableForClickMx(driver, TK_BIRTHDAY_YEAR_MIN, TK_BIRTHDAY_YEAR_MAX, 3);
+          const y1 = await readCurrentBirthdayYearMx(driver);
+          if (!isYearInRangeMx(y1, TK_BIRTHDAY_YEAR_MIN, TK_BIRTHDAY_YEAR_MAX)) {
             const direction = y1 != null && y1 > TK_BIRTHDAY_YEAR_MAX ? "down" : "up";
-            console.log(`点击前复核年份失败: ${String(y1)}，继续纠偏后再尝试点击。`);
-            await nudgeBirthdayYear(driver, direction);
+            console.log(`墨西哥点击前复核年份失败: ${String(y1)}，继续纠偏后再尝试点击。`);
+            await nudgeBirthdayYearMx(driver, direction);
             continue;
           }
           await driver.pause(180);
-          const y2 = await readCurrentBirthdayYear(driver);
-          if (!isYearInRange(y2, TK_BIRTHDAY_YEAR_MIN, TK_BIRTHDAY_YEAR_MAX)) {
+          const y2 = await readCurrentBirthdayYearMx(driver);
+          if (!isYearInRangeMx(y2, TK_BIRTHDAY_YEAR_MIN, TK_BIRTHDAY_YEAR_MAX)) {
             const direction = y2 != null && y2 > TK_BIRTHDAY_YEAR_MAX ? "down" : "up";
-            console.log(`点击前二次复核年份失败: ${String(y2)}，继续纠偏后再尝试点击。`);
-            await nudgeBirthdayYear(driver, direction);
+            console.log(`墨西哥点击前二次复核年份失败: ${String(y2)}，继续纠偏后再尝试点击。`);
+            await nudgeBirthdayYearMx(driver, direction);
             continue;
           }
           await driver.pause(80);
-          const y3 = await readCurrentBirthdayYear(driver);
-          if (!isYearInRange(y3, TK_BIRTHDAY_YEAR_MIN, TK_BIRTHDAY_YEAR_MAX)) {
+          const y3 = await readCurrentBirthdayYearMx(driver);
+          if (!isYearInRangeMx(y3, TK_BIRTHDAY_YEAR_MIN, TK_BIRTHDAY_YEAR_MAX)) {
             const direction = y3 != null && y3 > TK_BIRTHDAY_YEAR_MAX ? "down" : "up";
-            console.log(`点击前三次复核年份失败: ${String(y3)}，继续纠偏后再尝试点击。`);
-            await nudgeBirthdayYear(driver, direction);
+            console.log(`墨西哥点击前三次复核年份失败: ${String(y3)}，继续纠偏后再尝试点击。`);
+            await nudgeBirthdayYearMx(driver, direction);
             continue;
           }
 
@@ -314,13 +315,13 @@ async function clickTkBirthdayNext(driver) {
             continue;
           }
           await element.click();
-          console.log(`已点击生日页继续按钮 Next/Continue (selector: ${selector})`);
+          console.log(`已点击墨西哥生日页继续按钮 Siguiente/Continuar (selector: ${selector})`);
           return;
         }
       } catch (err) {
         if (isUiAutomator2CrashedError(err)) {
           throw new Error(
-            "UiAutomator2 会话已崩溃，请重启 Appium 服务后重试（当前步骤：点击生日页 Next/Continue）。"
+            "UiAutomator2 会话已崩溃，请重启 Appium 服务后重试（当前步骤：点击墨西哥生日页 Siguiente/Continuar）。"
           );
         }
         lastError = err;
@@ -331,14 +332,13 @@ async function clickTkBirthdayNext(driver) {
   }
 
   throw new Error(
-    `未找到生日页 Next/Continue 按钮。最后错误: ${String(lastError?.message || "未知错误")}`
+    `未找到墨西哥生日页 Siguiente/Continuar 按钮。最后错误: ${String(lastError?.message || "未知错误")}`
   );
 }
 
-
 module.exports = {
-  readCurrentBirthdayYear,
-  nudgeBirthdayYear,
-  ensureBirthdayYearInRangeBeforeNext,
-  clickTkBirthdayNext
+  readCurrentBirthdayYearMx,
+  nudgeBirthdayYearMx,
+  ensureBirthdayYearInRangeBeforeContinuarMx,
+  clickTkBirthdayContinuarMx
 };

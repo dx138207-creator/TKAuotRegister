@@ -1,0 +1,1140 @@
+=== 单设备启动 ===
+runMode=register
+country=mx
+endpoint=124.236.70.143:22736
+appiumPort=64157
+startedAt=2026-04-28T10:07:07.513Z
+
+[开始] 启动或复用Appium服务
+尝试自动启动 Appium: D:\工作\stu\appium\node_modules\.bin\appium.cmd server -p 64157
+Appium 自动启动成功: http://127.0.0.1:64157
+[完成] 启动或复用Appium服务
+[开始] ADB连接
+执行: D:\工作\stu\appium\platform-tools\adb.exe connect 124.236.70.143:22736
+adb connect 输出: connected to 124.236.70.143:22736
+[完成] ADB连接
+[开始] ADB鉴权
+执行 ADB Shell 鉴权: D:\工作\stu\appium\platform-tools\adb.exe -s 124.236.70.143:22736 shell rrRBs6Nq
+adb shell 鉴权输出: OK! Login successful.
+ADB Shell 探测通过，SDK=35
+[完成] ADB鉴权
+[开始] 执行墨西哥Appium主流程
+执行墨西哥 Appium 主流程，第 1/2 次
+尝试 Appium: http://127.0.0.1:64157/ (第1/3轮)
+2026-04-28T10:07:13.865Z INFO webdriver: Initiate new session using the WebDriver protocol
+2026-04-28T10:07:13.870Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:64157/
+2026-04-28T10:07:13.905Z INFO webdriver: [POST] http://127.0.0.1:64157/session
+连接成功，sessionId: f3d118f6-0353-4b17-9d8a-062b1c51085e
+[开始] 打开TK
+尝试打开 TK: com.zhiliaoapp.musically
+2026-04-28T10:07:20.380Z INFO webdriver: COMMAND activateApp("com.zhiliaoapp.musically")
+2026-04-28T10:07:20.381Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/appium/device/activate_app
+2026-04-28T10:07:20.381Z INFO webdriver: DATA {"appId":"com.zhiliaoapp.musically"}
+2026-04-28T10:07:20.681Z INFO webdriver: RESULT null
+已打开 TK 应用: com.zhiliaoapp.musically
+[完成] 打开TK
+[开始] 墨西哥欢迎页点击 Aceptar y continuar(可选)
+2026-04-28T10:07:20.683Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Aceptar y continuar")")
+2026-04-28T10:07:20.683Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:07:20.684Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Aceptar y continuar\")"}
+2026-04-28T10:07:20.803Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-000b-ffff-ffff00000012',
+    ELEMENT: '00000000-0000-000b-ffff-ffff00000012'
+  }
+]
+2026-04-28T10:07:20.814Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Aceptar y continuar")")
+2026-04-28T10:07:20.815Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:07:20.815Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Aceptar y continuar\")"}
+2026-04-28T10:07:20.899Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-000b-ffff-ffff00000012',
+    ELEMENT: '00000000-0000-000b-ffff-ffff00000012'
+  }
+]
+2026-04-28T10:07:20.906Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-000b-ffff-ffff00000012")
+2026-04-28T10:07:20.907Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff00000012/displayed
+2026-04-28T10:07:20.991Z INFO webdriver: RESULT true
+2026-04-28T10:07:20.991Z INFO webdriver: COMMAND elementClick("00000000-0000-000b-ffff-ffff00000012")
+2026-04-28T10:07:20.992Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff00000012/click
+2026-04-28T10:07:20.992Z INFO webdriver: DATA {}
+2026-04-28T10:07:21.143Z INFO webdriver: RESULT null
+已点击墨西哥欢迎页按钮: Aceptar y continuar
+[完成] 墨西哥欢迎页点击 Aceptar y continuar(可选)
+[开始] 墨西哥兴趣页可选 Omitir
+2026-04-28T10:07:21.850Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Elige lo que más te guste")")
+2026-04-28T10:07:21.851Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:07:21.851Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Elige lo que más te guste\")"}
+2026-04-28T10:07:24.901Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-000b-ffff-ffff00000136',
+    ELEMENT: '00000000-0000-000b-ffff-ffff00000136'
+  }
+]
+2026-04-28T10:07:24.907Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Elige lo que más te guste")")
+2026-04-28T10:07:24.907Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:07:24.907Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Elige lo que más te guste\")"}
+2026-04-28T10:07:24.989Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-000b-ffff-ffff00000136',
+    ELEMENT: '00000000-0000-000b-ffff-ffff00000136'
+  }
+]
+2026-04-28T10:07:24.993Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-000b-ffff-ffff00000136")
+2026-04-28T10:07:24.994Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff00000136/displayed
+2026-04-28T10:07:25.062Z INFO webdriver: RESULT true
+已检测到墨西哥兴趣页，尝试点击 Omitir...
+2026-04-28T10:07:25.063Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Omitir")")
+2026-04-28T10:07:25.063Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:07:25.063Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Omitir\")"}
+2026-04-28T10:07:25.171Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-000b-ffff-ffff0000012f',
+    ELEMENT: '00000000-0000-000b-ffff-ffff0000012f'
+  }
+]
+2026-04-28T10:07:25.175Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Omitir")")
+2026-04-28T10:07:25.175Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:07:25.175Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Omitir\")"}
+2026-04-28T10:07:25.254Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-000b-ffff-ffff0000012f',
+    ELEMENT: '00000000-0000-000b-ffff-ffff0000012f'
+  }
+]
+2026-04-28T10:07:25.257Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-000b-ffff-ffff0000012f")
+2026-04-28T10:07:25.257Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff0000012f/displayed
+2026-04-28T10:07:25.324Z INFO webdriver: RESULT true
+2026-04-28T10:07:25.324Z INFO webdriver: COMMAND getElementText("00000000-0000-000b-ffff-ffff0000012f")
+2026-04-28T10:07:25.324Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff0000012f/text
+2026-04-28T10:07:25.397Z INFO webdriver: RESULT Omitir
+2026-04-28T10:07:25.397Z INFO webdriver: COMMAND getElementAttribute("00000000-0000-000b-ffff-ffff0000012f", "content-desc")
+2026-04-28T10:07:25.397Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff0000012f/attribute/content-desc
+2026-04-28T10:07:25.462Z INFO webdriver: RESULT 
+2026-04-28T10:07:25.463Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Omitir")")
+2026-04-28T10:07:25.463Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:07:25.463Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Omitir\")"}
+2026-04-28T10:07:25.566Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-000b-ffff-ffff0000012f',
+    ELEMENT: '00000000-0000-000b-ffff-ffff0000012f'
+  }
+]
+2026-04-28T10:07:25.569Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Omitir")")
+2026-04-28T10:07:25.570Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:07:25.570Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Omitir\")"}
+2026-04-28T10:07:25.652Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-000b-ffff-ffff0000012f',
+    ELEMENT: '00000000-0000-000b-ffff-ffff0000012f'
+  }
+]
+2026-04-28T10:07:25.654Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-000b-ffff-ffff0000012f")
+2026-04-28T10:07:25.654Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff0000012f/displayed
+2026-04-28T10:07:25.721Z INFO webdriver: RESULT true
+2026-04-28T10:07:25.721Z INFO webdriver: COMMAND getElementText("00000000-0000-000b-ffff-ffff0000012f")
+2026-04-28T10:07:25.721Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff0000012f/text
+2026-04-28T10:07:25.801Z INFO webdriver: RESULT Omitir
+2026-04-28T10:07:25.801Z INFO webdriver: COMMAND getElementAttribute("00000000-0000-000b-ffff-ffff0000012f", "content-desc")
+2026-04-28T10:07:25.802Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff0000012f/attribute/content-desc
+2026-04-28T10:07:25.872Z INFO webdriver: RESULT 
+2026-04-28T10:07:25.872Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().description("Omitir")")
+2026-04-28T10:07:25.872Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:07:25.873Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().description(\"Omitir\")"}
+2026-04-28T10:07:25.949Z INFO webdriver: RESULT []
+2026-04-28T10:07:25.950Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Omitir")")
+2026-04-28T10:07:25.950Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:07:25.950Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Omitir\")"}
+2026-04-28T10:07:26.040Z INFO webdriver: RESULT []
+2026-04-28T10:07:26.041Z INFO webdriver: COMMAND findElements("xpath", "//*[@text="Omitir" or @content-desc="Omitir"]")
+2026-04-28T10:07:26.041Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:07:26.042Z INFO webdriver: DATA {"using":"xpath","value":"//*[@text=\"Omitir\" or @content-desc=\"Omitir\"]"}
+2026-04-28T10:07:26.413Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-000b-ffff-ffff0000012f',
+    ELEMENT: '00000000-0000-000b-ffff-ffff0000012f'
+  }
+]
+2026-04-28T10:07:26.415Z INFO webdriver: COMMAND findElements("xpath", "//*[@text="Omitir" or @content-desc="Omitir"]")
+2026-04-28T10:07:26.416Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:07:26.416Z INFO webdriver: DATA {"using":"xpath","value":"//*[@text=\"Omitir\" or @content-desc=\"Omitir\"]"}
+2026-04-28T10:07:26.564Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-000b-ffff-ffff0000012f',
+    ELEMENT: '00000000-0000-000b-ffff-ffff0000012f'
+  }
+]
+2026-04-28T10:07:26.566Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-000b-ffff-ffff0000012f")
+2026-04-28T10:07:26.566Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff0000012f/displayed
+2026-04-28T10:07:26.642Z INFO webdriver: RESULT true
+2026-04-28T10:07:26.643Z INFO webdriver: COMMAND getElementText("00000000-0000-000b-ffff-ffff0000012f")
+2026-04-28T10:07:26.643Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff0000012f/text
+2026-04-28T10:07:26.711Z INFO webdriver: RESULT Omitir
+2026-04-28T10:07:26.711Z INFO webdriver: COMMAND getElementAttribute("00000000-0000-000b-ffff-ffff0000012f", "content-desc")
+2026-04-28T10:07:26.711Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff0000012f/attribute/content-desc
+2026-04-28T10:07:26.779Z INFO webdriver: RESULT null
+2026-04-28T10:07:26.779Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(translate(@text,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"omitir")]")
+2026-04-28T10:07:26.779Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:07:26.779Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(translate(@text,\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\"abcdefghijklmnopqrstuvwxyz\"),\"omitir\")]"}
+2026-04-28T10:07:26.893Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-000b-ffff-ffff0000012f',
+    ELEMENT: '00000000-0000-000b-ffff-ffff0000012f'
+  }
+]
+2026-04-28T10:07:26.895Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(translate(@text,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"omitir")]")
+2026-04-28T10:07:26.895Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:07:26.895Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(translate(@text,\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\"abcdefghijklmnopqrstuvwxyz\"),\"omitir\")]"}
+2026-04-28T10:07:27.027Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-000b-ffff-ffff0000012f',
+    ELEMENT: '00000000-0000-000b-ffff-ffff0000012f'
+  }
+]
+2026-04-28T10:07:27.030Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-000b-ffff-ffff0000012f")
+2026-04-28T10:07:27.030Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff0000012f/displayed
+2026-04-28T10:07:27.095Z INFO webdriver: RESULT true
+2026-04-28T10:07:27.095Z INFO webdriver: COMMAND getElementText("00000000-0000-000b-ffff-ffff0000012f")
+2026-04-28T10:07:27.096Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff0000012f/text
+2026-04-28T10:07:27.157Z INFO webdriver: RESULT Omitir
+2026-04-28T10:07:27.157Z INFO webdriver: COMMAND getElementAttribute("00000000-0000-000b-ffff-ffff0000012f", "content-desc")
+2026-04-28T10:07:27.157Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff0000012f/attribute/content-desc
+2026-04-28T10:07:27.219Z INFO webdriver: RESULT null
+2026-04-28T10:07:27.219Z INFO webdriver: COMMAND getElementRect("00000000-0000-000b-ffff-ffff0000012f")
+2026-04-28T10:07:27.219Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff0000012f/rect
+2026-04-28T10:07:27.292Z INFO webdriver: RESULT { height: 132, width: 480, x: 48, y: 1752 }
+2026-04-28T10:07:27.292Z INFO webdriver: COMMAND getElementRect("00000000-0000-000b-ffff-ffff0000012f")
+2026-04-28T10:07:27.292Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff0000012f/rect
+2026-04-28T10:07:27.350Z INFO webdriver: RESULT { height: 132, width: 480, x: 48, y: 1752 }
+2026-04-28T10:07:27.351Z INFO webdriver: COMMAND getElementAttribute("00000000-0000-000b-ffff-ffff0000012f", "clickable")
+2026-04-28T10:07:27.351Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff0000012f/attribute/clickable
+2026-04-28T10:07:27.410Z INFO webdriver: RESULT true
+2026-04-28T10:07:27.411Z INFO webdriver: COMMAND elementClick("00000000-0000-000b-ffff-ffff0000012f")
+2026-04-28T10:07:27.411Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff0000012f/click
+2026-04-28T10:07:27.411Z INFO webdriver: DATA {}
+2026-04-28T10:07:29.615Z INFO webdriver: RESULT null
+已在墨西哥兴趣页点击 Omitir（优先底部按钮）(selector: android=new UiSelector().textContains("Omitir"))
+[完成] 墨西哥兴趣页可选 Omitir
+[开始] 墨西哥上滑引导可选15秒
+2026-04-28T10:07:29.615Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Desliza hacia arriba para empezar a ver")")
+2026-04-28T10:07:29.615Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:07:29.615Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Desliza hacia arriba para empezar a ver\")"}
+2026-04-28T10:07:29.688Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-000b-ffff-ffff00000155',
+    ELEMENT: '00000000-0000-000b-ffff-ffff00000155'
+  }
+]
+2026-04-28T10:07:29.690Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Desliza hacia arriba para empezar a ver")")
+2026-04-28T10:07:29.690Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:07:29.690Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Desliza hacia arriba para empezar a ver\")"}
+2026-04-28T10:07:29.765Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-000b-ffff-ffff00000155',
+    ELEMENT: '00000000-0000-000b-ffff-ffff00000155'
+  }
+]
+2026-04-28T10:07:29.767Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-000b-ffff-ffff00000155")
+2026-04-28T10:07:29.767Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-000b-ffff-ffff00000155/displayed
+2026-04-28T10:07:29.839Z INFO webdriver: RESULT true
+2026-04-28T10:07:29.839Z INFO webdriver: COMMAND getWindowRect()
+2026-04-28T10:07:29.840Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/window/rect
+2026-04-28T10:07:29.914Z INFO webdriver: RESULT { width: 1080, height: 1920, x: 0, y: 0 }
+2026-04-28T10:07:29.914Z INFO webdriver: COMMAND executeScript("mobile: swipeGesture", <object>)
+2026-04-28T10:07:29.914Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/execute/sync
+2026-04-28T10:07:29.914Z INFO webdriver: DATA {"script":"mobile: swipeGesture","args":[{"left":0,"top":0,"width":1080,"height":1920,"direction":"up","percent":0.55}]}
+2026-04-28T10:07:30.109Z INFO webdriver: RESULT null
+2026-04-28T10:07:30.561Z INFO webdriver: COMMAND executeScript("mobile: swipeGesture", <object>)
+2026-04-28T10:07:30.562Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/execute/sync
+2026-04-28T10:07:30.562Z INFO webdriver: DATA {"script":"mobile: swipeGesture","args":[{"left":0,"top":0,"width":1080,"height":1920,"direction":"up","percent":0.55}]}
+2026-04-28T10:07:30.810Z INFO webdriver: RESULT null
+已在墨西哥上滑引导页执行两次向上滑动。
+[完成] 墨西哥上滑引导可选15秒
+[开始] 点击右下角 Perfil 进入个人主页
+2026-04-28T10:07:31.267Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Para ti")")
+2026-04-28T10:07:31.267Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:07:31.267Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Para ti\")"}
+2026-04-28T10:08:02.432Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0011-ffff-ffff0000007d',
+    ELEMENT: '00000000-0000-0011-ffff-ffff0000007d'
+  }
+]
+2026-04-28T10:08:02.433Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Para ti")")
+2026-04-28T10:08:02.433Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:08:02.433Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Para ti\")"}
+[超时] 点击右下角 Perfil 进入个人主页 超过 45s，进入下一步
+[开始] 点击 Continuar con Google
+2026-04-28T10:08:16.267Z INFO webdriver: COMMAND findElements("accessibility id", "Continuar con Google")
+2026-04-28T10:08:16.267Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:08:16.267Z INFO webdriver: DATA {"using":"accessibility id","value":"Continuar con Google"}
+2026-04-28T10:08:33.077Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0011-ffff-ffff0000007d',
+    ELEMENT: '00000000-0000-0011-ffff-ffff0000007d'
+  }
+]
+2026-04-28T10:08:33.079Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0011-ffff-ffff0000007d")
+2026-04-28T10:08:33.079Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-0011-ffff-ffff0000007d/displayed
+2026-04-28T10:08:43.557Z INFO webdriver: RESULT []
+2026-04-28T10:08:43.558Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Continuar con Google")")
+2026-04-28T10:08:43.558Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:08:43.558Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Continuar con Google\")"}
+[超时] 点击 Continuar con Google 超过 45s，进入下一步
+[开始] Sign in with ease可选SKIP
+2026-04-28T10:09:01.276Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().resourceId("identifierId")")
+2026-04-28T10:09:01.277Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:09:01.277Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().resourceId(\"identifierId\")"}
+2026-04-28T10:09:14.256Z INFO webdriver: RESULT true
+2026-04-28T10:09:14.256Z INFO webdriver: COMMAND isKeyboardShown()
+2026-04-28T10:09:14.256Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/appium/device/is_keyboard_shown
+2026-04-28T10:09:34.921Z INFO webdriver: RESULT []
+2026-04-28T10:09:34.922Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Continuar con Google")")
+2026-04-28T10:09:34.922Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:09:34.922Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Continuar con Google\")"}
+[超时] Sign in with ease可选SKIP 超过 45s，进入下一步
+[开始] 输入Google账号
+2026-04-28T10:09:46.288Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().resourceId("identifierId")")
+2026-04-28T10:09:46.288Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:09:46.288Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().resourceId(\"identifierId\")"}
+2026-04-28T10:09:55.632Z INFO webdriver: RESULT []
+2026-04-28T10:09:55.633Z INFO webdriver: COMMAND findElements("xpath", "//*[@resource-id="identifierId" and contains(@class,"EditText")]")
+2026-04-28T10:09:55.634Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:09:55.634Z INFO webdriver: DATA {"using":"xpath","value":"//*[@resource-id=\"identifierId\" and contains(@class,\"EditText\")]"}
+2026-04-28T10:09:56.112Z INFO webdriver: RESULT false
+2026-04-28T10:09:56.112Z INFO webdriver: COMMAND getWindowRect()
+2026-04-28T10:09:56.113Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/window/rect
+2026-04-28T10:10:16.540Z INFO webdriver: RESULT []
+2026-04-28T10:10:16.542Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Google")")
+2026-04-28T10:10:16.542Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:10:16.542Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Google\")"}
+[超时] 输入Google账号 超过 45s，进入下一步
+[开始] 点击邮箱页 SIGUIENTE
+2026-04-28T10:10:31.293Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("SIGUIENTE")")
+2026-04-28T10:10:31.294Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:10:31.294Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"SIGUIENTE\")"}
+2026-04-28T10:10:37.003Z INFO webdriver: RESULT []
+2026-04-28T10:10:37.004Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().className("android.widget.EditText")")
+2026-04-28T10:10:37.005Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:10:37.005Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().className(\"android.widget.EditText\")"}
+2026-04-28T10:10:47.640Z INFO webdriver: RESULT []
+2026-04-28T10:10:47.642Z INFO webdriver: The standard Appium `contexts` method is used. If you want to get more detailed data, you can set `returnDetailedContexts` to `true`.
+2026-04-28T10:10:47.642Z INFO webdriver: COMMAND getAppiumContexts()
+2026-04-28T10:10:47.643Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/contexts
+2026-04-28T10:10:47.719Z INFO webdriver: RESULT { width: 1080, height: 1920, x: 0, y: 0 }
+2026-04-28T10:10:47.720Z INFO webdriver: COMMAND executeScript("mobile: swipeGesture", <object>)
+2026-04-28T10:10:47.720Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/execute/sync
+2026-04-28T10:10:47.720Z INFO webdriver: DATA {"script":"mobile: swipeGesture","args":[{"left":108,"top":1056,"width":864,"height":480,"direction":"up","percent":0.22}]}
+2026-04-28T10:11:08.195Z INFO webdriver: RESULT []
+2026-04-28T10:11:08.196Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().description("Continuar con Google")")
+2026-04-28T10:11:08.197Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:11:08.197Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().description(\"Continuar con Google\")"}
+[超时] 点击邮箱页 SIGUIENTE 超过 45s，进入下一步
+[开始] 等待墨西哥密码页出现
+2026-04-28T10:11:16.307Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Ingresa tu contraseña")")
+2026-04-28T10:11:16.307Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:11:16.307Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Ingresa tu contraseña\")"}
+2026-04-28T10:11:28.623Z INFO webdriver: RESULT []
+2026-04-28T10:11:28.624Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("SIGUIENTE")")
+2026-04-28T10:11:28.624Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:11:28.624Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"SIGUIENTE\")"}
+2026-04-28T10:11:49.042Z INFO webdriver: RESULT []
+2026-04-28T10:11:49.043Z INFO webdriver: COMMAND findElements("xpath", "//*[@resource-id="identifierId" and contains(@class,"EditText")]")
+2026-04-28T10:11:49.043Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:11:49.043Z INFO webdriver: DATA {"using":"xpath","value":"//*[@resource-id=\"identifierId\" and contains(@class,\"EditText\")]"}
+2026-04-28T10:11:49.622Z INFO webdriver: RESULT [ 'NATIVE_APP', 'WEBVIEW_JsEngine_com.zhiliaoapp.musically' ]
+2026-04-28T10:11:49.623Z INFO webdriver: COMMAND getAppiumContext()
+2026-04-28T10:11:49.623Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:11:49.728Z INFO webdriver: RESULT null
+2026-04-28T10:11:49.950Z INFO webdriver: COMMAND findElements("accessibility id", "Perfil")
+2026-04-28T10:11:49.950Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:11:49.950Z INFO webdriver: DATA {"using":"accessibility id","value":"Perfil"}
+[超时] 等待墨西哥密码页出现 超过 45s，进入下一步
+[开始] 输入Google密码
+2026-04-28T10:12:01.310Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().className("android.widget.EditText").focused(true)")
+2026-04-28T10:12:01.310Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:01.310Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().className(\"android.widget.EditText\").focused(true)"}
+2026-04-28T10:12:10.391Z INFO webdriver: RESULT []
+2026-04-28T10:12:10.392Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Continuar con Google")")
+2026-04-28T10:12:10.392Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:10.392Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Continuar con Google\")"}
+2026-04-28T10:12:24.416Z INFO webdriver: RESULT []
+2026-04-28T10:12:24.416Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Mostrar contraseña")")
+2026-04-28T10:12:24.417Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:24.417Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Mostrar contraseña\")"}
+2026-04-28T10:12:24.485Z INFO webdriver: RESULT []
+2026-04-28T10:12:24.486Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().description("SIGUIENTE")")
+2026-04-28T10:12:24.487Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:24.487Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().description(\"SIGUIENTE\")"}
+2026-04-28T10:12:24.580Z INFO webdriver: RESULT []
+2026-04-28T10:12:24.581Z INFO webdriver: COMMAND findElements("xpath", "//*[@class="android.widget.EditText"]")
+2026-04-28T10:12:24.581Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:24.581Z INFO webdriver: DATA {"using":"xpath","value":"//*[@class=\"android.widget.EditText\"]"}
+2026-04-28T10:12:24.583Z INFO webdriver: RESULT NATIVE_APP
+2026-04-28T10:12:24.583Z INFO webdriver: The standard Appium `context`-method is used. If you want to switch to a webview with a specific title or url, please provide an object with the `title` or `url` property. See https://webdriver.io/docs/api/mobile/switchContext for more information.
+2026-04-28T10:12:24.583Z INFO webdriver: COMMAND switchAppiumContext("WEBVIEW_JsEngine_com.zhiliaoapp.musically")
+2026-04-28T10:12:24.583Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:24.584Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:24.650Z INFO webdriver: RESULT []
+2026-04-28T10:12:24.651Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().description("Perfil")")
+2026-04-28T10:12:24.651Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:24.651Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().description(\"Perfil\")"}
+2026-04-28T10:12:24.721Z INFO webdriver: RESULT []
+2026-04-28T10:12:24.721Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().resourceId("password")")
+2026-04-28T10:12:24.721Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:24.722Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().resourceId(\"password\")"}
+2026-04-28T10:12:24.788Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0014-ffff-ffff0000078e',
+    ELEMENT: '00000000-0000-0014-ffff-ffff0000078e'
+  }
+]
+2026-04-28T10:12:24.790Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Continuar con Google")")
+2026-04-28T10:12:24.790Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:24.790Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Continuar con Google\")"}
+2026-04-28T10:12:24.849Z INFO webdriver: RESULT []
+2026-04-28T10:12:24.850Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().resourceId("password")")
+2026-04-28T10:12:24.850Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:24.850Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().resourceId(\"password\")"}
+2026-04-28T10:12:24.921Z INFO webdriver: RESULT []
+2026-04-28T10:12:24.922Z INFO webdriver: COMMAND findElements("xpath", "//*[@text="SIGUIENTE" or @content-desc="SIGUIENTE"]")
+2026-04-28T10:12:24.922Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:24.922Z INFO webdriver: DATA {"using":"xpath","value":"//*[@text=\"SIGUIENTE\" or @content-desc=\"SIGUIENTE\"]"}
+2026-04-28T10:12:25.017Z INFO webdriver: RESULT []
+2026-04-28T10:12:25.019Z INFO webdriver: The standard Appium `contexts` method is used. If you want to get more detailed data, you can set `returnDetailedContexts` to `true`.
+2026-04-28T10:12:25.019Z INFO webdriver: COMMAND getAppiumContexts()
+2026-04-28T10:12:25.019Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/contexts
+2026-04-28T10:12:25.858Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:25.858Z INFO webdriver: Retrying 1/3
+2026-04-28T10:12:25.858Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:25.858Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:26.904Z INFO webdriver: RESULT []
+2026-04-28T10:12:26.905Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Perfil")")
+2026-04-28T10:12:26.905Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:26.905Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Perfil\")"}
+2026-04-28T10:12:27.508Z INFO webdriver: RESULT []
+2026-04-28T10:12:27.509Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Ingresa tu contraseña")")
+2026-04-28T10:12:27.509Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:27.509Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Ingresa tu contraseña\")"}
+2026-04-28T10:12:27.574Z INFO webdriver: RESULT []
+2026-04-28T10:12:27.575Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Google")")
+2026-04-28T10:12:27.575Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:27.575Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Google\")"}
+2026-04-28T10:12:27.639Z INFO webdriver: RESULT []
+2026-04-28T10:12:27.639Z INFO webdriver: The standard Appium `contexts` method is used. If you want to get more detailed data, you can set `returnDetailedContexts` to `true`.
+2026-04-28T10:12:27.639Z INFO webdriver: COMMAND getAppiumContexts()
+2026-04-28T10:12:27.639Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/contexts
+2026-04-28T10:12:27.732Z INFO webdriver: RESULT []
+2026-04-28T10:12:27.734Z INFO webdriver: The standard Appium `contexts` method is used. If you want to get more detailed data, you can set `returnDetailedContexts` to `true`.
+2026-04-28T10:12:27.734Z INFO webdriver: COMMAND getAppiumContexts()
+2026-04-28T10:12:27.735Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/contexts
+2026-04-28T10:12:28.227Z INFO webdriver: RESULT [ 'NATIVE_APP', 'WEBVIEW_JsEngine_com.zhiliaoapp.musically' ]
+2026-04-28T10:12:28.227Z INFO webdriver: COMMAND getAppiumContext()
+2026-04-28T10:12:28.227Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:28.947Z INFO webdriver: RESULT []
+2026-04-28T10:12:28.949Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Perfil")")
+2026-04-28T10:12:28.950Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:28.950Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Perfil\")"}
+2026-04-28T10:12:29.012Z INFO webdriver: RESULT []
+2026-04-28T10:12:29.013Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("contraseña")")
+2026-04-28T10:12:29.014Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:29.014Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"contraseña\")"}
+2026-04-28T10:12:29.110Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0014-ffff-ffff0000078e',
+    ELEMENT: '00000000-0000-0014-ffff-ffff0000078e'
+  },
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0014-ffff-ffff0000078f',
+    ELEMENT: '00000000-0000-0014-ffff-ffff0000078f'
+  }
+]
+2026-04-28T10:12:29.114Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Google")")
+2026-04-28T10:12:29.114Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:29.114Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Google\")"}
+2026-04-28T10:12:29.386Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:29.386Z INFO webdriver: Retrying 2/3
+2026-04-28T10:12:29.386Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:29.386Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:29.642Z INFO webdriver: RESULT [ 'NATIVE_APP', 'WEBVIEW_JsEngine_com.zhiliaoapp.musically' ]
+2026-04-28T10:12:29.642Z INFO webdriver: COMMAND getAppiumContext()
+2026-04-28T10:12:29.643Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:30.050Z INFO webdriver: RESULT [ 'NATIVE_APP', 'WEBVIEW_JsEngine_com.zhiliaoapp.musically' ]
+2026-04-28T10:12:30.051Z INFO webdriver: COMMAND getAppiumContext()
+2026-04-28T10:12:30.051Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:30.052Z INFO webdriver: RESULT NATIVE_APP
+2026-04-28T10:12:30.052Z INFO webdriver: The standard Appium `context`-method is used. If you want to switch to a webview with a specific title or url, please provide an object with the `title` or `url` property. See https://webdriver.io/docs/api/mobile/switchContext for more information.
+2026-04-28T10:12:30.052Z INFO webdriver: COMMAND switchAppiumContext("WEBVIEW_JsEngine_com.zhiliaoapp.musically")
+2026-04-28T10:12:30.052Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:30.052Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:30.121Z INFO webdriver: RESULT []
+2026-04-28T10:12:30.123Z INFO webdriver: COMMAND findElements("xpath", "//*[@content-desc="Perfil" or @text="Perfil"]")
+2026-04-28T10:12:30.123Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:30.123Z INFO webdriver: DATA {"using":"xpath","value":"//*[@content-desc=\"Perfil\" or @text=\"Perfil\"]"}
+2026-04-28T10:12:30.189Z INFO webdriver: RESULT []
+2026-04-28T10:12:30.190Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("contraseña")")
+2026-04-28T10:12:30.190Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:30.190Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"contraseña\")"}
+2026-04-28T10:12:30.267Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0014-ffff-ffff0000078e',
+    ELEMENT: '00000000-0000-0014-ffff-ffff0000078e'
+  },
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0014-ffff-ffff0000078f',
+    ELEMENT: '00000000-0000-0014-ffff-ffff0000078f'
+  }
+]
+2026-04-28T10:12:30.271Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0014-ffff-ffff0000078e")
+2026-04-28T10:12:30.272Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-0014-ffff-ffff0000078e/displayed
+2026-04-28T10:12:30.850Z INFO webdriver: RESULT NATIVE_APP
+2026-04-28T10:12:30.850Z INFO webdriver: The standard Appium `context`-method is used. If you want to switch to a webview with a specific title or url, please provide an object with the `title` or `url` property. See https://webdriver.io/docs/api/mobile/switchContext for more information.
+2026-04-28T10:12:30.850Z INFO webdriver: COMMAND switchAppiumContext("WEBVIEW_JsEngine_com.zhiliaoapp.musically")
+2026-04-28T10:12:30.851Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:30.851Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:30.860Z INFO webdriver: RESULT NATIVE_APP
+2026-04-28T10:12:30.860Z INFO webdriver: The standard Appium `context`-method is used. If you want to switch to a webview with a specific title or url, please provide an object with the `title` or `url` property. See https://webdriver.io/docs/api/mobile/switchContext for more information.
+2026-04-28T10:12:30.860Z INFO webdriver: COMMAND switchAppiumContext("WEBVIEW_JsEngine_com.zhiliaoapp.musically")
+2026-04-28T10:12:30.860Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:30.861Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:31.491Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:31.491Z INFO webdriver: Retrying 1/3
+2026-04-28T10:12:31.492Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:31.492Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:31.586Z INFO webdriver: RESULT []
+2026-04-28T10:12:31.587Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@content-desc,"Perfil") and contains(@class,"FrameLayout")]")
+2026-04-28T10:12:31.587Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:31.587Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@content-desc,\"Perfil\") and contains(@class,\"FrameLayout\")]"}
+2026-04-28T10:12:31.655Z INFO webdriver: RESULT []
+2026-04-28T10:12:31.656Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().className("android.widget.EditText")")
+2026-04-28T10:12:31.656Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:31.656Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().className(\"android.widget.EditText\")"}
+2026-04-28T10:12:31.739Z INFO webdriver: RESULT true
+2026-04-28T10:12:31.739Z INFO webdriver: COMMAND getElementAttribute("00000000-0000-0014-ffff-ffff0000078e", "clickable")
+2026-04-28T10:12:31.739Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-0014-ffff-ffff0000078e/attribute/clickable
+2026-04-28T10:12:31.850Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:31.850Z INFO webdriver: Retrying 3/3
+2026-04-28T10:12:31.850Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:31.851Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:32.377Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:32.377Z INFO webdriver: Retrying 1/3
+2026-04-28T10:12:32.377Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:32.377Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:32.938Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:32.938Z INFO webdriver: Retrying 1/3
+2026-04-28T10:12:32.938Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:32.938Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:33.816Z INFO webdriver: RESULT []
+2026-04-28T10:12:33.817Z INFO webdriver: COMMAND getPageSource()
+2026-04-28T10:12:33.817Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/source
+2026-04-28T10:12:33.883Z INFO webdriver: RESULT []
+2026-04-28T10:12:33.884Z INFO webdriver: COMMAND findElements("xpath", "//*[@resource-id="password" and contains(@class,"EditText")]")
+2026-04-28T10:12:33.884Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:33.884Z INFO webdriver: DATA {"using":"xpath","value":"//*[@resource-id=\"password\" and contains(@class,\"EditText\")]"}
+2026-04-28T10:12:34.088Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:34.088Z INFO webdriver: Retrying 2/3
+2026-04-28T10:12:34.088Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:34.088Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:45.435Z WARN webdriver: Request encountered a stale element - terminating request
+2026-04-28T10:12:45.437Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().descriptionContains("Google")")
+2026-04-28T10:12:45.438Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element
+2026-04-28T10:12:45.438Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Google\")"}
+2026-04-28T10:12:46.172Z ERROR webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:46.172Z INFO webdriver: The standard Appium `context`-method is used. If you want to switch to a webview with a specific title or url, please provide an object with the `title` or `url` property. See https://webdriver.io/docs/api/mobile/switchContext for more information.
+2026-04-28T10:12:46.172Z INFO webdriver: COMMAND switchAppiumContext("NATIVE_APP")
+2026-04-28T10:12:46.172Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:46.172Z INFO webdriver: DATA {"name":"NATIVE_APP"}
+[超时] 输入Google密码 超过 45s，进入下一步
+[开始] 点击密码页 SIGUIENTE
+2026-04-28T10:12:46.311Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("SIGUIENTE")")
+2026-04-28T10:12:46.311Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:46.311Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"SIGUIENTE\")"}
+2026-04-28T10:12:47.348Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:47.348Z INFO webdriver: Retrying 2/3
+2026-04-28T10:12:47.348Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:47.349Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:47.545Z INFO webdriver: RESULT <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="1920">
+  <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+    <android.widget.LinearLayout index="0" package="com.google.android.gms" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+      <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+        <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="com.google.android.gms:id/container" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+          <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="com.google.android.gms:id/interstitial_layout" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+            <android.widget.LinearLayout index="0" package="com.google.android.gms" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+              <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="com.google.android.gms:id/glif_layout" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+                <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="com.google.android.gms:id/suc_layout_status" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+                  <android.widget.LinearLayout index="0" package="com.google.android.gms" class="android.widget.LinearLayout" text="" resource-id="com.google.android.gms:id/sud_layout_template_content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+                    <android.widget.LinearLayout index="0" package="com.google.android.gms" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+                      <android.widget.LinearLayout index="0" package="com.google.android.gms" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+                        <android.widget.ScrollView index="0" package="com.google.android.gms" class="android.widget.ScrollView" text="" resource-id="com.google.android.gms:id/sud_header_scroll_view" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,894]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+                          <android.widget.LinearLayout index="0" package="com.google.android.gms" class="android.widget.LinearLayout" text="" resource-id="com.google.android.gms:id/sud_layout_header" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,894]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+                            <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="com.google.android.gms:id/sud_layout_icon_container" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,240][1008,336]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="3" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+                              <android.widget.ImageView index="0" package="com.google.android.gms" class="android.widget.ImageView" text="" resource-id="com.google.android.gms:id/sud_layout_icon" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,240][168,336]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31" />
+                            </android.widget.FrameLayout>
+                            <android.widget.TextView index="1" package="com.google.android.gms" class="android.widget.TextView" text="Comprobando información…" resource-id="com.google.android.gms:id/suc_layout_title" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,384][1008,481]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="4" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="true" live-region="0" context-clickable="false" content-invalid="false" window-id="31" />
+                          </android.widget.LinearLayout>
+                        </android.widget.ScrollView>
+                        <android.widget.LinearLayout index="1" package="com.google.android.gms" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,894][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+                          <android.widget.LinearLayout index="0" package="com.google.android.gms" class="android.widget.LinearLayout" text="" resource-id="com.google.android.gms:id/sud_layout_lottie_illustration" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,894][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+                            <android.widget.ImageView index="0" package="com.google.android.gms" class="android.widget.ImageView" text="" resource-id="com.google.android.gms:id/sud_lottie_view" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[120,894][960,1488]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31" />
+                          </android.widget.LinearLayout>
+                        </android.widget.LinearLayout>
+                      </android.widget.LinearLayout>
+                    </android.widget.LinearLayout>
+                  </android.widget.LinearLayout>
+                </android.widget.FrameLayout>
+              </android.widget.FrameLayout>
+            </android.widget.LinearLayout>
+          </android.widget.FrameLayout>
+          <android.widget.FrameLayout index="1" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="com.google.android.gms:id/minute_maid" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+            <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+              <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="com.google.android.gms:id/suc_layout_status" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+                <android.widget.LinearLayout index="0" package="com.google.android.gms" class="android.widget.LinearLayout" text="" resource-id="com.google.android.gms:id/sud_layout_template_content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+                  <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="com.google.android.gms:id/sud_layout_content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+                    <android.webkit.WebView index="0" package="com.google.android.gms" class="android.webkit.WebView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="31">
+                      <android.webkit.WebView index="0" package="com.google.android.gms" class="android.webkit.WebView" text="Acceso: Cuentas de Google" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="true" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31">
+                        <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31">
+                          <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" resource-id="yDmH0d" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,240][1008,1920]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31">
+                            <android.widget.TextView index="0" package="com.google.android.gms" class="android.widget.TextView" text="" resource-id="logo" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[426,240][654,312]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="Google" window-id="31" />
+                            <android.view.View index="1" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,312][1080,1920]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31">
+                              <android.widget.TextView index="0" package="com.google.android.gms" class="android.widget.TextView" text="Accede a tu cuenta" resource-id="headingText" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,312][1008,456]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="true" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31" />
+                              <android.view.View index="1" package="com.google.android.gms" class="android.view.View" text="" resource-id="headingSubtext" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,453][1008,819]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31">
+                                <android.widget.TextView index="0" package="com.google.android.gms" class="android.widget.TextView" text="Usa tu Cuenta de Google. La cuenta se agregará a este dispositivo y estará disponible para otras apps de Google." checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[120,483][960,687]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31" />
+                                <android.widget.Button index="2" package="com.google.android.gms" class="android.widget.Button" text="Más información sobre el uso de tu cuenta" resource-id="learnMore" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[63,684][1017,813]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31" />
+                              </android.view.View>
+                              <android.view.View index="2" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,888][1008,1179]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31">
+                                <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,888][1008,1179]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31">
+                                  <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,912][1008,1083]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31">
+                                    <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,912][1008,1080]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31">
+                                      <android.widget.EditText index="0" package="com.google.android.gms" class="android.widget.EditText" text="" resource-id="identifierId" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[75,915][1005,1080]" displayed="true" hint="Correo electrónico o teléfono" a11y-important="false" screen-reader-focusable="false" input-type="209" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31" />
+                                    </android.view.View>
+                                    <android.widget.TextView index="1" package="com.google.android.gms" class="android.widget.TextView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,912][1008,1083]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31" />
+                                    <android.widget.TextView index="2" package="com.google.android.gms" class="android.widget.TextView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,924][996,1083]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31" />
+                                  </android.view.View>
+                                  <android.view.View index="2" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,1080][1008,1179]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31">
+                                    <android.widget.Button index="0" package="com.google.android.gms" class="android.widget.Button" text="¿Olvidaste el correo electrónico?" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[63,1107][720,1170]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31" />
+                                  </android.view.View>
+                                </android.view.View>
+                              </android.view.View>
+                              <android.view.View index="3" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[48,1320][684,1467]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31">
+                                <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[48,1320][357,1467]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31">
+                                  <android.widget.Button index="0" package="com.google.android.gms" class="android.widget.Button" text="Crear cuenta" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[48,1338][357,1449]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31" />
+                                </android.view.View>
+                              </android.view.View>
+                              <android.widget.TextView index="4" package="com.google.android.gms" class="android.widget.TextView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,1860][75,1920]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="31" />
+                            </android.view.View>
+                          </android.view.View>
+                        </android.view.View>
+                      </android.webkit.WebView>
+                    </android.webkit.WebView>
+                  </android.widget.FrameLayout>
+                </android.widget.LinearLayout>
+              </android.widget.FrameLayout>
+            </android.widget.FrameLayout>
+          </android.widget.FrameLayout>
+        </android.widget.FrameLayout>
+      </android.widget.FrameLayout>
+    </android.widget.LinearLayout>
+  </android.widget.FrameLayout>
+</hierarchy>
+2026-04-28T10:12:47.546Z INFO webdriver: COMMAND getWindowRect()
+2026-04-28T10:12:47.546Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/window/rect
+2026-04-28T10:12:47.655Z INFO webdriver: RESULT []
+2026-04-28T10:12:47.656Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@text,"contraseña") and contains(@class,"EditText")]")
+2026-04-28T10:12:47.656Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:47.657Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@text,\"contraseña\") and contains(@class,\"EditText\")]"}
+2026-04-28T10:12:47.921Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:47.921Z INFO webdriver: Retrying 2/3
+2026-04-28T10:12:47.921Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:47.921Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:48.284Z INFO webdriver: RESULT {
+  error: 'no such element',
+  message: 'An element could not be located on the page using the given search parameters.',
+  stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
+    '    at AndroidUiautomator2Driver.findElOrEls (D:\\工作\\stu\\appium\\node_modules\\appium-uiautomator2-driver\\node_modules\\appium-android-driver\\build\\lib\\commands\\find.js:62:15)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (D:\\工作\\stu\\appium\\node_modules\\@appium\\base-driver\\build\\lib\\basedriver\\commands\\find.js:12:16)\n' +
+    '    at async AndroidUiautomator2Driver.findElement (D:\\工作\\stu\\appium\\node_modules\\@appium\\base-driver\\build\\lib\\basedriver\\commands\\find.js:27:16)'
+}
+2026-04-28T10:12:48.287Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Google")")
+2026-04-28T10:12:48.288Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:48.288Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Google\")"}
+2026-04-28T10:12:48.289Z INFO webdriver: RESULT null
+2026-04-28T10:12:48.289Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Sign in with ease")")
+2026-04-28T10:12:48.289Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:48.289Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Sign in with ease\")"}
+2026-04-28T10:12:48.393Z INFO webdriver: RESULT []
+2026-04-28T10:12:48.394Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("SIGUIENTE")")
+2026-04-28T10:12:48.395Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:48.395Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"SIGUIENTE\")"}
+2026-04-28T10:12:49.011Z INFO webdriver: RESULT { width: 1080, height: 1920, x: 0, y: 0 }
+2026-04-28T10:12:49.011Z INFO webdriver: COMMAND executeScript("mobile: clickGesture", <object>)
+2026-04-28T10:12:49.011Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/execute/sync
+2026-04-28T10:12:49.011Z INFO webdriver: DATA {"script":"mobile: clickGesture","args":[{"x":950,"y":1814}]}
+2026-04-28T10:12:49.131Z INFO webdriver: RESULT []
+2026-04-28T10:12:49.132Z INFO webdriver: The standard Appium `contexts` method is used. If you want to get more detailed data, you can set `returnDetailedContexts` to `true`.
+2026-04-28T10:12:49.132Z INFO webdriver: COMMAND getAppiumContexts()
+2026-04-28T10:12:49.132Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/contexts
+2026-04-28T10:12:49.229Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:49.229Z INFO webdriver: Retrying 3/3
+2026-04-28T10:12:49.229Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:49.229Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:49.945Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:49.945Z INFO webdriver: Retrying 3/3
+2026-04-28T10:12:49.945Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:49.945Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:49.974Z INFO webdriver: RESULT []
+2026-04-28T10:12:49.976Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Google")")
+2026-04-28T10:12:49.976Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:49.976Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Google\")"}
+2026-04-28T10:12:50.038Z INFO webdriver: RESULT []
+2026-04-28T10:12:50.039Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("sign in with ease")")
+2026-04-28T10:12:50.039Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:50.039Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"sign in with ease\")"}
+2026-04-28T10:12:50.103Z INFO webdriver: RESULT []
+2026-04-28T10:12:50.104Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().description("SIGUIENTE")")
+2026-04-28T10:12:50.104Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:50.104Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().description(\"SIGUIENTE\")"}
+2026-04-28T10:12:50.203Z INFO webdriver: RESULT null
+已通过右下角兜底坐标点击 Perfil: (950, 1814)
+2026-04-28T10:12:50.761Z INFO webdriver: RESULT [ 'NATIVE_APP', 'WEBVIEW_JsEngine_com.zhiliaoapp.musically' ]
+2026-04-28T10:12:50.761Z INFO webdriver: COMMAND getAppiumContext()
+2026-04-28T10:12:50.761Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:50.858Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Perfil")")
+2026-04-28T10:12:50.858Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:50.859Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Perfil\")"}
+2026-04-28T10:12:50.889Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:50.889Z INFO webdriver: Retrying 3/3
+2026-04-28T10:12:50.889Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:50.889Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:51.388Z ERROR webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:51.388Z INFO webdriver: The standard Appium `context`-method is used. If you want to switch to a webview with a specific title or url, please provide an object with the `title` or `url` property. See https://webdriver.io/docs/api/mobile/switchContext for more information.
+2026-04-28T10:12:51.388Z INFO webdriver: COMMAND switchAppiumContext("NATIVE_APP")
+2026-04-28T10:12:51.389Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:51.389Z INFO webdriver: DATA {"name":"NATIVE_APP"}
+2026-04-28T10:12:52.084Z ERROR webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:52.084Z INFO webdriver: The standard Appium `context`-method is used. If you want to switch to a webview with a specific title or url, please provide an object with the `title` or `url` property. See https://webdriver.io/docs/api/mobile/switchContext for more information.
+2026-04-28T10:12:52.084Z INFO webdriver: COMMAND switchAppiumContext("NATIVE_APP")
+2026-04-28T10:12:52.084Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:52.084Z INFO webdriver: DATA {"name":"NATIVE_APP"}
+2026-04-28T10:12:52.729Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0014-ffff-ffff0000078e',
+    ELEMENT: '00000000-0000-0014-ffff-ffff0000078e'
+  },
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0014-ffff-ffff0000078f',
+    ELEMENT: '00000000-0000-0014-ffff-ffff0000078f'
+  }
+]
+2026-04-28T10:12:52.732Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().descriptionContains("Google")")
+2026-04-28T10:12:52.733Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element
+2026-04-28T10:12:52.733Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Google\")"}
+2026-04-28T10:12:52.794Z INFO webdriver: RESULT []
+2026-04-28T10:12:52.795Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Sign in with ease")")
+2026-04-28T10:12:52.795Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:52.795Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Sign in with ease\")"}
+2026-04-28T10:12:52.860Z INFO webdriver: RESULT []
+2026-04-28T10:12:52.862Z INFO webdriver: COMMAND findElements("xpath", "//*[@text="SIGUIENTE" or @content-desc="SIGUIENTE"]")
+2026-04-28T10:12:52.862Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:52.862Z INFO webdriver: DATA {"using":"xpath","value":"//*[@text=\"SIGUIENTE\" or @content-desc=\"SIGUIENTE\"]"}
+2026-04-28T10:12:52.863Z INFO webdriver: RESULT NATIVE_APP
+2026-04-28T10:12:52.863Z INFO webdriver: The standard Appium `context`-method is used. If you want to switch to a webview with a specific title or url, please provide an object with the `title` or `url` property. See https://webdriver.io/docs/api/mobile/switchContext for more information.
+2026-04-28T10:12:52.864Z INFO webdriver: COMMAND switchAppiumContext("WEBVIEW_JsEngine_com.zhiliaoapp.musically")
+2026-04-28T10:12:52.864Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:52.864Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:52.936Z INFO webdriver: RESULT []
+2026-04-28T10:12:52.937Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Editar perfil")")
+2026-04-28T10:12:52.938Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:52.938Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Editar perfil\")"}
+2026-04-28T10:12:53.490Z ERROR webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:53.490Z INFO webdriver: The standard Appium `context`-method is used. If you want to switch to a webview with a specific title or url, please provide an object with the `title` or `url` property. See https://webdriver.io/docs/api/mobile/switchContext for more information.
+2026-04-28T10:12:53.491Z INFO webdriver: COMMAND switchAppiumContext("NATIVE_APP")
+2026-04-28T10:12:53.491Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:53.491Z INFO webdriver: DATA {"name":"NATIVE_APP"}
+2026-04-28T10:12:53.493Z INFO webdriver: RESULT null
+等待 Google 账号输入框出现...
+2026-04-28T10:12:53.495Z INFO webdriver: RESULT null
+等待账号验证完成并进入墨西哥密码页...
+2026-04-28T10:12:54.115Z INFO webdriver: RESULT {
+  error: 'no such element',
+  message: 'An element could not be located on the page using the given search parameters.',
+  stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
+    '    at AndroidUiautomator2Driver.findElOrEls (D:\\工作\\stu\\appium\\node_modules\\appium-uiautomator2-driver\\node_modules\\appium-android-driver\\build\\lib\\commands\\find.js:62:15)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (D:\\工作\\stu\\appium\\node_modules\\@appium\\base-driver\\build\\lib\\basedriver\\commands\\find.js:12:16)\n' +
+    '    at async AndroidUiautomator2Driver.findElement (D:\\工作\\stu\\appium\\node_modules\\@appium\\base-driver\\build\\lib\\basedriver\\commands\\find.js:27:16)'
+}
+2026-04-28T10:12:54.117Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().descriptionContains("Google")")
+2026-04-28T10:12:54.117Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element
+2026-04-28T10:12:54.117Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Google\")"}
+2026-04-28T10:12:54.242Z INFO webdriver: RESULT []
+2026-04-28T10:12:54.243Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@text,"Sign in with ease") or contains(@content-desc,"Sign in with ease")]")
+2026-04-28T10:12:54.243Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:54.243Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@text,\"Sign in with ease\") or contains(@content-desc,\"Sign in with ease\")]"}
+2026-04-28T10:12:54.326Z INFO webdriver: RESULT []
+2026-04-28T10:12:54.326Z INFO webdriver: The standard Appium `contexts` method is used. If you want to get more detailed data, you can set `returnDetailedContexts` to `true`.
+2026-04-28T10:12:54.326Z INFO webdriver: COMMAND getAppiumContexts()
+2026-04-28T10:12:54.327Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/contexts
+2026-04-28T10:12:55.069Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:55.069Z INFO webdriver: Retrying 1/3
+2026-04-28T10:12:55.069Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:55.069Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:12:55.135Z INFO webdriver: RESULT []
+2026-04-28T10:12:55.136Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Publicaciones")")
+2026-04-28T10:12:55.137Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:55.137Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Publicaciones\")"}
+2026-04-28T10:12:55.138Z INFO webdriver: RESULT null
+等待 SIGUIENTE 按钮出现（邮箱页）...
+2026-04-28T10:12:55.201Z INFO webdriver: RESULT {
+  error: 'no such element',
+  message: 'An element could not be located on the page using the given search parameters.',
+  stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
+    '    at AndroidUiautomator2Driver.findElOrEls (D:\\工作\\stu\\appium\\node_modules\\appium-uiautomator2-driver\\node_modules\\appium-android-driver\\build\\lib\\commands\\find.js:62:15)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (D:\\工作\\stu\\appium\\node_modules\\@appium\\base-driver\\build\\lib\\basedriver\\commands\\find.js:12:16)\n' +
+    '    at async AndroidUiautomator2Driver.findElement (D:\\工作\\stu\\appium\\node_modules\\@appium\\base-driver\\build\\lib\\basedriver\\commands\\find.js:27:16)'
+}
+2026-04-28T10:12:55.204Z INFO webdriver: COMMAND getElementAttribute("00000000-0000-0014-ffff-ffff0000078e", "clickable")
+2026-04-28T10:12:55.204Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-0014-ffff-ffff0000078e/attribute/clickable
+2026-04-28T10:12:55.299Z INFO webdriver: RESULT []
+2026-04-28T10:12:55.300Z INFO webdriver: COMMAND getPageSource()
+2026-04-28T10:12:55.300Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/source
+2026-04-28T10:12:55.506Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Ingresa tu contraseña")")
+2026-04-28T10:12:55.506Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:55.506Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Ingresa tu contraseña\")"}
+2026-04-28T10:12:55.712Z INFO webdriver: RESULT [ 'NATIVE_APP', 'WEBVIEW_JsEngine_com.zhiliaoapp.musically' ]
+2026-04-28T10:12:55.712Z INFO webdriver: COMMAND getAppiumContext()
+2026-04-28T10:12:55.712Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:56.396Z INFO webdriver: RESULT []
+2026-04-28T10:12:56.398Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@text,"Editar perfil") or contains(@text,"Publicaciones")]")
+2026-04-28T10:12:56.398Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:12:56.398Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@text,\"Editar perfil\") or contains(@text,\"Publicaciones\")]"}
+2026-04-28T10:12:56.851Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:12:56.851Z INFO webdriver: Retrying 2/3
+2026-04-28T10:12:56.851Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:12:56.851Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:13:07.487Z WARN webdriver: Request encountered a stale element - terminating request
+2026-04-28T10:13:07.487Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Google")")
+2026-04-28T10:13:07.488Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:13:07.488Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Google\")"}
+2026-04-28T10:13:07.616Z INFO webdriver: RESULT <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="1920">
+  <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+    <android.widget.LinearLayout index="0" package="com.google.android.gms" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+      <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+        <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="com.google.android.gms:id/container" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+          <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="com.google.android.gms:id/minute_maid" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+            <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+              <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="com.google.android.gms:id/suc_layout_status" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+                <android.widget.LinearLayout index="0" package="com.google.android.gms" class="android.widget.LinearLayout" text="" resource-id="com.google.android.gms:id/sud_layout_template_content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+                  <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="com.google.android.gms:id/sud_layout_content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1704]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+                    <android.webkit.WebView index="0" package="com.google.android.gms" class="android.webkit.WebView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1704]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+                      <android.webkit.WebView index="0" package="com.google.android.gms" class="android.webkit.WebView" text="Acceso: Cuentas de Google" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="true" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1704]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                        <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1704]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                          <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" resource-id="yDmH0d" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,240][1008,1704]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                            <android.widget.TextView index="0" package="com.google.android.gms" class="android.widget.TextView" text="" resource-id="logo" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[426,240][654,312]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="Google" window-id="40" />
+                            <android.view.View index="1" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,312][1080,1704]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                              <android.widget.TextView index="0" package="com.google.android.gms" class="android.widget.TextView" text="Accede a tu cuenta" resource-id="headingText" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,312][1008,456]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="true" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                              <android.view.View index="1" package="com.google.android.gms" class="android.view.View" text="" resource-id="headingSubtext" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,453][1008,819]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                                <android.widget.TextView index="0" package="com.google.android.gms" class="android.widget.TextView" text="Usa tu Cuenta de Google. La cuenta se agregará a este dispositivo y estará disponible para otras apps de Google." checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[120,483][960,687]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                                <android.widget.Button index="2" package="com.google.android.gms" class="android.widget.Button" text="Más información sobre el uso de tu cuenta" resource-id="learnMore" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[63,684][1017,813]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                              </android.view.View>
+                              <android.view.View index="2" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,888][1008,1179]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                                <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,888][1008,1179]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                                  <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,912][1008,1083]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                                    <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,912][1008,1080]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                                      <android.widget.EditText index="0" package="com.google.android.gms" class="android.widget.EditText" text="" resource-id="identifierId" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[75,915][1005,1080]" displayed="true" hint="Correo electrónico o teléfono" a11y-important="false" screen-reader-focusable="false" input-type="209" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                                    </android.view.View>
+                                    <android.widget.TextView index="1" package="com.google.android.gms" class="android.widget.TextView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,912][1008,1083]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                                    <android.widget.TextView index="2" package="com.google.android.gms" class="android.widget.TextView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,924][996,1083]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                                  </android.view.View>
+                                  <android.view.View index="2" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,1080][1008,1179]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                                    <android.widget.Button index="0" package="com.google.android.gms" class="android.widget.Button" text="¿Olvidaste el correo electrónico?" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[63,1107][720,1170]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                                  </android.view.View>
+                                </android.view.View>
+                              </android.view.View>
+                              <android.view.View index="3" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[48,1320][684,1467]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                                <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[48,1320][684,1467]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                                  <android.widget.Button index="0" package="com.google.android.gms" class="android.widget.Button" text="Crear cuenta" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[48,1338][357,1449]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                                </android.view.View>
+                              </android.view.View>
+                              <android.widget.TextView index="4" package="com.google.android.gms" class="android.widget.TextView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,1644][75,1704]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                            </android.view.View>
+                          </android.view.View>
+                        </android.view.View>
+                      </android.webkit.WebView>
+                    </android.webkit.WebView>
+                  </android.widget.FrameLayout>
+                  <android.widget.LinearLayout index="1" package="com.google.android.gms" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,1704][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="3" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+                    <android.widget.Button index="0" package="com.google.android.gms" class="android.widget.Button" text="SIGUIENTE" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[715,1740][1020,1884]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40" />
+                  </android.widget.LinearLayout>
+                </android.widget.LinearLayout>
+              </android.widget.FrameLayout>
+            </android.widget.FrameLayout>
+          </android.widget.FrameLayout>
+        </android.widget.FrameLayout>
+      </android.widget.FrameLayout>
+    </android.widget.LinearLayout>
+  </android.widget.FrameLayout>
+</hierarchy>
+2026-04-28T10:13:07.683Z INFO webdriver: RESULT []
+2026-04-28T10:13:07.684Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Mostrar contraseña")")
+2026-04-28T10:13:07.684Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:13:07.684Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Mostrar contraseña\")"}
+2026-04-28T10:13:07.685Z INFO webdriver: RESULT NATIVE_APP
+2026-04-28T10:13:07.685Z INFO webdriver: The standard Appium `context`-method is used. If you want to switch to a webview with a specific title or url, please provide an object with the `title` or `url` property. See https://webdriver.io/docs/api/mobile/switchContext for more information.
+2026-04-28T10:13:07.685Z INFO webdriver: COMMAND switchAppiumContext("WEBVIEW_JsEngine_com.zhiliaoapp.musically")
+2026-04-28T10:13:07.686Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:13:07.686Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:13:07.779Z INFO webdriver: RESULT []
+点击 Perfil 后尚未确认进入个人主页，准备第 2 次重试。
+2026-04-28T10:13:07.779Z INFO webdriver: COMMAND isKeyboardShown()
+2026-04-28T10:13:07.780Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/appium/device/is_keyboard_shown
+2026-04-28T10:13:08.620Z INFO webdriver: RESULT []
+2026-04-28T10:13:08.625Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Google")")
+2026-04-28T10:13:08.625Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:13:08.625Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Google\")"}
+2026-04-28T10:13:08.691Z INFO webdriver: RESULT []
+2026-04-28T10:13:08.692Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().resourceId("password")")
+2026-04-28T10:13:08.692Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:13:08.692Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().resourceId(\"password\")"}
+未检测到 Sign in with ease 页或已超时，交由下一步输入账号。
+2026-04-28T10:13:09.267Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:13:09.267Z INFO webdriver: Retrying 1/3
+2026-04-28T10:13:09.268Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:13:09.268Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:13:09.557Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:13:09.557Z INFO webdriver: Retrying 3/3
+2026-04-28T10:13:09.557Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:13:09.557Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:13:09.656Z INFO webdriver: RESULT false
+2026-04-28T10:13:09.657Z INFO webdriver: COMMAND getWindowRect()
+2026-04-28T10:13:09.657Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/window/rect
+2026-04-28T10:13:09.718Z INFO webdriver: RESULT []
+2026-04-28T10:13:09.719Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Google")")
+2026-04-28T10:13:09.719Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:13:09.719Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Google\")"}
+2026-04-28T10:13:09.791Z INFO webdriver: RESULT []
+2026-04-28T10:13:09.792Z INFO webdriver: The standard Appium `contexts` method is used. If you want to get more detailed data, you can set `returnDetailedContexts` to `true`.
+2026-04-28T10:13:09.792Z INFO webdriver: COMMAND getAppiumContexts()
+2026-04-28T10:13:09.793Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/contexts
+2026-04-28T10:13:10.909Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:13:10.910Z INFO webdriver: Retrying 2/3
+2026-04-28T10:13:10.910Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:13:10.910Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:13:10.915Z ERROR webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:13:10.915Z INFO webdriver: The standard Appium `context`-method is used. If you want to switch to a webview with a specific title or url, please provide an object with the `title` or `url` property. See https://webdriver.io/docs/api/mobile/switchContext for more information.
+2026-04-28T10:13:10.915Z INFO webdriver: COMMAND switchAppiumContext("NATIVE_APP")
+2026-04-28T10:13:10.915Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:13:10.915Z INFO webdriver: DATA {"name":"NATIVE_APP"}
+2026-04-28T10:13:10.970Z INFO webdriver: RESULT { width: 1080, height: 1920, x: 0, y: 0 }
+2026-04-28T10:13:10.970Z INFO webdriver: COMMAND executeScript("mobile: swipeGesture", <object>)
+2026-04-28T10:13:10.970Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/execute/sync
+2026-04-28T10:13:10.970Z INFO webdriver: DATA {"script":"mobile: swipeGesture","args":[{"left":108,"top":1056,"width":864,"height":480,"direction":"up","percent":0.22}]}
+2026-04-28T10:13:11.056Z INFO webdriver: RESULT []
+2026-04-28T10:13:11.063Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Google")")
+2026-04-28T10:13:11.063Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:13:11.063Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Google\")"}
+2026-04-28T10:13:11.479Z INFO webdriver: RESULT [ 'NATIVE_APP', 'WEBVIEW_JsEngine_com.zhiliaoapp.musically' ]
+2026-04-28T10:13:11.479Z INFO webdriver: COMMAND getAppiumContext()
+2026-04-28T10:13:11.479Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:13:12.088Z INFO webdriver: RESULT null
+等待墨西哥密码输入框出现...
+2026-04-28T10:13:12.192Z INFO webdriver: RESULT null
+2026-04-28T10:13:12.419Z INFO webdriver: COMMAND findElements("accessibility id", "Perfil")
+2026-04-28T10:13:12.419Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:13:12.419Z INFO webdriver: DATA {"using":"accessibility id","value":"Perfil"}
+2026-04-28T10:13:12.495Z INFO webdriver: COMMAND findElements("xpath", "//*[@text="Continuar con Google" or @content-desc="Continuar con Google"]")
+2026-04-28T10:13:12.495Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:13:12.496Z INFO webdriver: DATA {"using":"xpath","value":"//*[@text=\"Continuar con Google\" or @content-desc=\"Continuar con Google\"]"}
+2026-04-28T10:13:12.687Z INFO webdriver: RESULT []
+2026-04-28T10:13:12.689Z INFO webdriver: RESULT NATIVE_APP
+2026-04-28T10:13:12.689Z INFO webdriver: The standard Appium `context`-method is used. If you want to switch to a webview with a specific title or url, please provide an object with the `title` or `url` property. See https://webdriver.io/docs/api/mobile/switchContext for more information.
+2026-04-28T10:13:12.689Z INFO webdriver: COMMAND switchAppiumContext("WEBVIEW_JsEngine_com.zhiliaoapp.musically")
+2026-04-28T10:13:12.689Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:13:12.689Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:13:12.752Z INFO webdriver: RESULT []
+2026-04-28T10:13:12.753Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().description("Perfil")")
+2026-04-28T10:13:12.753Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:13:12.753Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().description(\"Perfil\")"}
+2026-04-28T10:13:12.847Z INFO webdriver: RESULT []
+2026-04-28T10:13:12.849Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@text,"Google") or contains(@content-desc,"Google")]")
+2026-04-28T10:13:12.849Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:13:12.849Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@text,\"Google\") or contains(@content-desc,\"Google\")]"}
+2026-04-28T10:13:13.092Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:13:13.093Z INFO webdriver: Retrying 3/3
+2026-04-28T10:13:13.093Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:13:13.093Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:13:13.494Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:13:13.495Z INFO webdriver: Retrying 1/3
+2026-04-28T10:13:13.495Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:13:13.495Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:13:13.569Z INFO webdriver: RESULT []
+2026-04-28T10:13:13.570Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Perfil")")
+2026-04-28T10:13:13.570Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:13:13.570Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Perfil\")"}
+2026-04-28T10:13:13.688Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0028-0000-0081000000e8',
+    ELEMENT: '00000000-0000-0028-0000-0081000000e8'
+  },
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0028-0000-006e000000e8',
+    ELEMENT: '00000000-0000-0028-0000-006e000000e8'
+  }
+]
+2026-04-28T10:13:13.692Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@text,"Google") or contains(@content-desc,"Google")]")
+2026-04-28T10:13:13.692Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:13:13.692Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@text,\"Google\") or contains(@content-desc,\"Google\")]"}
+2026-04-28T10:13:14.284Z ERROR webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:13:14.284Z INFO webdriver: The standard Appium `context`-method is used. If you want to switch to a webview with a specific title or url, please provide an object with the `title` or `url` property. See https://webdriver.io/docs/api/mobile/switchContext for more information.
+2026-04-28T10:13:14.284Z INFO webdriver: COMMAND switchAppiumContext("NATIVE_APP")
+2026-04-28T10:13:14.284Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:13:14.284Z INFO webdriver: DATA {"name":"NATIVE_APP"}
+2026-04-28T10:13:14.914Z INFO webdriver: RESULT []
+2026-04-28T10:13:14.915Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Perfil")")
+2026-04-28T10:13:14.915Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:13:14.915Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Perfil\")"}
+2026-04-28T10:13:15.019Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0028-0000-0081000000e8',
+    ELEMENT: '00000000-0000-0028-0000-0081000000e8'
+  },
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0028-0000-006e000000e8',
+    ELEMENT: '00000000-0000-0028-0000-006e000000e8'
+  }
+]
+2026-04-28T10:13:15.024Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0028-0000-0081000000e8")
+2026-04-28T10:13:15.024Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-0028-0000-0081000000e8/displayed
+2026-04-28T10:13:15.025Z INFO webdriver: RESULT null
+等待 SIGUIENTE 按钮出现（密码页）...
+2026-04-28T10:13:15.084Z INFO webdriver: RESULT []
+2026-04-28T10:13:15.086Z INFO webdriver: COMMAND findElements("xpath", "//*[@content-desc="Perfil" or @text="Perfil"]")
+2026-04-28T10:13:15.086Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:13:15.086Z INFO webdriver: DATA {"using":"xpath","value":"//*[@content-desc=\"Perfil\" or @text=\"Perfil\"]"}
+2026-04-28T10:13:15.145Z INFO webdriver: RESULT true
+2026-04-28T10:13:15.146Z INFO webdriver: COMMAND getElementAttribute("00000000-0000-0028-0000-0081000000e8", "clickable")
+2026-04-28T10:13:15.146Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-0028-0000-0081000000e8/attribute/clickable
+2026-04-28T10:13:15.244Z INFO webdriver: RESULT []
+2026-04-28T10:13:15.246Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@content-desc,"Perfil") and contains(@class,"FrameLayout")]")
+2026-04-28T10:13:15.246Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:13:15.247Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@content-desc,\"Perfil\") and contains(@class,\"FrameLayout\")]"}
+2026-04-28T10:13:15.303Z INFO webdriver: RESULT false
+2026-04-28T10:13:15.303Z INFO webdriver: COMMAND findElementFromElement("00000000-0000-0028-0000-0081000000e8", "xpath", "..")
+2026-04-28T10:13:15.304Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-0028-0000-0081000000e8/element
+2026-04-28T10:13:15.304Z INFO webdriver: DATA {"using":"xpath","value":".."}
+2026-04-28T10:13:15.361Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:13:15.362Z INFO webdriver: Retrying 2/3
+2026-04-28T10:13:15.362Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:13:15.362Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+2026-04-28T10:13:15.389Z INFO webdriver: RESULT []
+2026-04-28T10:13:15.390Z INFO webdriver: COMMAND getPageSource()
+2026-04-28T10:13:15.391Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/source
+2026-04-28T10:13:15.486Z INFO webdriver: RESULT {
+  error: 'no such element',
+  message: 'An element could not be located on the page using the given search parameters.',
+  stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
+    '    at AndroidUiautomator2Driver.findElOrEls (D:\\工作\\stu\\appium\\node_modules\\appium-uiautomator2-driver\\node_modules\\appium-android-driver\\build\\lib\\commands\\find.js:62:15)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (D:\\工作\\stu\\appium\\node_modules\\@appium\\base-driver\\build\\lib\\basedriver\\commands\\find.js:12:16)\n' +
+    '    at async AndroidUiautomator2Driver.findElementFromElement (D:\\工作\\stu\\appium\\node_modules\\@appium\\base-driver\\build\\lib\\basedriver\\commands\\find.js:33:16)'
+}
+2026-04-28T10:13:15.489Z INFO webdriver: COMMAND findElementsFromElement("00000000-0000-0028-0000-0081000000e8", "xpath", "..")
+2026-04-28T10:13:15.489Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-0028-0000-0081000000e8/elements
+2026-04-28T10:13:15.489Z INFO webdriver: DATA {"using":"xpath","value":".."}
+2026-04-28T10:13:16.882Z INFO webdriver: RESULT <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="1920">
+  <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+    <android.widget.LinearLayout index="0" package="com.google.android.gms" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+      <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+        <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="com.google.android.gms:id/container" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+          <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="com.google.android.gms:id/minute_maid" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+            <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+              <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="com.google.android.gms:id/suc_layout_status" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+                <android.widget.LinearLayout index="0" package="com.google.android.gms" class="android.widget.LinearLayout" text="" resource-id="com.google.android.gms:id/sud_layout_template_content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+                  <android.widget.FrameLayout index="0" package="com.google.android.gms" class="android.widget.FrameLayout" text="" resource-id="com.google.android.gms:id/sud_layout_content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1704]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+                    <android.webkit.WebView index="0" package="com.google.android.gms" class="android.webkit.WebView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1704]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+                      <android.webkit.WebView index="0" package="com.google.android.gms" class="android.webkit.WebView" text="Acceso: Cuentas de Google" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="true" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1704]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                        <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1704]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                          <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" resource-id="yDmH0d" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,240][1008,1704]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                            <android.widget.TextView index="0" package="com.google.android.gms" class="android.widget.TextView" text="" resource-id="logo" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[426,240][654,312]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="Google" window-id="40" />
+                            <android.view.View index="1" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,312][1080,1704]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                              <android.widget.TextView index="0" package="com.google.android.gms" class="android.widget.TextView" text="Accede a tu cuenta" resource-id="headingText" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,312][1008,456]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="true" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                              <android.view.View index="1" package="com.google.android.gms" class="android.view.View" text="" resource-id="headingSubtext" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,453][1008,819]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                                <android.widget.TextView index="0" package="com.google.android.gms" class="android.widget.TextView" text="Usa tu Cuenta de Google. La cuenta se agregará a este dispositivo y estará disponible para otras apps de Google." checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[120,483][960,687]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                                <android.widget.Button index="2" package="com.google.android.gms" class="android.widget.Button" text="Más información sobre el uso de tu cuenta" resource-id="learnMore" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[63,684][1017,813]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                              </android.view.View>
+                              <android.view.View index="2" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,888][1008,1179]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                                <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,888][1008,1179]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                                  <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,912][1008,1083]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                                    <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,912][1008,1080]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                                      <android.widget.EditText index="0" package="com.google.android.gms" class="android.widget.EditText" text="" resource-id="identifierId" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[75,915][1005,1080]" displayed="true" hint="Correo electrónico o teléfono" a11y-important="false" screen-reader-focusable="false" input-type="209" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                                    </android.view.View>
+                                    <android.widget.TextView index="1" package="com.google.android.gms" class="android.widget.TextView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,912][1008,1083]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                                    <android.widget.TextView index="2" package="com.google.android.gms" class="android.widget.TextView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,924][996,1083]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                                  </android.view.View>
+                                  <android.view.View index="2" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,1080][1008,1179]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                                    <android.widget.Button index="0" package="com.google.android.gms" class="android.widget.Button" text="¿Olvidaste el correo electrónico?" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[63,1107][720,1170]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                                  </android.view.View>
+                                </android.view.View>
+                              </android.view.View>
+                              <android.view.View index="3" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[48,1320][684,1467]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                                <android.view.View index="0" package="com.google.android.gms" class="android.view.View" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[48,1320][684,1467]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40">
+                                  <android.widget.Button index="0" package="com.google.android.gms" class="android.widget.Button" text="Crear cuenta" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[48,1338][357,1449]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                                </android.view.View>
+                              </android.view.View>
+                              <android.widget.TextView index="4" package="com.google.android.gms" class="android.widget.TextView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[72,1644][75,1704]" displayed="true" hint="" a11y-important="false" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" tooltip-text="" window-id="40" />
+                            </android.view.View>
+                          </android.view.View>
+                        </android.view.View>
+                      </android.webkit.WebView>
+                    </android.webkit.WebView>
+                  </android.widget.FrameLayout>
+                  <android.widget.LinearLayout index="1" package="com.google.android.gms" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,1704][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="3" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40">
+                    <android.widget.Button index="0" package="com.google.android.gms" class="android.widget.Button" text="SIGUIENTE" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[715,1740][1020,1884]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="40" />
+                  </android.widget.LinearLayout>
+                </android.widget.LinearLayout>
+              </android.widget.FrameLayout>
+            </android.widget.FrameLayout>
+          </android.widget.FrameLayout>
+        </android.widget.FrameLayout>
+      </android.widget.FrameLayout>
+    </android.widget.LinearLayout>
+  </android.widget.FrameLayout>
+</hierarchy>
+2026-04-28T10:13:16.883Z INFO webdriver: COMMAND getWindowRect()
+2026-04-28T10:13:16.883Z INFO webdriver: [GET] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/window/rect
+2026-04-28T10:13:16.979Z INFO webdriver: RESULT []
+2026-04-28T10:13:16.980Z INFO webdriver: COMMAND elementClick("00000000-0000-0028-0000-0081000000e8")
+2026-04-28T10:13:16.980Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/element/00000000-0000-0028-0000-0081000000e8/click
+2026-04-28T10:13:16.981Z INFO webdriver: DATA {}
+2026-04-28T10:13:17.032Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("SIGUIENTE")")
+2026-04-28T10:13:17.032Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:13:17.032Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"SIGUIENTE\")"}
+2026-04-28T10:13:17.034Z INFO webdriver: RESULT { width: 1080, height: 1920, x: 0, y: 0 }
+2026-04-28T10:13:17.034Z INFO webdriver: COMMAND executeScript("mobile: clickGesture", <object>)
+2026-04-28T10:13:17.034Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/execute/sync
+2026-04-28T10:13:17.034Z INFO webdriver: DATA {"script":"mobile: clickGesture","args":[{"x":950,"y":1814}]}
+2026-04-28T10:13:17.152Z INFO webdriver: RESULT null
+已点击按钮: Continuar con Google (selector: //*[contains(@text,"Google") or contains(@content-desc,"Google")])
+2026-04-28T10:13:17.233Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0028-ffff-ffff0000010a',
+    ELEMENT: '00000000-0000-0028-ffff-ffff0000010a'
+  }
+]
+2026-04-28T10:13:17.235Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("SIGUIENTE")")
+2026-04-28T10:13:17.235Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/elements
+2026-04-28T10:13:17.235Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"SIGUIENTE\")"}
+2026-04-28T10:13:17.335Z INFO webdriver: RESULT null
+已通过右下角兜底坐标点击 Perfil: (950, 1814)
+2026-04-28T10:13:17.673Z WARN webdriver: WebDriverError: No Chromedriver found that can automate Chrome '147.0.7727'. You could also try to enable automated chromedrivers download as a possible workaround. when running "context" with method "POST"
+2026-04-28T10:13:17.673Z INFO webdriver: Retrying 3/3
+2026-04-28T10:13:17.673Z INFO webdriver: [POST] http://127.0.0.1:64157/session/f3d118f6-0353-4b17-9d8a-062b1c51085e/context
+2026-04-28T10:13:17.673Z INFO webdriver: DATA {"name":"WEBVIEW_JsEngine_com.zhiliaoapp.musically"}
+
+=== 单设备结束 ===
+exit=1
+endedAt=2026-04-28T10:13:17.736Z

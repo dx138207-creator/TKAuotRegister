@@ -1,0 +1,820 @@
+=== 单设备启动 ===
+runMode=register
+country=mx
+endpoint=124.236.70.143:24622
+appiumPort=62679
+startedAt=2026-04-29T06:55:25.795Z
+
+[开始] 启动或复用Appium服务
+尝试自动启动 Appium: D:\工作\stu\appium\node_modules\.bin\appium.cmd server -p 62679
+Appium 自动启动成功: http://127.0.0.1:62679
+[完成] 启动或复用Appium服务
+[开始] ADB连接
+执行: D:\工作\stu\appium\platform-tools\adb.exe connect 124.236.70.143:24622
+adb connect 输出: connected to 124.236.70.143:24622
+[完成] ADB连接
+[开始] ADB鉴权
+执行 ADB Shell 鉴权: D:\工作\stu\appium\platform-tools\adb.exe -s 124.236.70.143:24622 shell D0Uslu7t
+adb shell 鉴权输出: OK! Login successful.
+ADB Shell 探测通过，SDK=35
+[完成] ADB鉴权
+[开始] 执行墨西哥Appium主流程
+执行墨西哥 Appium 主流程，第 1/2 次
+尝试 Appium: http://127.0.0.1:62679/ (第1/3轮)
+2026-04-29T06:55:37.769Z INFO webdriver: Initiate new session using the WebDriver protocol
+2026-04-29T06:55:37.780Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:62679/
+2026-04-29T06:55:37.825Z INFO webdriver: [POST] http://127.0.0.1:62679/session
+连接成功，sessionId: d21716f0-0c7d-476e-9859-059aa3aff5ee
+[开始] 打开TK
+尝试打开 TK: com.zhiliaoapp.musically
+2026-04-29T06:56:02.585Z INFO webdriver: COMMAND activateApp("com.zhiliaoapp.musically")
+2026-04-29T06:56:02.585Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/appium/device/activate_app
+2026-04-29T06:56:02.586Z INFO webdriver: DATA {"appId":"com.zhiliaoapp.musically"}
+2026-04-29T06:56:03.254Z INFO webdriver: RESULT null
+已打开 TK 应用: com.zhiliaoapp.musically
+[完成] 打开TK
+[开始] 墨西哥欢迎页点击 Aceptar y continuar(可选)
+2026-04-29T06:56:03.258Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Aceptar y continuar")")
+2026-04-29T06:56:03.258Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:03.259Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Aceptar y continuar\")"}
+2026-04-29T06:56:04.524Z INFO webdriver: RESULT []
+2026-04-29T06:56:04.531Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Aceptar y continuar")")
+2026-04-29T06:56:04.531Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:04.531Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Aceptar y continuar\")"}
+2026-04-29T06:56:05.183Z INFO webdriver: RESULT []
+2026-04-29T06:56:05.187Z INFO webdriver: COMMAND findElements("xpath", "//*[@text="Aceptar y continuar" or @text="ACEPTAR Y CONTINUAR"]")
+2026-04-29T06:56:05.188Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:05.188Z INFO webdriver: DATA {"using":"xpath","value":"//*[@text=\"Aceptar y continuar\" or @text=\"ACEPTAR Y CONTINUAR\"]"}
+2026-04-29T06:56:08.420Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0008-ffff-ffff00000012',
+    ELEMENT: '00000000-0000-0008-ffff-ffff00000012'
+  }
+]
+2026-04-29T06:56:08.425Z INFO webdriver: COMMAND findElements("xpath", "//*[@text="Aceptar y continuar" or @text="ACEPTAR Y CONTINUAR"]")
+2026-04-29T06:56:08.425Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:08.425Z INFO webdriver: DATA {"using":"xpath","value":"//*[@text=\"Aceptar y continuar\" or @text=\"ACEPTAR Y CONTINUAR\"]"}
+2026-04-29T06:56:08.979Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0008-ffff-ffff00000012',
+    ELEMENT: '00000000-0000-0008-ffff-ffff00000012'
+  }
+]
+2026-04-29T06:56:08.983Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0008-ffff-ffff00000012")
+2026-04-29T06:56:08.983Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff00000012/displayed
+2026-04-29T06:56:09.063Z INFO webdriver: RESULT true
+2026-04-29T06:56:09.063Z INFO webdriver: COMMAND elementClick("00000000-0000-0008-ffff-ffff00000012")
+2026-04-29T06:56:09.063Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff00000012/click
+2026-04-29T06:56:09.063Z INFO webdriver: DATA {}
+2026-04-29T06:56:09.184Z INFO webdriver: RESULT null
+已点击墨西哥欢迎页按钮: Aceptar y continuar
+[完成] 墨西哥欢迎页点击 Aceptar y continuar(可选)
+[开始] 墨西哥兴趣页可选 Omitir
+2026-04-29T06:56:09.896Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Elige lo que más te guste")")
+2026-04-29T06:56:09.897Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:09.897Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Elige lo que más te guste\")"}
+2026-04-29T06:56:12.912Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0008-ffff-ffff000000ee',
+    ELEMENT: '00000000-0000-0008-ffff-ffff000000ee'
+  }
+]
+2026-04-29T06:56:12.916Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Elige lo que más te guste")")
+2026-04-29T06:56:12.916Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:12.916Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Elige lo que más te guste\")"}
+2026-04-29T06:56:12.989Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0008-ffff-ffff000000ee',
+    ELEMENT: '00000000-0000-0008-ffff-ffff000000ee'
+  }
+]
+2026-04-29T06:56:12.993Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0008-ffff-ffff000000ee")
+2026-04-29T06:56:12.994Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff000000ee/displayed
+2026-04-29T06:56:13.048Z INFO webdriver: RESULT true
+已检测到墨西哥兴趣页，尝试点击 Omitir...
+2026-04-29T06:56:13.048Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Omitir")")
+2026-04-29T06:56:13.049Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:13.049Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Omitir\")"}
+2026-04-29T06:56:13.127Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0008-ffff-ffff000000e7',
+    ELEMENT: '00000000-0000-0008-ffff-ffff000000e7'
+  }
+]
+2026-04-29T06:56:13.129Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Omitir")")
+2026-04-29T06:56:13.130Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:13.130Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Omitir\")"}
+2026-04-29T06:56:13.197Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0008-ffff-ffff000000e7',
+    ELEMENT: '00000000-0000-0008-ffff-ffff000000e7'
+  }
+]
+2026-04-29T06:56:13.199Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0008-ffff-ffff000000e7")
+2026-04-29T06:56:13.200Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff000000e7/displayed
+2026-04-29T06:56:13.254Z INFO webdriver: RESULT true
+2026-04-29T06:56:13.254Z INFO webdriver: COMMAND getElementText("00000000-0000-0008-ffff-ffff000000e7")
+2026-04-29T06:56:13.254Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff000000e7/text
+2026-04-29T06:56:13.307Z INFO webdriver: RESULT Omitir
+2026-04-29T06:56:13.308Z INFO webdriver: COMMAND getElementAttribute("00000000-0000-0008-ffff-ffff000000e7", "content-desc")
+2026-04-29T06:56:13.308Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff000000e7/attribute/content-desc
+2026-04-29T06:56:13.376Z INFO webdriver: RESULT 
+2026-04-29T06:56:13.376Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Omitir")")
+2026-04-29T06:56:13.377Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:13.377Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Omitir\")"}
+2026-04-29T06:56:13.456Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0008-ffff-ffff000000e7',
+    ELEMENT: '00000000-0000-0008-ffff-ffff000000e7'
+  }
+]
+2026-04-29T06:56:13.458Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Omitir")")
+2026-04-29T06:56:13.458Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:13.458Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Omitir\")"}
+2026-04-29T06:56:13.526Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0008-ffff-ffff000000e7',
+    ELEMENT: '00000000-0000-0008-ffff-ffff000000e7'
+  }
+]
+2026-04-29T06:56:13.529Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0008-ffff-ffff000000e7")
+2026-04-29T06:56:13.529Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff000000e7/displayed
+2026-04-29T06:56:13.585Z INFO webdriver: RESULT true
+2026-04-29T06:56:13.586Z INFO webdriver: COMMAND getElementText("00000000-0000-0008-ffff-ffff000000e7")
+2026-04-29T06:56:13.586Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff000000e7/text
+2026-04-29T06:56:13.644Z INFO webdriver: RESULT Omitir
+2026-04-29T06:56:13.644Z INFO webdriver: COMMAND getElementAttribute("00000000-0000-0008-ffff-ffff000000e7", "content-desc")
+2026-04-29T06:56:13.644Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff000000e7/attribute/content-desc
+2026-04-29T06:56:13.700Z INFO webdriver: RESULT 
+2026-04-29T06:56:13.700Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().description("Omitir")")
+2026-04-29T06:56:13.700Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:13.700Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().description(\"Omitir\")"}
+2026-04-29T06:56:13.765Z INFO webdriver: RESULT []
+2026-04-29T06:56:13.766Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Omitir")")
+2026-04-29T06:56:13.767Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:13.767Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Omitir\")"}
+2026-04-29T06:56:13.832Z INFO webdriver: RESULT []
+2026-04-29T06:56:13.833Z INFO webdriver: COMMAND findElements("xpath", "//*[@text="Omitir" or @content-desc="Omitir"]")
+2026-04-29T06:56:13.833Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:13.833Z INFO webdriver: DATA {"using":"xpath","value":"//*[@text=\"Omitir\" or @content-desc=\"Omitir\"]"}
+2026-04-29T06:56:13.946Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0008-ffff-ffff000000e7',
+    ELEMENT: '00000000-0000-0008-ffff-ffff000000e7'
+  }
+]
+2026-04-29T06:56:13.948Z INFO webdriver: COMMAND findElements("xpath", "//*[@text="Omitir" or @content-desc="Omitir"]")
+2026-04-29T06:56:13.948Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:13.948Z INFO webdriver: DATA {"using":"xpath","value":"//*[@text=\"Omitir\" or @content-desc=\"Omitir\"]"}
+2026-04-29T06:56:14.060Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0008-ffff-ffff000000e7',
+    ELEMENT: '00000000-0000-0008-ffff-ffff000000e7'
+  }
+]
+2026-04-29T06:56:14.062Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0008-ffff-ffff000000e7")
+2026-04-29T06:56:14.062Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff000000e7/displayed
+2026-04-29T06:56:14.112Z INFO webdriver: RESULT true
+2026-04-29T06:56:14.112Z INFO webdriver: COMMAND getElementText("00000000-0000-0008-ffff-ffff000000e7")
+2026-04-29T06:56:14.112Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff000000e7/text
+2026-04-29T06:56:14.165Z INFO webdriver: RESULT Omitir
+2026-04-29T06:56:14.165Z INFO webdriver: COMMAND getElementAttribute("00000000-0000-0008-ffff-ffff000000e7", "content-desc")
+2026-04-29T06:56:14.166Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff000000e7/attribute/content-desc
+2026-04-29T06:56:14.218Z INFO webdriver: RESULT null
+2026-04-29T06:56:14.218Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(translate(@text,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"omitir")]")
+2026-04-29T06:56:14.218Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:14.218Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(translate(@text,\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\"abcdefghijklmnopqrstuvwxyz\"),\"omitir\")]"}
+2026-04-29T06:56:14.338Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0008-ffff-ffff000000e7',
+    ELEMENT: '00000000-0000-0008-ffff-ffff000000e7'
+  }
+]
+2026-04-29T06:56:14.340Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(translate(@text,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"omitir")]")
+2026-04-29T06:56:14.340Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:14.340Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(translate(@text,\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\"abcdefghijklmnopqrstuvwxyz\"),\"omitir\")]"}
+2026-04-29T06:56:14.466Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0008-ffff-ffff000000e7',
+    ELEMENT: '00000000-0000-0008-ffff-ffff000000e7'
+  }
+]
+2026-04-29T06:56:14.468Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0008-ffff-ffff000000e7")
+2026-04-29T06:56:14.469Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff000000e7/displayed
+2026-04-29T06:56:14.521Z INFO webdriver: RESULT true
+2026-04-29T06:56:14.521Z INFO webdriver: COMMAND getElementText("00000000-0000-0008-ffff-ffff000000e7")
+2026-04-29T06:56:14.521Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff000000e7/text
+2026-04-29T06:56:14.577Z INFO webdriver: RESULT Omitir
+2026-04-29T06:56:14.577Z INFO webdriver: COMMAND getElementAttribute("00000000-0000-0008-ffff-ffff000000e7", "content-desc")
+2026-04-29T06:56:14.577Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff000000e7/attribute/content-desc
+2026-04-29T06:56:14.627Z INFO webdriver: RESULT null
+2026-04-29T06:56:14.628Z INFO webdriver: COMMAND getElementRect("00000000-0000-0008-ffff-ffff000000e7")
+2026-04-29T06:56:14.628Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff000000e7/rect
+2026-04-29T06:56:14.678Z INFO webdriver: RESULT { height: 156, width: 432, x: 96, y: 1748 }
+2026-04-29T06:56:14.679Z INFO webdriver: COMMAND getElementRect("00000000-0000-0008-ffff-ffff000000e7")
+2026-04-29T06:56:14.679Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff000000e7/rect
+2026-04-29T06:56:14.730Z INFO webdriver: RESULT { height: 156, width: 432, x: 96, y: 1748 }
+2026-04-29T06:56:14.730Z INFO webdriver: COMMAND getElementAttribute("00000000-0000-0008-ffff-ffff000000e7", "clickable")
+2026-04-29T06:56:14.731Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff000000e7/attribute/clickable
+2026-04-29T06:56:14.793Z INFO webdriver: RESULT true
+2026-04-29T06:56:14.793Z INFO webdriver: COMMAND elementClick("00000000-0000-0008-ffff-ffff000000e7")
+2026-04-29T06:56:14.793Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff000000e7/click
+2026-04-29T06:56:14.794Z INFO webdriver: DATA {}
+2026-04-29T06:56:16.989Z INFO webdriver: RESULT null
+已在墨西哥兴趣页点击 Omitir（优先底部按钮）(selector: android=new UiSelector().textContains("Omitir"))
+[完成] 墨西哥兴趣页可选 Omitir
+[开始] 墨西哥上滑引导可选15秒
+2026-04-29T06:56:16.989Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Desliza hacia arriba para empezar a ver")")
+2026-04-29T06:56:16.989Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:16.989Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Desliza hacia arriba para empezar a ver\")"}
+2026-04-29T06:56:17.050Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0008-ffff-ffff00000115',
+    ELEMENT: '00000000-0000-0008-ffff-ffff00000115'
+  }
+]
+2026-04-29T06:56:17.052Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Desliza hacia arriba para empezar a ver")")
+2026-04-29T06:56:17.052Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:17.052Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Desliza hacia arriba para empezar a ver\")"}
+2026-04-29T06:56:17.116Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0008-ffff-ffff00000115',
+    ELEMENT: '00000000-0000-0008-ffff-ffff00000115'
+  }
+]
+2026-04-29T06:56:17.119Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0008-ffff-ffff00000115")
+2026-04-29T06:56:17.119Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0008-ffff-ffff00000115/displayed
+2026-04-29T06:56:17.187Z INFO webdriver: RESULT true
+2026-04-29T06:56:17.187Z INFO webdriver: COMMAND getWindowRect()
+2026-04-29T06:56:17.187Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/window/rect
+2026-04-29T06:56:17.235Z INFO webdriver: RESULT { width: 1080, height: 1920, x: 0, y: 0 }
+2026-04-29T06:56:17.236Z INFO webdriver: COMMAND executeScript("mobile: swipeGesture", <object>)
+2026-04-29T06:56:17.236Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/execute/sync
+2026-04-29T06:56:17.236Z INFO webdriver: DATA {"script":"mobile: swipeGesture","args":[{"left":0,"top":0,"width":1080,"height":1920,"direction":"up","percent":0.55}]}
+2026-04-29T06:56:17.418Z INFO webdriver: RESULT null
+2026-04-29T06:56:17.885Z INFO webdriver: COMMAND executeScript("mobile: swipeGesture", <object>)
+2026-04-29T06:56:17.886Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/execute/sync
+2026-04-29T06:56:17.886Z INFO webdriver: DATA {"script":"mobile: swipeGesture","args":[{"left":0,"top":0,"width":1080,"height":1920,"direction":"up","percent":0.55}]}
+2026-04-29T06:56:18.073Z INFO webdriver: RESULT null
+已在墨西哥上滑引导页执行两次向上滑动。
+[完成] 墨西哥上滑引导可选15秒
+[开始] 点击右下角 Perfil 进入个人主页
+2026-04-29T06:56:18.524Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Para ti")")
+2026-04-29T06:56:18.525Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:18.525Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Para ti\")"}
+2026-04-29T06:56:23.271Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0009-ffff-ffff0000007d',
+    ELEMENT: '00000000-0000-0009-ffff-ffff0000007d'
+  }
+]
+2026-04-29T06:56:23.273Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Para ti")")
+2026-04-29T06:56:23.273Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:23.273Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Para ti\")"}
+2026-04-29T06:56:23.469Z INFO webdriver: RESULT [
+  {
+    'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0009-ffff-ffff0000007d',
+    ELEMENT: '00000000-0000-0009-ffff-ffff0000007d'
+  }
+]
+2026-04-29T06:56:23.470Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0009-ffff-ffff0000007d")
+2026-04-29T06:56:23.470Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/element/00000000-0000-0009-ffff-ffff0000007d/displayed
+2026-04-29T06:56:23.524Z INFO webdriver: RESULT true
+2026-04-29T06:56:23.524Z INFO webdriver: COMMAND isKeyboardShown()
+2026-04-29T06:56:23.524Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/appium/device/is_keyboard_shown
+2026-04-29T06:56:23.891Z INFO webdriver: RESULT false
+2026-04-29T06:56:23.891Z INFO webdriver: COMMAND getWindowRect()
+2026-04-29T06:56:23.892Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/window/rect
+2026-04-29T06:56:23.940Z INFO webdriver: RESULT { width: 1080, height: 1920, x: 0, y: 0 }
+2026-04-29T06:56:23.940Z INFO webdriver: COMMAND executeScript("mobile: swipeGesture", <object>)
+2026-04-29T06:56:23.940Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/execute/sync
+2026-04-29T06:56:23.940Z INFO webdriver: DATA {"script":"mobile: swipeGesture","args":[{"left":108,"top":1056,"width":864,"height":480,"direction":"up","percent":0.22}]}
+2026-04-29T06:56:24.051Z INFO webdriver: RESULT null
+2026-04-29T06:56:24.287Z INFO webdriver: COMMAND findElements("accessibility id", "Perfil")
+2026-04-29T06:56:24.287Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:24.287Z INFO webdriver: DATA {"using":"accessibility id","value":"Perfil"}
+2026-04-29T06:56:24.537Z INFO webdriver: RESULT []
+2026-04-29T06:56:24.538Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().description("Perfil")")
+2026-04-29T06:56:24.538Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:24.538Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().description(\"Perfil\")"}
+2026-04-29T06:56:25.527Z INFO webdriver: RESULT []
+2026-04-29T06:56:25.529Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Perfil")")
+2026-04-29T06:56:25.529Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:25.529Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Perfil\")"}
+2026-04-29T06:56:26.044Z INFO webdriver: RESULT []
+2026-04-29T06:56:26.045Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Perfil")")
+2026-04-29T06:56:26.045Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:26.045Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Perfil\")"}
+2026-04-29T06:56:26.128Z INFO webdriver: RESULT []
+2026-04-29T06:56:26.128Z INFO webdriver: COMMAND findElements("xpath", "//*[@content-desc="Perfil" or @text="Perfil"]")
+2026-04-29T06:56:26.129Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:26.129Z INFO webdriver: DATA {"using":"xpath","value":"//*[@content-desc=\"Perfil\" or @text=\"Perfil\"]"}
+2026-04-29T06:56:26.230Z INFO webdriver: RESULT []
+2026-04-29T06:56:26.231Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@content-desc,"Perfil") and contains(@class,"FrameLayout")]")
+2026-04-29T06:56:26.231Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:26.231Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@content-desc,\"Perfil\") and contains(@class,\"FrameLayout\")]"}
+2026-04-29T06:56:26.314Z INFO webdriver: RESULT []
+2026-04-29T06:56:26.315Z INFO webdriver: COMMAND getPageSource()
+2026-04-29T06:56:26.315Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/source
+2026-04-29T06:56:26.396Z INFO webdriver: RESULT <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="1920">
+  <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+    <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+      <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+        <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="com.zhiliaoapp.musically:id/fb7" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+          <android.widget.ImageView index="0" package="com.zhiliaoapp.musically" class="android.widget.ImageView" text="" resource-id="com.zhiliaoapp.musically:id/mrf" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[480,936][600,1056]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10" />
+        </android.widget.FrameLayout>
+      </android.widget.FrameLayout>
+    </android.widget.FrameLayout>
+  </android.widget.FrameLayout>
+</hierarchy>
+2026-04-29T06:56:26.397Z INFO webdriver: COMMAND getWindowRect()
+2026-04-29T06:56:26.397Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/window/rect
+2026-04-29T06:56:26.447Z INFO webdriver: RESULT { width: 1080, height: 1920, x: 0, y: 0 }
+2026-04-29T06:56:26.448Z INFO webdriver: COMMAND executeScript("mobile: clickGesture", <object>)
+2026-04-29T06:56:26.448Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/execute/sync
+2026-04-29T06:56:26.448Z INFO webdriver: DATA {"script":"mobile: clickGesture","args":[{"x":950,"y":1814}]}
+2026-04-29T06:56:26.534Z INFO webdriver: RESULT null
+已通过右下角兜底坐标点击 Perfil: (950, 1814)
+2026-04-29T06:56:27.190Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Perfil")")
+2026-04-29T06:56:27.190Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:27.190Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Perfil\")"}
+2026-04-29T06:56:27.284Z INFO webdriver: RESULT []
+2026-04-29T06:56:27.285Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Editar perfil")")
+2026-04-29T06:56:27.285Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:27.285Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Editar perfil\")"}
+2026-04-29T06:56:27.398Z INFO webdriver: RESULT []
+2026-04-29T06:56:27.399Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Publicaciones")")
+2026-04-29T06:56:27.399Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:27.399Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Publicaciones\")"}
+2026-04-29T06:56:27.489Z INFO webdriver: RESULT []
+2026-04-29T06:56:27.490Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@text,"Editar perfil") or contains(@text,"Publicaciones")]")
+2026-04-29T06:56:27.490Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:27.490Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@text,\"Editar perfil\") or contains(@text,\"Publicaciones\")]"}
+2026-04-29T06:56:27.579Z INFO webdriver: RESULT []
+点击 Perfil 后尚未确认进入个人主页，准备第 2 次重试。
+2026-04-29T06:56:27.580Z INFO webdriver: COMMAND isKeyboardShown()
+2026-04-29T06:56:27.580Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/appium/device/is_keyboard_shown
+2026-04-29T06:56:27.859Z INFO webdriver: RESULT false
+2026-04-29T06:56:27.859Z INFO webdriver: COMMAND getWindowRect()
+2026-04-29T06:56:27.859Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/window/rect
+2026-04-29T06:56:27.910Z INFO webdriver: RESULT { width: 1080, height: 1920, x: 0, y: 0 }
+2026-04-29T06:56:27.910Z INFO webdriver: COMMAND executeScript("mobile: swipeGesture", <object>)
+2026-04-29T06:56:27.910Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/execute/sync
+2026-04-29T06:56:27.910Z INFO webdriver: DATA {"script":"mobile: swipeGesture","args":[{"left":108,"top":1056,"width":864,"height":480,"direction":"up","percent":0.22}]}
+2026-04-29T06:56:28.021Z INFO webdriver: RESULT null
+2026-04-29T06:56:28.241Z INFO webdriver: COMMAND findElements("accessibility id", "Perfil")
+2026-04-29T06:56:28.241Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:28.241Z INFO webdriver: DATA {"using":"accessibility id","value":"Perfil"}
+2026-04-29T06:56:28.356Z INFO webdriver: RESULT []
+2026-04-29T06:56:28.357Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().description("Perfil")")
+2026-04-29T06:56:28.357Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:28.357Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().description(\"Perfil\")"}
+2026-04-29T06:56:28.438Z INFO webdriver: RESULT []
+2026-04-29T06:56:28.439Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Perfil")")
+2026-04-29T06:56:28.439Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:28.439Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Perfil\")"}
+2026-04-29T06:56:28.544Z INFO webdriver: RESULT []
+2026-04-29T06:56:28.545Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Perfil")")
+2026-04-29T06:56:28.545Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:28.545Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Perfil\")"}
+2026-04-29T06:56:28.637Z INFO webdriver: RESULT []
+2026-04-29T06:56:28.638Z INFO webdriver: COMMAND findElements("xpath", "//*[@content-desc="Perfil" or @text="Perfil"]")
+2026-04-29T06:56:28.638Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:28.638Z INFO webdriver: DATA {"using":"xpath","value":"//*[@content-desc=\"Perfil\" or @text=\"Perfil\"]"}
+2026-04-29T06:56:28.732Z INFO webdriver: RESULT []
+2026-04-29T06:56:28.733Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@content-desc,"Perfil") and contains(@class,"FrameLayout")]")
+2026-04-29T06:56:28.733Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:28.733Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@content-desc,\"Perfil\") and contains(@class,\"FrameLayout\")]"}
+2026-04-29T06:56:28.816Z INFO webdriver: RESULT []
+2026-04-29T06:56:28.817Z INFO webdriver: COMMAND getPageSource()
+2026-04-29T06:56:28.817Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/source
+2026-04-29T06:56:28.895Z INFO webdriver: RESULT <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="1920">
+  <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+    <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+      <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+        <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="com.zhiliaoapp.musically:id/fb7" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+          <android.widget.ImageView index="0" package="com.zhiliaoapp.musically" class="android.widget.ImageView" text="" resource-id="com.zhiliaoapp.musically:id/mrf" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[480,936][600,1056]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10" />
+        </android.widget.FrameLayout>
+      </android.widget.FrameLayout>
+    </android.widget.FrameLayout>
+  </android.widget.FrameLayout>
+</hierarchy>
+2026-04-29T06:56:28.896Z INFO webdriver: COMMAND getWindowRect()
+2026-04-29T06:56:28.896Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/window/rect
+2026-04-29T06:56:28.981Z INFO webdriver: RESULT { width: 1080, height: 1920, x: 0, y: 0 }
+2026-04-29T06:56:28.981Z INFO webdriver: COMMAND executeScript("mobile: clickGesture", <object>)
+2026-04-29T06:56:28.981Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/execute/sync
+2026-04-29T06:56:28.982Z INFO webdriver: DATA {"script":"mobile: clickGesture","args":[{"x":950,"y":1814}]}
+2026-04-29T06:56:29.100Z INFO webdriver: RESULT null
+已通过右下角兜底坐标点击 Perfil: (950, 1814)
+2026-04-29T06:56:29.756Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Perfil")")
+2026-04-29T06:56:29.757Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:29.757Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Perfil\")"}
+2026-04-29T06:56:29.841Z INFO webdriver: RESULT []
+2026-04-29T06:56:29.842Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Editar perfil")")
+2026-04-29T06:56:29.842Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:29.842Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Editar perfil\")"}
+2026-04-29T06:56:29.978Z INFO webdriver: RESULT []
+2026-04-29T06:56:29.978Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Publicaciones")")
+2026-04-29T06:56:29.979Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:29.979Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Publicaciones\")"}
+2026-04-29T06:56:30.133Z INFO webdriver: RESULT []
+2026-04-29T06:56:30.134Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@text,"Editar perfil") or contains(@text,"Publicaciones")]")
+2026-04-29T06:56:30.134Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:30.134Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@text,\"Editar perfil\") or contains(@text,\"Publicaciones\")]"}
+2026-04-29T06:56:30.297Z INFO webdriver: RESULT []
+点击 Perfil 后尚未确认进入个人主页，准备第 3 次重试。
+2026-04-29T06:56:30.299Z INFO webdriver: COMMAND isKeyboardShown()
+2026-04-29T06:56:30.299Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/appium/device/is_keyboard_shown
+2026-04-29T06:56:30.553Z INFO webdriver: RESULT false
+2026-04-29T06:56:30.553Z INFO webdriver: COMMAND getWindowRect()
+2026-04-29T06:56:30.553Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/window/rect
+2026-04-29T06:56:30.601Z INFO webdriver: RESULT { width: 1080, height: 1920, x: 0, y: 0 }
+2026-04-29T06:56:30.601Z INFO webdriver: COMMAND executeScript("mobile: swipeGesture", <object>)
+2026-04-29T06:56:30.601Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/execute/sync
+2026-04-29T06:56:30.602Z INFO webdriver: DATA {"script":"mobile: swipeGesture","args":[{"left":108,"top":1056,"width":864,"height":480,"direction":"up","percent":0.22}]}
+2026-04-29T06:56:30.732Z INFO webdriver: RESULT null
+2026-04-29T06:56:30.967Z INFO webdriver: COMMAND findElements("accessibility id", "Perfil")
+2026-04-29T06:56:30.968Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:30.968Z INFO webdriver: DATA {"using":"accessibility id","value":"Perfil"}
+2026-04-29T06:56:31.039Z INFO webdriver: RESULT []
+2026-04-29T06:56:31.040Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().description("Perfil")")
+2026-04-29T06:56:31.040Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:31.040Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().description(\"Perfil\")"}
+2026-04-29T06:56:31.123Z INFO webdriver: RESULT []
+2026-04-29T06:56:31.123Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Perfil")")
+2026-04-29T06:56:31.124Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:31.124Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Perfil\")"}
+2026-04-29T06:56:31.206Z INFO webdriver: RESULT []
+2026-04-29T06:56:31.207Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Perfil")")
+2026-04-29T06:56:31.207Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:31.207Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Perfil\")"}
+2026-04-29T06:56:31.338Z INFO webdriver: RESULT []
+2026-04-29T06:56:31.339Z INFO webdriver: COMMAND findElements("xpath", "//*[@content-desc="Perfil" or @text="Perfil"]")
+2026-04-29T06:56:31.339Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:31.339Z INFO webdriver: DATA {"using":"xpath","value":"//*[@content-desc=\"Perfil\" or @text=\"Perfil\"]"}
+2026-04-29T06:56:31.417Z INFO webdriver: RESULT []
+2026-04-29T06:56:31.418Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@content-desc,"Perfil") and contains(@class,"FrameLayout")]")
+2026-04-29T06:56:31.418Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:31.418Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@content-desc,\"Perfil\") and contains(@class,\"FrameLayout\")]"}
+2026-04-29T06:56:31.502Z INFO webdriver: RESULT []
+2026-04-29T06:56:31.502Z INFO webdriver: COMMAND getPageSource()
+2026-04-29T06:56:31.503Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/source
+2026-04-29T06:56:31.561Z INFO webdriver: RESULT <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="1920">
+  <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+    <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+      <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+        <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="com.zhiliaoapp.musically:id/fb7" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+          <android.widget.ImageView index="0" package="com.zhiliaoapp.musically" class="android.widget.ImageView" text="" resource-id="com.zhiliaoapp.musically:id/mrf" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[480,936][600,1056]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10" />
+        </android.widget.FrameLayout>
+      </android.widget.FrameLayout>
+    </android.widget.FrameLayout>
+  </android.widget.FrameLayout>
+</hierarchy>
+2026-04-29T06:56:31.562Z INFO webdriver: COMMAND getWindowRect()
+2026-04-29T06:56:31.562Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/window/rect
+2026-04-29T06:56:31.615Z INFO webdriver: RESULT { width: 1080, height: 1920, x: 0, y: 0 }
+2026-04-29T06:56:31.615Z INFO webdriver: COMMAND executeScript("mobile: clickGesture", <object>)
+2026-04-29T06:56:31.615Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/execute/sync
+2026-04-29T06:56:31.616Z INFO webdriver: DATA {"script":"mobile: clickGesture","args":[{"x":950,"y":1814}]}
+2026-04-29T06:56:31.701Z INFO webdriver: RESULT null
+已通过右下角兜底坐标点击 Perfil: (950, 1814)
+2026-04-29T06:56:32.354Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Perfil")")
+2026-04-29T06:56:32.354Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:32.355Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Perfil\")"}
+2026-04-29T06:56:32.491Z INFO webdriver: RESULT []
+2026-04-29T06:56:32.492Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Editar perfil")")
+2026-04-29T06:56:32.492Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:32.492Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Editar perfil\")"}
+2026-04-29T06:56:32.623Z INFO webdriver: RESULT []
+2026-04-29T06:56:32.624Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Publicaciones")")
+2026-04-29T06:56:32.624Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:32.624Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Publicaciones\")"}
+2026-04-29T06:56:32.756Z INFO webdriver: RESULT []
+2026-04-29T06:56:32.757Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@text,"Editar perfil") or contains(@text,"Publicaciones")]")
+2026-04-29T06:56:32.758Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:32.758Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@text,\"Editar perfil\") or contains(@text,\"Publicaciones\")]"}
+2026-04-29T06:56:32.895Z INFO webdriver: RESULT []
+点击 Perfil 后尚未确认进入个人主页，准备第 4 次重试。
+2026-04-29T06:56:32.895Z INFO webdriver: COMMAND isKeyboardShown()
+2026-04-29T06:56:32.896Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/appium/device/is_keyboard_shown
+2026-04-29T06:56:33.186Z INFO webdriver: RESULT false
+2026-04-29T06:56:33.186Z INFO webdriver: COMMAND getWindowRect()
+2026-04-29T06:56:33.186Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/window/rect
+2026-04-29T06:56:33.235Z INFO webdriver: RESULT { width: 1080, height: 1920, x: 0, y: 0 }
+2026-04-29T06:56:33.236Z INFO webdriver: COMMAND executeScript("mobile: swipeGesture", <object>)
+2026-04-29T06:56:33.236Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/execute/sync
+2026-04-29T06:56:33.236Z INFO webdriver: DATA {"script":"mobile: swipeGesture","args":[{"left":108,"top":1056,"width":864,"height":480,"direction":"up","percent":0.22}]}
+2026-04-29T06:56:33.320Z INFO webdriver: RESULT null
+2026-04-29T06:56:33.555Z INFO webdriver: COMMAND findElements("accessibility id", "Perfil")
+2026-04-29T06:56:33.556Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:33.556Z INFO webdriver: DATA {"using":"accessibility id","value":"Perfil"}
+2026-04-29T06:56:33.641Z INFO webdriver: RESULT []
+2026-04-29T06:56:33.642Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().description("Perfil")")
+2026-04-29T06:56:33.642Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:33.642Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().description(\"Perfil\")"}
+2026-04-29T06:56:33.723Z INFO webdriver: RESULT []
+2026-04-29T06:56:33.723Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Perfil")")
+2026-04-29T06:56:33.724Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:33.724Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Perfil\")"}
+2026-04-29T06:56:33.806Z INFO webdriver: RESULT []
+2026-04-29T06:56:33.808Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Perfil")")
+2026-04-29T06:56:33.808Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:33.808Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Perfil\")"}
+2026-04-29T06:56:33.940Z INFO webdriver: RESULT []
+2026-04-29T06:56:33.941Z INFO webdriver: COMMAND findElements("xpath", "//*[@content-desc="Perfil" or @text="Perfil"]")
+2026-04-29T06:56:33.942Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:33.942Z INFO webdriver: DATA {"using":"xpath","value":"//*[@content-desc=\"Perfil\" or @text=\"Perfil\"]"}
+2026-04-29T06:56:34.048Z INFO webdriver: RESULT []
+2026-04-29T06:56:34.049Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@content-desc,"Perfil") and contains(@class,"FrameLayout")]")
+2026-04-29T06:56:34.049Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:34.049Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@content-desc,\"Perfil\") and contains(@class,\"FrameLayout\")]"}
+2026-04-29T06:56:34.131Z INFO webdriver: RESULT []
+2026-04-29T06:56:34.131Z INFO webdriver: COMMAND getPageSource()
+2026-04-29T06:56:34.132Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/source
+2026-04-29T06:56:34.193Z INFO webdriver: RESULT <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="1920">
+  <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+    <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+      <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+        <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="com.zhiliaoapp.musically:id/fb7" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+          <android.widget.ImageView index="0" package="com.zhiliaoapp.musically" class="android.widget.ImageView" text="" resource-id="com.zhiliaoapp.musically:id/mrf" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[480,936][600,1056]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10" />
+        </android.widget.FrameLayout>
+      </android.widget.FrameLayout>
+    </android.widget.FrameLayout>
+  </android.widget.FrameLayout>
+</hierarchy>
+2026-04-29T06:56:34.194Z INFO webdriver: COMMAND getWindowRect()
+2026-04-29T06:56:34.194Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/window/rect
+2026-04-29T06:56:34.242Z INFO webdriver: RESULT { width: 1080, height: 1920, x: 0, y: 0 }
+2026-04-29T06:56:34.243Z INFO webdriver: COMMAND executeScript("mobile: clickGesture", <object>)
+2026-04-29T06:56:34.243Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/execute/sync
+2026-04-29T06:56:34.243Z INFO webdriver: DATA {"script":"mobile: clickGesture","args":[{"x":950,"y":1814}]}
+2026-04-29T06:56:34.351Z INFO webdriver: RESULT null
+已通过右下角兜底坐标点击 Perfil: (950, 1814)
+2026-04-29T06:56:35.012Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Perfil")")
+2026-04-29T06:56:35.012Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:35.012Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Perfil\")"}
+2026-04-29T06:56:35.089Z INFO webdriver: RESULT []
+2026-04-29T06:56:35.091Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Editar perfil")")
+2026-04-29T06:56:35.091Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:35.091Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Editar perfil\")"}
+2026-04-29T06:56:35.175Z INFO webdriver: RESULT []
+2026-04-29T06:56:35.175Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Publicaciones")")
+2026-04-29T06:56:35.175Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:35.175Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Publicaciones\")"}
+2026-04-29T06:56:35.239Z INFO webdriver: RESULT []
+2026-04-29T06:56:35.240Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@text,"Editar perfil") or contains(@text,"Publicaciones")]")
+2026-04-29T06:56:35.241Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:35.241Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@text,\"Editar perfil\") or contains(@text,\"Publicaciones\")]"}
+2026-04-29T06:56:35.314Z INFO webdriver: RESULT []
+点击 Perfil 后尚未确认进入个人主页，准备第 5 次重试。
+已尝试点击右下角 Perfil，但未能可靠确认已进入个人主页。
+[完成] 点击右下角 Perfil 进入个人主页
+[开始] 点击 Continuar con Google
+2026-04-29T06:56:35.315Z INFO webdriver: COMMAND findElements("accessibility id", "Continuar con Google")
+2026-04-29T06:56:35.315Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:35.315Z INFO webdriver: DATA {"using":"accessibility id","value":"Continuar con Google"}
+2026-04-29T06:56:35.419Z INFO webdriver: RESULT []
+2026-04-29T06:56:35.420Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Continuar con Google")")
+2026-04-29T06:56:35.420Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:35.420Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Continuar con Google\")"}
+2026-04-29T06:56:35.491Z INFO webdriver: RESULT []
+2026-04-29T06:56:35.492Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Continuar con Google")")
+2026-04-29T06:56:35.492Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:35.492Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Continuar con Google\")"}
+2026-04-29T06:56:35.593Z INFO webdriver: RESULT []
+2026-04-29T06:56:35.595Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Google")")
+2026-04-29T06:56:35.595Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:35.595Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Google\")"}
+2026-04-29T06:56:35.673Z INFO webdriver: RESULT []
+2026-04-29T06:56:35.675Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().description("Continuar con Google")")
+2026-04-29T06:56:35.675Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:35.675Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().description(\"Continuar con Google\")"}
+2026-04-29T06:56:35.816Z INFO webdriver: RESULT []
+2026-04-29T06:56:35.816Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Continuar con Google")")
+2026-04-29T06:56:35.816Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:35.816Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Continuar con Google\")"}
+2026-04-29T06:56:35.886Z INFO webdriver: RESULT []
+2026-04-29T06:56:35.888Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Google")")
+2026-04-29T06:56:35.888Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:35.888Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Google\")"}
+2026-04-29T06:56:35.956Z INFO webdriver: RESULT []
+2026-04-29T06:56:35.957Z INFO webdriver: COMMAND findElements("xpath", "//*[@text="Continuar con Google" or @content-desc="Continuar con Google"]")
+2026-04-29T06:56:35.957Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:35.957Z INFO webdriver: DATA {"using":"xpath","value":"//*[@text=\"Continuar con Google\" or @content-desc=\"Continuar con Google\"]"}
+2026-04-29T06:56:36.048Z INFO webdriver: RESULT []
+2026-04-29T06:56:36.049Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@text,"Google") or contains(@content-desc,"Google")]")
+2026-04-29T06:56:36.049Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:36.049Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@text,\"Google\") or contains(@content-desc,\"Google\")]"}
+2026-04-29T06:56:36.148Z INFO webdriver: RESULT []
+2026-04-29T06:56:36.149Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(translate(@text,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"google") or contains(translate(@content-desc,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"google")]")
+2026-04-29T06:56:36.149Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:36.149Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(translate(@text,\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\"abcdefghijklmnopqrstuvwxyz\"),\"google\") or contains(translate(@content-desc,\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\"abcdefghijklmnopqrstuvwxyz\"),\"google\")]"}
+2026-04-29T06:56:36.230Z INFO webdriver: RESULT []
+2026-04-29T06:56:36.231Z INFO webdriver: COMMAND getPageSource()
+2026-04-29T06:56:36.231Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/source
+2026-04-29T06:56:36.294Z INFO webdriver: RESULT <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="1920">
+  <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+    <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+      <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+        <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="com.zhiliaoapp.musically:id/fb7" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+          <android.widget.ImageView index="0" package="com.zhiliaoapp.musically" class="android.widget.ImageView" text="" resource-id="com.zhiliaoapp.musically:id/mrf" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[480,936][600,1056]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10" />
+        </android.widget.FrameLayout>
+      </android.widget.FrameLayout>
+    </android.widget.FrameLayout>
+  </android.widget.FrameLayout>
+</hierarchy>
+等待 Continuar con Google 按钮出现...
+2026-04-29T06:56:38.299Z INFO webdriver: COMMAND findElements("accessibility id", "Continuar con Google")
+2026-04-29T06:56:38.299Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:38.299Z INFO webdriver: DATA {"using":"accessibility id","value":"Continuar con Google"}
+2026-04-29T06:56:38.373Z INFO webdriver: RESULT []
+2026-04-29T06:56:38.373Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Continuar con Google")")
+2026-04-29T06:56:38.374Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:38.374Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Continuar con Google\")"}
+2026-04-29T06:56:38.514Z INFO webdriver: RESULT []
+2026-04-29T06:56:38.515Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Continuar con Google")")
+2026-04-29T06:56:38.515Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:38.515Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Continuar con Google\")"}
+2026-04-29T06:56:38.590Z INFO webdriver: RESULT []
+2026-04-29T06:56:38.591Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Google")")
+2026-04-29T06:56:38.591Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:38.591Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Google\")"}
+2026-04-29T06:56:38.673Z INFO webdriver: RESULT []
+2026-04-29T06:56:38.674Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().description("Continuar con Google")")
+2026-04-29T06:56:38.674Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:38.674Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().description(\"Continuar con Google\")"}
+2026-04-29T06:56:38.761Z INFO webdriver: RESULT []
+2026-04-29T06:56:38.762Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Continuar con Google")")
+2026-04-29T06:56:38.762Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:38.762Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Continuar con Google\")"}
+2026-04-29T06:56:38.841Z INFO webdriver: RESULT []
+2026-04-29T06:56:38.842Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Google")")
+2026-04-29T06:56:38.842Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:38.842Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Google\")"}
+2026-04-29T06:56:38.922Z INFO webdriver: RESULT []
+2026-04-29T06:56:38.923Z INFO webdriver: COMMAND findElements("xpath", "//*[@text="Continuar con Google" or @content-desc="Continuar con Google"]")
+2026-04-29T06:56:38.923Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:38.923Z INFO webdriver: DATA {"using":"xpath","value":"//*[@text=\"Continuar con Google\" or @content-desc=\"Continuar con Google\"]"}
+2026-04-29T06:56:38.993Z INFO webdriver: RESULT []
+2026-04-29T06:56:38.994Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@text,"Google") or contains(@content-desc,"Google")]")
+2026-04-29T06:56:38.994Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:38.994Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@text,\"Google\") or contains(@content-desc,\"Google\")]"}
+2026-04-29T06:56:39.080Z INFO webdriver: RESULT []
+2026-04-29T06:56:39.081Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(translate(@text,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"google") or contains(translate(@content-desc,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"google")]")
+2026-04-29T06:56:39.081Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:39.081Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(translate(@text,\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\"abcdefghijklmnopqrstuvwxyz\"),\"google\") or contains(translate(@content-desc,\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\"abcdefghijklmnopqrstuvwxyz\"),\"google\")]"}
+2026-04-29T06:56:39.167Z INFO webdriver: RESULT []
+2026-04-29T06:56:39.168Z INFO webdriver: COMMAND getPageSource()
+2026-04-29T06:56:39.168Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/source
+2026-04-29T06:56:39.229Z INFO webdriver: RESULT <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="1920">
+  <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+    <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+      <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+        <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="com.zhiliaoapp.musically:id/fb7" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+          <android.widget.ImageView index="0" package="com.zhiliaoapp.musically" class="android.widget.ImageView" text="" resource-id="com.zhiliaoapp.musically:id/mrf" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[480,936][600,1056]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10" />
+        </android.widget.FrameLayout>
+      </android.widget.FrameLayout>
+    </android.widget.FrameLayout>
+  </android.widget.FrameLayout>
+</hierarchy>
+等待 Continuar con Google 按钮出现...
+2026-04-29T06:56:41.243Z INFO webdriver: COMMAND findElements("accessibility id", "Continuar con Google")
+2026-04-29T06:56:41.243Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:41.243Z INFO webdriver: DATA {"using":"accessibility id","value":"Continuar con Google"}
+2026-04-29T06:56:41.323Z INFO webdriver: RESULT []
+2026-04-29T06:56:41.324Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Continuar con Google")")
+2026-04-29T06:56:41.324Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:41.324Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Continuar con Google\")"}
+2026-04-29T06:56:41.406Z INFO webdriver: RESULT []
+2026-04-29T06:56:41.407Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Continuar con Google")")
+2026-04-29T06:56:41.407Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:41.407Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Continuar con Google\")"}
+2026-04-29T06:56:41.489Z INFO webdriver: RESULT []
+2026-04-29T06:56:41.490Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Google")")
+2026-04-29T06:56:41.490Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:41.490Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Google\")"}
+2026-04-29T06:56:41.572Z INFO webdriver: RESULT []
+2026-04-29T06:56:41.573Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().description("Continuar con Google")")
+2026-04-29T06:56:41.573Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:41.573Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().description(\"Continuar con Google\")"}
+2026-04-29T06:56:41.657Z INFO webdriver: RESULT []
+2026-04-29T06:56:41.658Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Continuar con Google")")
+2026-04-29T06:56:41.658Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:41.658Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Continuar con Google\")"}
+2026-04-29T06:56:41.740Z INFO webdriver: RESULT []
+2026-04-29T06:56:41.741Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Google")")
+2026-04-29T06:56:41.742Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:41.742Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Google\")"}
+2026-04-29T06:56:41.808Z INFO webdriver: RESULT []
+2026-04-29T06:56:41.809Z INFO webdriver: COMMAND findElements("xpath", "//*[@text="Continuar con Google" or @content-desc="Continuar con Google"]")
+2026-04-29T06:56:41.809Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:41.809Z INFO webdriver: DATA {"using":"xpath","value":"//*[@text=\"Continuar con Google\" or @content-desc=\"Continuar con Google\"]"}
+2026-04-29T06:56:41.919Z INFO webdriver: RESULT []
+2026-04-29T06:56:41.920Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@text,"Google") or contains(@content-desc,"Google")]")
+2026-04-29T06:56:41.920Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:41.921Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@text,\"Google\") or contains(@content-desc,\"Google\")]"}
+2026-04-29T06:56:41.997Z INFO webdriver: RESULT []
+2026-04-29T06:56:41.998Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(translate(@text,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"google") or contains(translate(@content-desc,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"google")]")
+2026-04-29T06:56:41.998Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:41.998Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(translate(@text,\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\"abcdefghijklmnopqrstuvwxyz\"),\"google\") or contains(translate(@content-desc,\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\"abcdefghijklmnopqrstuvwxyz\"),\"google\")]"}
+2026-04-29T06:56:42.080Z INFO webdriver: RESULT []
+2026-04-29T06:56:42.081Z INFO webdriver: COMMAND getPageSource()
+2026-04-29T06:56:42.081Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/source
+2026-04-29T06:56:42.144Z INFO webdriver: RESULT <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="1920">
+  <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+    <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+      <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+        <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="com.zhiliaoapp.musically:id/fb7" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+          <android.widget.ImageView index="0" package="com.zhiliaoapp.musically" class="android.widget.ImageView" text="" resource-id="com.zhiliaoapp.musically:id/mrf" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[480,936][600,1056]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10" />
+        </android.widget.FrameLayout>
+      </android.widget.FrameLayout>
+    </android.widget.FrameLayout>
+  </android.widget.FrameLayout>
+</hierarchy>
+等待 Continuar con Google 按钮出现...
+2026-04-29T06:56:44.146Z INFO webdriver: COMMAND findElements("accessibility id", "Continuar con Google")
+2026-04-29T06:56:44.146Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:44.146Z INFO webdriver: DATA {"using":"accessibility id","value":"Continuar con Google"}
+2026-04-29T06:56:44.225Z INFO webdriver: RESULT []
+2026-04-29T06:56:44.226Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Continuar con Google")")
+2026-04-29T06:56:44.227Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:44.227Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Continuar con Google\")"}
+2026-04-29T06:56:44.290Z INFO webdriver: RESULT []
+2026-04-29T06:56:44.291Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Continuar con Google")")
+2026-04-29T06:56:44.291Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:44.291Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Continuar con Google\")"}
+2026-04-29T06:56:44.356Z INFO webdriver: RESULT []
+2026-04-29T06:56:44.358Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Google")")
+2026-04-29T06:56:44.358Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:44.358Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Google\")"}
+2026-04-29T06:56:44.422Z INFO webdriver: RESULT []
+2026-04-29T06:56:44.423Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().description("Continuar con Google")")
+2026-04-29T06:56:44.423Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:44.423Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().description(\"Continuar con Google\")"}
+2026-04-29T06:56:44.559Z INFO webdriver: RESULT []
+2026-04-29T06:56:44.560Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Continuar con Google")")
+2026-04-29T06:56:44.560Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:44.560Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Continuar con Google\")"}
+2026-04-29T06:56:44.639Z INFO webdriver: RESULT []
+2026-04-29T06:56:44.640Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Google")")
+2026-04-29T06:56:44.640Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:44.640Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Google\")"}
+2026-04-29T06:56:44.723Z INFO webdriver: RESULT []
+2026-04-29T06:56:44.724Z INFO webdriver: COMMAND findElements("xpath", "//*[@text="Continuar con Google" or @content-desc="Continuar con Google"]")
+2026-04-29T06:56:44.724Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:44.724Z INFO webdriver: DATA {"using":"xpath","value":"//*[@text=\"Continuar con Google\" or @content-desc=\"Continuar con Google\"]"}
+2026-04-29T06:56:44.813Z INFO webdriver: RESULT []
+2026-04-29T06:56:44.814Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@text,"Google") or contains(@content-desc,"Google")]")
+2026-04-29T06:56:44.814Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:44.814Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@text,\"Google\") or contains(@content-desc,\"Google\")]"}
+2026-04-29T06:56:44.897Z INFO webdriver: RESULT []
+2026-04-29T06:56:44.897Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(translate(@text,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"google") or contains(translate(@content-desc,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"google")]")
+2026-04-29T06:56:44.897Z INFO webdriver: [POST] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/elements
+2026-04-29T06:56:44.897Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(translate(@text,\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\"abcdefghijklmnopqrstuvwxyz\"),\"google\") or contains(translate(@content-desc,\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\"abcdefghijklmnopqrstuvwxyz\"),\"google\")]"}
+2026-04-29T06:56:44.980Z INFO webdriver: RESULT []
+2026-04-29T06:56:44.982Z INFO webdriver: COMMAND getPageSource()
+2026-04-29T06:56:44.982Z INFO webdriver: [GET] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee/source
+2026-04-29T06:56:45.046Z INFO webdriver: RESULT <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="1920">
+  <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+    <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+      <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+        <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="com.zhiliaoapp.musically:id/fb7" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10">
+          <android.widget.ImageView index="0" package="com.zhiliaoapp.musically" class="android.widget.ImageView" text="" resource-id="com.zhiliaoapp.musically:id/mrf" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[480,936][600,1056]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="10" />
+        </android.widget.FrameLayout>
+      </android.widget.FrameLayout>
+    </android.widget.FrameLayout>
+  </android.widget.FrameLayout>
+</hierarchy>
+等待 Continuar con Google 按钮出现...
+2026-04-29T06:56:47.056Z INFO webdriver: COMMAND deleteSession()
+2026-04-29T06:56:47.057Z INFO webdriver: [DELETE] http://127.0.0.1:62679/session/d21716f0-0c7d-476e-9859-059aa3aff5ee
+2026-04-29T06:56:47.785Z INFO webdriver: RESULT null
+会话已关闭
+已关闭脚本自动启动的 Appium 进程
+[开始] 断开ADB连接
+执行: D:\工作\stu\appium\platform-tools\adb.exe disconnect 124.236.70.143:24622
+adb disconnect 输出: disconnected 124.236.70.143:24622
+[完成] 断开ADB连接
+墨西哥脚本执行失败: Error: 未找到 Continuar con Google 按钮。
+已等待约 10 秒，请确认页面已加载到登录页。
+可提供该按钮的资源 ID 以提高定位稳定性。
+最后错误: 未知错误
+    at clickContinuarConGoogle (D:\工作\stu\appium\pages\page-continue-google-mx.js:107:9)
+    at async runStep (D:\工作\stu\appium\lib\appium-shared.js:53:18)
+    at async runGoogleRegisterChainMx (D:\工作\stu\appium\appium-script-mx.js:62:3)
+    at async runAppiumScriptMx (D:\工作\stu\appium\appium-script-mx.js:106:5)
+    at async runAppiumMainWithRetryMx (D:\工作\stu\appium\script-mx.js:26:7)
+    at async main (D:\工作\stu\appium\script-mx.js:59:5)
+
+=== 单设备结束 ===
+exit=1
+endedAt=2026-04-29T06:56:47.885Z

@@ -1,0 +1,203 @@
+=== 单设备启动 ===
+runMode=register
+country=us
+endpoint=124.236.70.143:22351
+appiumPort=49846
+startedAt=2026-04-28T10:04:31.140Z
+
+[开始] 启动或复用Appium服务
+尝试自动启动 Appium: D:\工作\stu\appium\node_modules\.bin\appium.cmd server -p 49846
+Appium 自动启动成功: http://127.0.0.1:49846
+[完成] 启动或复用Appium服务
+[开始] ADB连接
+执行: D:\工作\stu\appium\platform-tools\adb.exe connect 124.236.70.143:22351
+adb connect 输出: connected to 124.236.70.143:22351
+[完成] ADB连接
+[开始] ADB鉴权
+执行 ADB Shell 鉴权: D:\工作\stu\appium\platform-tools\adb.exe -s 124.236.70.143:22351 shell 03hk5Yhz
+adb shell 鉴权输出: OK! Login successful.
+ADB Shell 探测通过，SDK=35
+[完成] ADB鉴权
+[开始] 执行Appium主流程
+执行 Appium 主流程，第 1/2 次
+尝试 Appium: http://127.0.0.1:49846/ (第1/3轮)
+2026-04-28T10:04:41.788Z INFO webdriver: Initiate new session using the WebDriver protocol
+2026-04-28T10:04:41.803Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:49846/
+2026-04-28T10:04:41.899Z INFO webdriver: [POST] http://127.0.0.1:49846/session
+连接成功，sessionId: d7a5fe95-3374-468b-86d9-7765db47cfc4
+[开始] 打开TK
+尝试打开 TK: com.zhiliaoapp.musically
+2026-04-28T10:05:11.364Z INFO webdriver: COMMAND activateApp("com.zhiliaoapp.musically")
+2026-04-28T10:05:11.365Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/appium/device/activate_app
+2026-04-28T10:05:11.365Z INFO webdriver: DATA {"appId":"com.zhiliaoapp.musically"}
+2026-04-28T10:05:11.740Z INFO webdriver: RESULT null
+已打开 TK 应用: com.zhiliaoapp.musically
+[完成] 打开TK
+[开始] 点击Continue with Google
+2026-04-28T10:05:11.744Z INFO webdriver: COMMAND findElements("accessibility id", "Continue with Google")
+2026-04-28T10:05:11.745Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:11.746Z INFO webdriver: DATA {"using":"accessibility id","value":"Continue with Google"}
+2026-04-28T10:05:11.832Z INFO webdriver: RESULT []
+2026-04-28T10:05:11.838Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Continue with Google")")
+2026-04-28T10:05:11.838Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:11.839Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Continue with Google\")"}
+2026-04-28T10:05:11.934Z INFO webdriver: RESULT []
+2026-04-28T10:05:11.939Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Continue with Google")")
+2026-04-28T10:05:11.940Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:11.940Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Continue with Google\")"}
+2026-04-28T10:05:12.891Z INFO webdriver: RESULT []
+2026-04-28T10:05:12.893Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Google")")
+2026-04-28T10:05:12.893Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:12.893Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Google\")"}
+2026-04-28T10:05:13.712Z INFO webdriver: RESULT []
+2026-04-28T10:05:13.714Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().description("Continue with Google")")
+2026-04-28T10:05:13.715Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:13.715Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().description(\"Continue with Google\")"}
+2026-04-28T10:05:13.870Z INFO webdriver: RESULT []
+2026-04-28T10:05:13.872Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Continue with Google")")
+2026-04-28T10:05:13.872Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:13.872Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Continue with Google\")"}
+2026-04-28T10:05:16.757Z INFO webdriver: RESULT []
+2026-04-28T10:05:16.760Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Google")")
+2026-04-28T10:05:16.761Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:16.761Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Google\")"}
+2026-04-28T10:05:16.823Z INFO webdriver: RESULT []
+2026-04-28T10:05:16.824Z INFO webdriver: COMMAND findElements("xpath", "//*[@text="Continue with Google" or @content-desc="Continue with Google"]")
+2026-04-28T10:05:16.824Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:16.825Z INFO webdriver: DATA {"using":"xpath","value":"//*[@text=\"Continue with Google\" or @content-desc=\"Continue with Google\"]"}
+2026-04-28T10:05:17.180Z INFO webdriver: RESULT []
+2026-04-28T10:05:17.181Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@text,"Google") or contains(@content-desc,"Google")]")
+2026-04-28T10:05:17.182Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:17.182Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@text,\"Google\") or contains(@content-desc,\"Google\")]"}
+2026-04-28T10:05:17.261Z INFO webdriver: RESULT []
+2026-04-28T10:05:17.262Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(translate(@text,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"google") or contains(translate(@content-desc,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"google")]")
+2026-04-28T10:05:17.262Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:17.262Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(translate(@text,\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\"abcdefghijklmnopqrstuvwxyz\"),\"google\") or contains(translate(@content-desc,\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\"abcdefghijklmnopqrstuvwxyz\"),\"google\")]"}
+2026-04-28T10:05:17.352Z INFO webdriver: RESULT []
+2026-04-28T10:05:17.354Z INFO webdriver: COMMAND getPageSource()
+2026-04-28T10:05:17.354Z INFO webdriver: [GET] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/source
+2026-04-28T10:05:17.436Z INFO webdriver: RESULT <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="1920">
+  <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+    <android.widget.LinearLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+      <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+        <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+          <android.widget.LinearLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.LinearLayout" text="" resource-id="com.zhiliaoapp.musically:id/us" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+            <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8" />
+          </android.widget.LinearLayout>
+          <android.widget.FrameLayout index="1" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="com.zhiliaoapp.musically:id/hxv" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+            <android.view.ViewGroup index="0" package="com.zhiliaoapp.musically" class="android.view.ViewGroup" text="" resource-id="com.zhiliaoapp.musically:id/srx" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+              <android.view.ViewGroup index="0" package="com.zhiliaoapp.musically" class="android.view.ViewGroup" text="" resource-id="com.zhiliaoapp.musically:id/un9" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1620]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+                <android.widget.LinearLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.LinearLayout" text="" resource-id="com.zhiliaoapp.musically:id/e_o" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[96,504][984,744]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+                  <android.widget.TextView index="0" package="com.zhiliaoapp.musically" class="android.widget.TextView" text="Te damos la bienvenida a TikTok" resource-id="com.zhiliaoapp.musically:id/e_n" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[96,504][984,666]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8" />
+                  <android.widget.TextView index="1" package="com.zhiliaoapp.musically" class="android.widget.TextView" text="Videos que te alegrarán el día" resource-id="com.zhiliaoapp.musically:id/e_l" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[96,690][984,744]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8" />
+                </android.widget.LinearLayout>
+                <android.widget.ImageView index="1" package="com.zhiliaoapp.musically" class="android.widget.ImageView" text="" resource-id="com.zhiliaoapp.musically:id/u0p" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[45,780][1035,1188]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="3" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8" />
+              </android.view.ViewGroup>
+              <android.view.ViewGroup index="1" package="com.zhiliaoapp.musically" class="android.view.ViewGroup" text="" resource-id="com.zhiliaoapp.musically:id/e_i" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[48,1512][1032,1884]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="3" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+                <android.widget.TextView index="0" package="com.zhiliaoapp.musically" class="android.widget.TextView" text='Al pulsar "Aceptar y continuar", aceptas nuestros Términos del servicio y confirmas haber leído nuestra Política de privacidad para saber cómo recopilamos, usamos y compartimos tus datos.' resource-id="com.zhiliaoapp.musically:id/e_p" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[48,1512][1032,1740]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" text-has-clickable-span="true" window-id="8" />
+                <android.widget.Button index="1" package="com.zhiliaoapp.musically" class="android.widget.Button" text="Aceptar y continuar" resource-id="com.zhiliaoapp.musically:id/e_f" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[48,1740][1032,1884]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8" />
+              </android.view.ViewGroup>
+            </android.view.ViewGroup>
+          </android.widget.FrameLayout>
+        </android.widget.FrameLayout>
+      </android.widget.FrameLayout>
+    </android.widget.LinearLayout>
+  </android.widget.FrameLayout>
+</hierarchy>
+等待 Continue with Google 按钮出现...
+2026-04-28T10:05:19.447Z INFO webdriver: COMMAND findElements("accessibility id", "Continue with Google")
+2026-04-28T10:05:19.447Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:19.447Z INFO webdriver: DATA {"using":"accessibility id","value":"Continue with Google"}
+2026-04-28T10:05:19.510Z INFO webdriver: RESULT []
+2026-04-28T10:05:19.512Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().text("Continue with Google")")
+2026-04-28T10:05:19.512Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:19.512Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().text(\"Continue with Google\")"}
+2026-04-28T10:05:19.569Z INFO webdriver: RESULT []
+2026-04-28T10:05:19.570Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Continue with Google")")
+2026-04-28T10:05:19.570Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:19.570Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Continue with Google\")"}
+2026-04-28T10:05:19.627Z INFO webdriver: RESULT []
+2026-04-28T10:05:19.627Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().textContains("Google")")
+2026-04-28T10:05:19.628Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:19.628Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().textContains(\"Google\")"}
+2026-04-28T10:05:19.685Z INFO webdriver: RESULT []
+2026-04-28T10:05:19.686Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().description("Continue with Google")")
+2026-04-28T10:05:19.687Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:19.687Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().description(\"Continue with Google\")"}
+2026-04-28T10:05:19.754Z INFO webdriver: RESULT []
+2026-04-28T10:05:19.755Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Continue with Google")")
+2026-04-28T10:05:19.755Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:19.755Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Continue with Google\")"}
+2026-04-28T10:05:19.816Z INFO webdriver: RESULT []
+2026-04-28T10:05:19.817Z INFO webdriver: COMMAND findElements("-android uiautomator", "new UiSelector().descriptionContains("Google")")
+2026-04-28T10:05:19.817Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:19.817Z INFO webdriver: DATA {"using":"-android uiautomator","value":"new UiSelector().descriptionContains(\"Google\")"}
+2026-04-28T10:05:19.878Z INFO webdriver: RESULT []
+2026-04-28T10:05:19.879Z INFO webdriver: COMMAND findElements("xpath", "//*[@text="Continue with Google" or @content-desc="Continue with Google"]")
+2026-04-28T10:05:19.879Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:19.879Z INFO webdriver: DATA {"using":"xpath","value":"//*[@text=\"Continue with Google\" or @content-desc=\"Continue with Google\"]"}
+2026-04-28T10:05:19.962Z INFO webdriver: RESULT []
+2026-04-28T10:05:19.963Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(@text,"Google") or contains(@content-desc,"Google")]")
+2026-04-28T10:05:19.963Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:19.963Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(@text,\"Google\") or contains(@content-desc,\"Google\")]"}
+2026-04-28T10:05:20.045Z INFO webdriver: RESULT []
+2026-04-28T10:05:20.046Z INFO webdriver: COMMAND findElements("xpath", "//*[contains(translate(@text,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"google") or contains(translate(@content-desc,"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"),"google")]")
+2026-04-28T10:05:20.046Z INFO webdriver: [POST] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/elements
+2026-04-28T10:05:20.046Z INFO webdriver: DATA {"using":"xpath","value":"//*[contains(translate(@text,\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\"abcdefghijklmnopqrstuvwxyz\"),\"google\") or contains(translate(@content-desc,\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\"abcdefghijklmnopqrstuvwxyz\"),\"google\")]"}
+2026-04-28T10:05:20.137Z INFO webdriver: RESULT []
+2026-04-28T10:05:20.139Z INFO webdriver: COMMAND getPageSource()
+2026-04-28T10:05:20.139Z INFO webdriver: [GET] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4/source
+2026-04-28T10:05:20.223Z INFO webdriver: RESULT <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="1920">
+  <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="0" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+    <android.widget.LinearLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+      <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+        <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+          <android.widget.LinearLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.LinearLayout" text="" resource-id="com.zhiliaoapp.musically:id/us" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+            <android.widget.FrameLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8" />
+          </android.widget.LinearLayout>
+          <android.widget.FrameLayout index="1" package="com.zhiliaoapp.musically" class="android.widget.FrameLayout" text="" resource-id="com.zhiliaoapp.musically:id/hxv" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+            <android.view.ViewGroup index="0" package="com.zhiliaoapp.musically" class="android.view.ViewGroup" text="" resource-id="com.zhiliaoapp.musically:id/srx" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1920]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+              <android.view.ViewGroup index="0" package="com.zhiliaoapp.musically" class="android.view.ViewGroup" text="" resource-id="com.zhiliaoapp.musically:id/un9" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,72][1080,1620]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+                <android.widget.LinearLayout index="0" package="com.zhiliaoapp.musically" class="android.widget.LinearLayout" text="" resource-id="com.zhiliaoapp.musically:id/e_o" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[96,504][984,744]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+                  <android.widget.TextView index="0" package="com.zhiliaoapp.musically" class="android.widget.TextView" text="Te damos la bienvenida a TikTok" resource-id="com.zhiliaoapp.musically:id/e_n" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[96,504][984,666]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8" />
+                  <android.widget.TextView index="1" package="com.zhiliaoapp.musically" class="android.widget.TextView" text="Videos que te alegrarán el día" resource-id="com.zhiliaoapp.musically:id/e_l" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[96,690][984,744]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8" />
+                </android.widget.LinearLayout>
+                <android.widget.ImageView index="1" package="com.zhiliaoapp.musically" class="android.widget.ImageView" text="" resource-id="com.zhiliaoapp.musically:id/u0p" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[45,780][1035,1188]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="3" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8" />
+              </android.view.ViewGroup>
+              <android.view.ViewGroup index="1" package="com.zhiliaoapp.musically" class="android.view.ViewGroup" text="" resource-id="com.zhiliaoapp.musically:id/e_i" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[48,1512][1032,1884]" displayed="true" a11y-important="false" screen-reader-focusable="false" drawing-order="3" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8">
+                <android.widget.TextView index="0" package="com.zhiliaoapp.musically" class="android.widget.TextView" text='Al pulsar "Aceptar y continuar", aceptas nuestros Términos del servicio y confirmas haber leído nuestra Política de privacidad para saber cómo recopilamos, usamos y compartimos tus datos.' resource-id="com.zhiliaoapp.musically:id/e_p" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[48,1512][1032,1740]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="1" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" text-has-clickable-span="true" window-id="8" />
+                <android.widget.Button index="1" package="com.zhiliaoapp.musically" class="android.widget.Button" text="Aceptar y continuar" resource-id="com.zhiliaoapp.musically:id/e_f" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[48,1740][1032,1884]" displayed="true" a11y-important="true" screen-reader-focusable="false" drawing-order="2" showing-hint="false" text-entry-key="false" dismissable="false" a11y-focused="false" heading="false" live-region="0" context-clickable="false" content-invalid="false" window-id="8" />
+              </android.view.ViewGroup>
+            </android.view.ViewGroup>
+          </android.widget.FrameLayout>
+        </android.widget.FrameLayout>
+      </android.widget.FrameLayout>
+    </android.widget.LinearLayout>
+  </android.widget.FrameLayout>
+</hierarchy>
+等待 Continue with Google 按钮出现...
+2026-04-28T10:05:22.236Z INFO webdriver: COMMAND deleteSession()
+2026-04-28T10:05:22.237Z INFO webdriver: [DELETE] http://127.0.0.1:49846/session/d7a5fe95-3374-468b-86d9-7765db47cfc4
+2026-04-28T10:05:23.102Z INFO webdriver: RESULT null
+会话已关闭
+已关闭脚本自动启动的 Appium 进程
+[开始] 断开ADB连接
+执行: D:\工作\stu\appium\platform-tools\adb.exe disconnect 124.236.70.143:22351
+adb disconnect 输出: disconnected 124.236.70.143:22351
+[完成] 断开ADB连接
+脚本执行失败: Error: 未找到 Continue with Google 按钮。
+已等待约 10 秒，请确认页面已加载到登录页。
+可提供该按钮的资源 ID 以提高定位稳定性。
+最后错误: 未知错误
+    at clickContinueWithGoogle (D:\工作\stu\appium\pages\page-continue-google.js:108:9)
+    at async runStep (D:\工作\stu\appium\lib\appium-shared.js:53:18)
+    at async runGoogleRegisterChain (D:\工作\stu\appium\appium-script.js:58:3)
+    at async runAppiumScript (D:\工作\stu\appium\appium-script.js:101:5)
+    at async runAppiumMainWithRetry (D:\工作\stu\appium\lib\device-bootstrap.js:306:7)
+    at async main (D:\工作\stu\appium\script.js:25:5)
+
+=== 单设备结束 ===
+exit=1
+endedAt=2026-04-28T10:05:23.209Z
